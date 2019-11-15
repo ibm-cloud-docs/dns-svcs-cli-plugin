@@ -1,0 +1,14 @@
+<!-- Markdown Navigation -->
+
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="dns-svcs-cli-plugin" audience="service" href="/docs/dns-svcs-cli-plugin?topic=dns-svcs-cli-plugin-dns-services-cli-commands" path="dns-svcs-cli-plugin"}
+DNS Services
+
+    {: .navgroup id="reference"}
+    {: .topicgroup}  
+    CLI plugin commands (IBM Cloud documentation)
+        dns-svcs-cli-plugin.md
+
+    {: .navgroup-end}

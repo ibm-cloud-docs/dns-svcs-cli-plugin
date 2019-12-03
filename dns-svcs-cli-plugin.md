@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-13"
+lastupdated: "2019-12-03"
 
 ---
 
@@ -21,14 +21,19 @@ lastupdated: "2019-11-13"
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
+# Install DNS Services CLI plugin
+  
+  1. Download and install the IBM Cloud CLI https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli.
+  2. Install DNS Services CLI Plugin with command `ibmcloud plugin install cloud-dns-services`. 
+
 # DNS Services CLI commands
 
-## Resource Instance
+## Resource instance
 {: #resource-instance}
 
 Manipulate DNS Services instances by using the following `instance` commands.
 
-### List DNS Services Instances
+### List DNS Services instances
 {: #list-dns-services-instances}
 
 **NAME**
@@ -37,36 +42,34 @@ Manipulate DNS Services instances by using the following `instance` commands.
 
 **USAGE**
 
-   `ibmcloud dns instances`
+   `ibmcloud dns instances [--output FORMAT]`
 
-**Output**
-   * Name
-   * Location
-   * State
-   * Service Name
+**OPTIONS**
+
+   `--output`  Specify output format, only JSON is supported.
 
 
-### Set Context DNS Services Instance
+### Set Context DNS Services instance
 {: #set-context-DNS-service-instance}
 
 **NAME**
 
-   `instance-set` - Set context service instance to operate.
+   `instance-target` - Set context service instance to operate.
 
 **USAGE**
 
-   `dns instance-set [INSTANCE] [--unset]`
+   `dns instance-target [INSTANCE] [--unset]`
 
 **ARGUMENTS**
 
-   INSTANCE is the name or ID of a DNS services instance. If it is present, set the context instance to operate; if not, show the current context instance.
+   INSTANCE is the name or ID of a DNS Services instance. If it is present, set the context instance to operate; if not, show the current context instance.
 
 **OPTIONS**
 
    `--unset`  Unset context instance.
 
 
-### Create DNS Services Instance
+### Create DNS Services instance
 {: #create-DNS-services-instance}
 
 **NAME**
@@ -75,11 +78,11 @@ Manipulate DNS Services instances by using the following `instance` commands.
 
 **USAGE**
 
-   `ibmcloud dns instance-create INSTANCE_NAME PLAN`
+   `ibmcloud dns instance-create INSTANCE_NAME PLAN [--output FORMAT]`
 
 **ARGUMENTS**
 
-   INSTANCE_NAME is the name of the DNS services instance.
+   INSTANCE_NAME is the name of the DNS Services instance.
 
    PLAN is the name or ID of a service plan.
 
@@ -88,7 +91,7 @@ Manipulate DNS Services instances by using the following `instance` commands.
    `--output`  Specify output format, only JSON is supported.
 
 
-### Delete DNS Service Instances
+### Delete DNS Service instance
 {: #delete-DNS-services-instance}
 
 **NAME**
@@ -97,19 +100,19 @@ Manipulate DNS Services instances by using the following `instance` commands.
 
 **USAGE**
 
-   `ibmcloud dns instance-delete INSTANCE` 
+   `ibmcloud dns instance-delete INSTANCE [--force]` 
 
 **ARGUMENTS**
 
-   INSTANCE is the name or ID of a DNS services instance.
+   INSTANCE is the name or ID of a DNS Services instance.
 
 **OPTIONS**
 
    `--force`  Delete instance without prompting for confirmation.
 
 
-### Get DNS Service Instances
-{: #get-DNS-service-instances}
+### Get DNS Service instance
+{: #get-DNS-service-instance}
 
 **NAME**
 
@@ -117,18 +120,18 @@ Manipulate DNS Services instances by using the following `instance` commands.
 
 **USAGE**
 
-   `ibmcloud dns instance INSTANCE` 
+   `ibmcloud dns instance INSTANCE [--output FORMAT]` 
 
 **ARGUMENTS**
 
-   INSTANCE is the name or ID of a DNS services instance.
+   INSTANCE is the name or ID of a DNS Services instance.
 
 **OPTIONS**
 
    `--output`  Specify output format, only JSON is supported.
 
 
-### List DNS Services Plans
+### List DNS Services plans
 {: #list-DNS-services-plans}
 
 **NAME**
@@ -256,13 +259,15 @@ Manipulate DNS zones by using the following `zone` commands.
 
 **USAGE**
 
-   `ibmcloud dns zone-delete ZONE_ID [-i, --instance INSTANCE_NAME]`
+   `ibmcloud dns zone-delete ZONE_ID [--force] [-i, --instance INSTANCE_NAME]`
 
 **ARGUMENTS**
 
    `ZONE_ID` is the ID of the DNS zone.
 
 **OPTIONS**
+   
+   `--force`  Delete zone without prompting for confirmation.
 
    `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-set` is used.
 
@@ -291,7 +296,7 @@ Manipulate DNS zones by using the following `zone` commands.
     List of DNS zones
 
 
-## Permitted Network
+## Permitted network
 {: #permitted-network}
 
 Manipulate permitted networks by using the following `permitted-network` commands.
@@ -328,7 +333,7 @@ Manipulate permitted networks by using the following `permitted-network` command
   * Permitted Network data  
   * Type    
 
-### Get Permitted Network details
+### Get Permitted network details
 {: #get-permitted-network}
 
 **NAME**
@@ -359,7 +364,7 @@ Manipulate permitted networks by using the following `permitted-network` command
   * Type    
   
 
-### Remove Permitted Network
+### Remove permitted network
 {: #Remove-permitted-network}
 
 **NAME**
@@ -368,7 +373,7 @@ Manipulate permitted networks by using the following `permitted-network` command
 
 **USAGE**
 
-   `ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE_NAME]`
+   `ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [--force] [-i, --instance INSTANCE_NAME]`
 
 **ARGUMENTS**
 
@@ -378,12 +383,14 @@ Manipulate permitted networks by using the following `permitted-network` command
 
 **OPTIONS**
 
+   `--force`  Remove permitted network without prompting for confirmation.
+
    `--instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-set` is used.
 
 **Output**
 
 
-### List Permitted Networks
+### List permitted networks
 {: #list-permitted-networks}
 
 **NAME**
@@ -410,12 +417,12 @@ Manipulate permitted networks by using the following `permitted-network` command
   List of permitted networks
 
 
-## Resource Record
+## Resource record
 {: #resource-record}
 
-Manipulate how the Resource Record performs using the following `resource-record` commands:
+Manipulate how the resource record performs using the following `resource-record` commands:
 
-### Create Resource Record
+### Create resource record
 {: #create-resource-record}
 
 **NAME**
@@ -542,7 +549,7 @@ Manipulate how the Resource Record performs using the following `resource-record
    `--output FORMAT`     Specify output format, only JSON is supported.
 
 
-### Update Resource Record
+### Update resource record
 {: #update-resource-record}
 
 **NAME**
@@ -715,7 +722,7 @@ Manipulate how the Resource Record performs using the following `resource-record
    `--output FORMAT`     Specify output format, only JSON is supported.
 
 
-### Get Resource Record
+### Get resource record
 {: #get-resource-record}
 
 **NAME**
@@ -739,7 +746,7 @@ Manipulate how the Resource Record performs using the following `resource-record
    `--output FORMAT`    Specify output format, only JSON is supported.
 
 
-### Delete Resource Record
+### Delete resource record
 {: #delete-resource-record}
 
 **NAME**
@@ -748,7 +755,7 @@ Manipulate how the Resource Record performs using the following `resource-record
 
 **USAGE**
 
-   `ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [-i, --instance INSTANCE_NAME]`
+   `ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [--force] [-i, --instance INSTANCE_NAME]`
 
 **ARGUMENTS**
 
@@ -758,11 +765,13 @@ Manipulate how the Resource Record performs using the following `resource-record
 
 **OPTIONS**
 
+   `--force`  Delete resource record without prompting for confirmation.
+
    `-i, --instance INSTANCE_NAME`  Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-set` is used.
    
    
 
-### List Resource Records
+### List resource records
 {: #list-resource-record}
 
 **NAME**
@@ -781,7 +790,7 @@ Manipulate how the Resource Record performs using the following `resource-record
 
    `-s, --json-str`  The JSON data to query resource records.
 
-**Output Table Columns**
+**Output table columns**
    * ID
    * Name
    * Type

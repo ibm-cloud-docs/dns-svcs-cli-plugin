@@ -22,11 +22,34 @@ lastupdated: "2019-12-03"
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Install DNS Services CLI plugin
+{: #install-dns-services-cli-plugin}
   
-  1. Download and install the IBM Cloud CLI https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli.
-  2. Install DNS Services CLI Plugin with command `ibmcloud plugin install cloud-dns-services`. 
+  1. Install the [IBM Cloud CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli).
+  2. Install or update the `cloud-dns-services` CLI plugin to the IBM Cloud CLI.
+
+  To install:
+
+  ```
+  ibmcloud plugin install cloud-dns-services
+  ```
+  {: pre}
+
+  To update:
+
+  ```
+  ibmcloud plugin update cloud-dns-services
+  ```
+  {: pre}
+
+  To view installed plugins and versions:
+
+  ```
+  ibmcloud plugin list
+  ```
+  {: pre} 
 
 # DNS Services CLI commands
+{: #dns-services-cli-commands}
 
 ## Resource instance
 {: #resource-instance}

@@ -7,8 +7,5 @@
 DNS Services
 
     {: .navgroup id="reference"}
-    {: .topicgroup}  
-    CLI plugin commands (IBM Cloud documentation)
-        dns-svcs-cli-plugin.md
-
+    dns-svcs-cli-plugin.md
     {: .navgroup-end}

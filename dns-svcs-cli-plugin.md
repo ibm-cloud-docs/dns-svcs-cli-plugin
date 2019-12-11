@@ -4,6 +4,10 @@ copyright:
   years: 2019
 lastupdated: "2019-12-03"
 
+keywords: command line interface, cli, dns services
+
+subcollection: dns-svcs-cli-plugin
+
 ---
 
 {:shortdesc: .shortdesc}

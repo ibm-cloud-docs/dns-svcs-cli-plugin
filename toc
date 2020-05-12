@@ -7,5 +7,5 @@
 DNS Services
 
     {: .navgroup id="reference"}
-    dns-svcs-cli-plugin.md
+    reformat-dns-svcs-cli-plugin.md
     {: .navgroup-end}

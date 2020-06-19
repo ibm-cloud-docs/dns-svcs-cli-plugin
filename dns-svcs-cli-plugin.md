@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-04-22"
 
 keywords: command line interface, cli, dns services
 
@@ -26,16 +26,16 @@ subcollection: dns-svcs-cli-plugin
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# DNS Services CLI commands
+# {{site.data.keyword.dns_short}} CLI commands
 {: #dns-services-cli-commands}
 
-Follow these instructions to use DNS Services Command Line Interface.
+Follow these instructions to use the {{site.data.keyword.dns_full}} command-line interface (CLI).
 {: shortdesc}
 
 ## Before you begin
 {: #cli-ref-prereqs}
 
-Complete these steps to use the DNS Services CLI, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. This plug-in provides you with the means to manage your service instance and its associated resources through a command-line user interface.
+Complete these steps to use the {{site.data.keyword.dns_short}} CLI, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. This plug-in provides you with the means to manage your service instance and its associated resources through a command-line user interface.
 
 1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli){: external}.
 1. Install or update the **cloud-dns-services** plug-in to the {{site.data.keyword.cloud_notm}} CLI.
@@ -46,7 +46,7 @@ Complete these steps to use the DNS Services CLI, which is implemented as an {{s
    ibmcloud plugin install cloud-dns-services
    ```
    {: pre}
-   
+
    To update:
 
   ```
@@ -59,183 +59,150 @@ Complete these steps to use the DNS Services CLI, which is implemented as an {{s
   ```
   ibmcloud plugin list
   ```
-  {: pre} 
+  {: pre}
 
 ---
 
-## Resource instances
+## Instances
 {: #resource-instance}
 
-Manipulate DNS Services instances by using the following `instance` commands.
+Manipulate DNS Services instances by using the following **instance** commands.
 
-### List DNS Services instances
+## ibmcloud dns instances
 {: #list-dns-services-instances}
 
-**NAME**
+List all DNS Services instances.
 
-   `instances` - List all DNS Services instances.
+```
+   ibmcloud dns instances [--output FORMAT]
+```
 
-**USAGE**
+### Command option
+{: #command-options-list-dns-services-instances}
 
-   `ibmcloud dns instances [--output FORMAT]`
+  * **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
-**OPTIONS**
-
-   `--output`  Specify output format, only JSON is supported.
-
-
-### Set Context DNS Services instances
+## ibmcloud dns instance-target
 {: #set-context-DNS-service-instance}
 
-**NAME**
+Set context service instance to operate.
 
-   `instance-target` - Set context service instance to operate.
+```
+   ibmcloud dns instance-target [INSTANCE] [--unset]
+```
 
-**USAGE**
+### Command options
+{: #command-options-set-context-dns-service-instance}
 
-   `ibmcloud dns instance-target [INSTANCE] [--unset]`
-
-**ARGUMENTS**
-
-   INSTANCE is the name or ID of a DNS Services instance. If it is present, set the context instance to operate; if not, show the current context instance.
-
-**OPTIONS**
-
-   `--unset`  Unset context instance.
+* **INSTANCE**<br />The name or ID of a DNS Services instance. If it is present, set the context instance to operate; if not, show the current context instance.  
+* **--unset**<br />Unset context instance.
 
 
-### Create DNS Services instances
+## ibmcloud dns instance-create
 {: #create-DNS-services-instance}
 
-**NAME**
+Create a DNS Services instance.
 
-   `instance-create` - Create a DNS Services instance.
-
-   Use `ibmcloud target -g RESOURCE_GROUP` to set the target resource group before creating DNS Services instance. Use `ibmcloud resource groups` to view the list of available resource groups. 
+   Use `ibmcloud target -g RESOURCE_GROUP` to set the target resource group before creating DNS Services instance. Use `ibmcloud resource groups` to view the list of available resource groups.
    {: note}
 
-**USAGE**
 
-   `ibmcloud dns instance-create INSTANCE_NAME PLAN [--output FORMAT]`
+```
+   ibmcloud dns instance-create INSTANCE_NAME PLAN [--output FORMAT]
+```
 
-**ARGUMENTS**
+### Command options
+{: #command-options-create-dns-svcs-instance}
 
-   INSTANCE_NAME is the name of the DNS Services instance.
+   * **INSTANCE_NAME**<br />The name of the DNS Services instance.
+   * **PLAN**<br />The name or ID of a service plan.
+   * **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
-   PLAN is the name or ID of a service plan.
-
-**OPTIONS**
-
-   `--output`  Specify output format, only JSON is supported.
-
-
-### Update DNS Services instances
+## ibmcloud dns instance-update
 {: #update-DNS-services-instance}
 
-**NAME**
+Update a DNS Services instance.
 
-   `instance-update` - Update a DNS Services instance.
+```
+   ibmcloud dns instance-update INSTANCE [--name NAME] [--plan PLAN] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #command-options-update-dns-svcs-instance}
 
-   `ibmcloud dns instance-update INSTANCE [--name NAME] [--plan PLAN] [--output FORMAT]`
-
-**ARGUMENTS**
-
-   INSTANCE is the name or ID of a DNS Services instance.
-
-**OPTIONS**
-
-   `--name`   DNS Services instance name.
-
-   `--plan`   PLAN is the name or ID of a DNS Services plan. Use `ibmcloud dns plans` to get available plans.
-
-   `--output` Specify output format, only JSON is supported.
+   * **INSTANCE**<br />The name or ID of a DNS Services instance.
+   * **--name**<br />The DNS Services instance name.
+   * **--plan**<br />The name or ID of a DNS Services plan. Use `ibmcloud dns plans` to get available plans.
+   * **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 
-### Delete DNS Service instances
+## ibmcloud dns instance-delete
 {: #delete-DNS-services-instance}
 
-**NAME**
+Delete a DNS Services instance.
 
-   `instance-delete` - Delete a DNS Services instance.
+```
+   ibmcloud dns instance-delete INSTANCE [--force] 
+```
 
-**USAGE**
+### Command options
+{: #command-options-delete-dns-svcs-instance}
 
-   `ibmcloud dns instance-delete INSTANCE [--force]` 
-
-**ARGUMENTS**
-
-   INSTANCE is the name or ID of a DNS Services instance.
-
-**OPTIONS**
-
-   `--force`  Delete instance without prompting for confirmation.
+   * **INSTANCE**<br />The name or ID of a DNS Services instance.
+   * **--force**<br />Delete an instance without prompting for confirmation.
 
 
-### Get DNS Service instances
+## ibmcloud dns instance
 {: #get-DNS-service-instance}
 
-**NAME**
+Show details of a DNS Services instance.
 
-   `instance` - Show details of a DNS Services instance.
+```
+   ibmcloud dns instance INSTANCE [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #command-options-get-dns-svcs-instance}
 
-   `ibmcloud dns instance INSTANCE [--output FORMAT]` 
-
-**ARGUMENTS**
-
-   INSTANCE is the name or ID of a DNS Services instance.
-
-**OPTIONS**
-
-   `--output`  Specify output format, only JSON is supported.
+   * **INSTANCE**<br />The name or ID of a DNS Services instance.
+   * **--output**<br />Specify output format, only JSON is supported.
 
 
-### List DNS Services plans
+## ibmcloud dns plans
 {: #list-DNS-services-plans}
 
-**NAME**
+List all DNS Services instances.
 
-   `plans` - List all DNS Services instances.
-
-**USAGE**
-
-   `ibmcloud dns plans` 
-
+```
+   ibmcloud dns plans
+```
 
 ## Zones
 {: #zone}
 
-Manipulate DNS zones by using the following `zone` commands.
+Manipulate DNS zones by using the following **zone** commands.
 
-### Create DNS Zones
+## ibmcloud dns zone-create
 {: #create-zone}
 
-**NAME**
+Create a DNS zone.
 
-   `zone-create` - Create a DNS zone.
+```
+   ibmcloud dns zone-create ZONE_NAME [-d, --description DESC] [-l, --label LABEL] [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-create-dns-svcs-zone}
 
-   `ibmcloud dns zone-create ZONE_NAME [-d, --description DESC] [-l, --label LABEL] [-i, --instance INSTANCE_NAME] [--output FORMAT]`
+   * **ZONE_NAME**<br />The name of the DNS zone.
+   * **-d, --description**<br />The text describing the purpose of a DNS zone.
+   * **-l, --label**<br />The label of a DNS zone.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
-**ARGUMENTS**
+### Command output
+{: #output-create-dns-svcs-zone}
 
-   `ZONE_NAME` is the name of the DNS zone.
-
-**OPTIONS**
-
-   `-d, --description` The text describing the purpose of a DNS zone.
-
-   `-l, --label` The label of a DNS zone.
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-**Output**
   * ID                     
   * Created On         
   * Modified On
@@ -245,28 +212,24 @@ Manipulate DNS zones by using the following `zone` commands.
   * State                
   * Label        
 
-### Get zone details
+## ibmcloud dns zone
 {: #get-zone}
 
-**NAME**
+Get the given DNS zone details.
 
-   `zone` - Get the given DNS zone details.
+```
+   ibmcloud dns zone ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-get-zone}
 
-   `ibmcloud dns zone ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]`
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
-**ARGUMENTS**
-
-   `ZONE_ID` is the ID of the DNS zone.
-
-**OPTIONS**
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-**Output**
+### Command output
+{: #output-get-zone}
   * ID                     
   * Created On         
   * Modified On
@@ -276,33 +239,27 @@ Manipulate DNS zones by using the following `zone` commands.
   * State                
   * Label     
   
-
-### Update zones
+## ibmcloud dns zone-update
 {: #update-zone}
 
-**NAME**
+Update a DNS zone's description and label.
 
-   `zone-update` - Update a DNS zone's description and label.
+```
+   ibmcloud dns zone-update ZONE_ID [-d, --description DESC] [-l, --label LABEL] [--instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-update-zone}
 
-   `ibmcloud dns zone-update ZONE_ID [-d, --description DESC] [-l, --label LABEL] [--instance INSTANCE_NAME] [--output FORMAT]`
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **-d, --description**<br />The text describing the purpose of a DNS zone.
+   * **-l, --label**<br />The label of a DNS zone.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
-**ARGUMENTS**
+### Command output
+{: #output-update-zone}
 
-   `ZONE_ID` is the ID of the DNS zone.
-
-**OPTIONS**
-
-   `-d, --description` The text describing the purpose of a DNS zone.
-
-   `-l, --label` The label of a DNS zone.
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-**Output**
   * ID                     
   * Created On         
   * Modified On
@@ -312,113 +269,89 @@ Manipulate DNS zones by using the following `zone` commands.
   * State                
   * Label    
 
-### Delete zones
+## ibmcloud dns zone-delete
 {: #delete-zone}
 
-**NAME**
+Delete a DNS zone.
 
-   `zone-delete` - Delete a DNS zone.
+```
+   ibmcloud dns zone-delete ZONE_ID [--force] [-i, --instance INSTANCE_NAME]
+```
 
-**USAGE**
+### Command options
+{: #options-delete-zone}
 
-   `ibmcloud dns zone-delete ZONE_ID [--force] [-i, --instance INSTANCE_NAME]`
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **--force**<br />Delete a zone without prompting for confirmation.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
 
-**ARGUMENTS**
-
-   `ZONE_ID` is the ID of the DNS zone.
-
-**OPTIONS**
-   
-   `--force`  Delete zone without prompting for confirmation.
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-
-
-### List zones
+## ibmcloud dns zones
 {: #list-zones}
 
-**NAME**
+List all DNS zones for a given service instance.
 
-   `zones` - List all DNS zones for a given service instance.
+```
+   ibmcloud dns zones [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-list-zones}
 
-   `ibmcloud dns zones [-i, --instance INSTANCE_NAME] [--output FORMAT]`
-
-**OPTIONS**
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-
-**Output**
-
-    List of DNS zones
-
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
 ## Permitted networks
 {: #permitted-network}
 
-Manipulate permitted networks by using the following `permitted-network` commands.
+Manipulate permitted networks by using the following **permitted-network** commands.
 
-### Add permitted networks
+## ibmcloud dns permitted-network-add
 {: #add-permitted-network}
 
-**NAME**
+Add a permitted network for a given DNS zone.
 
-   `permitted-network-add` - Add a permitted network for a given DNS zone.
+```
+   ibmcloud dns permitted-network-add ZONE_ID --vpc-crn VPC_CRN [--type TYPE] [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-add-permitted-network}
 
-   `ibmcloud dns permitted-network-add ZONE_ID --vpc-crn VPC_CRN [--type TYPE] [-i, --instance INSTANCE_NAME] [--output FORMAT]`
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **--type**<br />The permitted network type. Valid values: "vpc".
+   * **--vpc-crn**<br />The CRN of VPC instance 
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
-**ARGUMENTS**
+### Command output
+{: #output-add-permitted-network}
 
-   `ZONE_ID` is the ID of the DNS zone.
-
-**OPTIONS**
-
-   `--type`   The permitted network type. Valid values: "vpc".
-
-   `--vpc-crn`  The CRN of VPC instance 
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-**Output**
   * ID                     
   * Created On         
   * Modified On
   * Permitted Network data  
   * Type    
 
-### Get Permitted network details
+## ibmcloud dns permitted-network
 {: #get-permitted-network}
 
-**NAME**
+Get the given permitted network details.
 
-   `permitted-network` - Get the given permitted network details.
+```
+   ibmcloud dns permitted-network ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-get-permitted-network}
 
-   `ibmcloud dns permitted-network ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]`
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **PERMITTED_NETWORK_ID**<br />The ID of the permitted network.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
-**ARGUMENTS**
+### Command output
+{: #output-get-permitted-network}
 
-   `ZONE_ID` is the ID of the DNS zone.
-
-   `PERMITTED_NETWORK_ID` is the ID of the permitted network.
-
-**OPTIONS**
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-**Output**
   * ID                     
   * Created On         
   * Modified On
@@ -426,75 +359,54 @@ Manipulate permitted networks by using the following `permitted-network` command
   * Type    
   
 
-### Remove permitted networks
+## ibmcloud dns permitted-network-remove
 {: #Remove-permitted-network}
 
-**NAME**
+Remove a permitted network.
 
-   `permitted-network-remove` - Remove a permitted network.
+```
+   ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [--force] [-i, --instance INSTANCE_NAME]
+```
 
-**USAGE**
+### Command options
+{: #options-remove-permitted-network}
 
-   `ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [--force] [-i, --instance INSTANCE_NAME]`
-
-**ARGUMENTS**
-
-   `ZONE_ID` is the ID of the DNS zone.
-
-   `PERMITTED_NETWORK_ID` is the ID of the permitted network.
-
-**OPTIONS**
-
-   `--force`  Remove permitted network without prompting for confirmation.
-
-   `--instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-**Output**
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **PERMITTED_NETWORK_ID**<br />The ID of the permitted network.
+   * **--force**<br />Remove a permitted network without prompting for confirmation.
+   * **--instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
 
 
-### List permitted networks
+## ibmcloud dns permitted-networks
 {: #list-permitted-networks}
 
-**NAME**
+List permitted networks for a given zone.
 
-  permitted-networks - List permitted networks for a given zone.
+```
+   ibmcloud dns permitted-networks ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-list-permitted-networks}
 
-   `ibmcloud dns permitted-networks ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]`
-
-**ARGUMENTS**
-
-   `ZONE_ID` is the ID of the DNS zone.
-
-**OPTIONS**
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
-
-
-**Output**
-
-  List of permitted networks
-
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
 ## Resource records
 {: #resource-record}
 
-Manipulate how the resource record performs using the following `resource-record` commands:
+Manipulate how the resource record performs using the following **resource-record** commands.
 
-### Create resource records
+## ibmcloud dns resource-record-create
 {: #create-resource-record}
 
-**NAME**
+Create a resource record for a given DNS zone.
 
-   `resource-record-create` - Create a resource record for a given DNS zone.
-
-**USAGE**
-
-   `
+```
    ibmcloud dns resource-record-create DNS_ZONE_ID (-r, --record-content @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+```
+```sh
    ibmcloud dns resource-record-create DNS_ZONE_ID --type A --name NAME --ipv4 IP_ADDRESS [--ttl TTL]
    ibmcloud dns resource-record-create DNS_ZONE_ID --type AAAA --name NAME --ipv6 IP_ADDRESS [--ttl TTL]
    ibmcloud dns resource-record-create DNS_ZONE_ID --type CNAME --name NAME --cname CNAME [--ttl TTL]
@@ -502,67 +414,48 @@ Manipulate how the resource record performs using the following `resource-record
    ibmcloud dns resource-record-create DNS_ZONE_ID --type TXT --name NAME --text TEXT [--ttl TTL]
    ibmcloud dns resource-record-create DNS_ZONE_ID --type MX --name NAME --exchange EXCHANGE --preference PREFERENCE [--ttl TTL]
    ibmcloud dns resource-record-create DNS_ZONE_ID --type SRV --name NAME --service SERVICE --protocol PROTOCOL --priority PRIORITY --weight WEIGHT --port PORT --target TARGET  [--ttl TTL]
-   `
+```
+{: codeblock}
 
-**ARGUMENTS**
+### Command options
+{: #options-create-resource-record}
 
-   * `ZONE_ID` is the ID of the DNS zone.
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **--name**<br />Resource record name.
+   * **--type**<br />Resource record type.
+   * **--ipv4**<br />IPv4 address.
+   * **--ipv6**<br />IPv6 address.
+   * **--cname**<br />Canonical name.
+   * **--ptrdname**<br />Hostname of the relevant A or AAAA record.
+   * **--text**<br />Human readable text.
+   * **--exchange**<br />Hostname of Exchange server.
+   * **--preference**<br />Preference of the MX record
+   * **--service**<br />The symbolic name of the desired service, beginning with an underscore `_`.
+   * **--protocol**<br />The symbolic name of the desired protocol.
+   * **--port**<br />Port number of the target server.
+   * **--weight**<br />Weight of distributing queries among multiple target servers.
+   * **--priority**<br />Priority of the SRV record.
+   * **--target**<br />Hostname of the target server.
+   * **--ttl**<br />Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+   * **-r, --record-content**<br /> The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for `-r --record-content`](#required-fields-r-record-content) for more detail.
+   * **-i, --instance value**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+   * **--output value**<br />Specify output format. Currently, **json** is the only supported format.
 
-**OPTIONS**
+#### Required fields for `-r --record-content`
+{: #required-fields-r-record-content}
 
-   `    --name`       Resource record name.
+The required field in JSON data is **type**.
 
-   `    --type`       Resource record type.
+Resource record type. Valid values: "A", "AAAA", "CNAME", "PTR", "TXT", "MX", "SRV".
+  * For type A, AAAA: Extra required fields are "name", "rdata".
+    * "name": Resource record name.
+    * "rdata": Content of the resource record.
+      * "ip": IPv4/IPv6 address
+  *  Extra optional fields are "ttl".
+    * "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-   `    --ipv4`       IPv4 address.
-
-   `    --ipv6`       IPv6 address.
-
-   `    --cname`      Canonical name.
-
-   `    --ptrdname`   Hostname of the relevant A or AAAA record.
-
-   `    --text`       Human readable text.
-
-   `    --exchange`   Hostname of Exchange server.
-
-   `    --preference` Preference of the MX record
-
-   `    --service`    The symbolic name of the desired service, beginning with an underscore (_).
-
-   `    --protocol`   The symbolic name of the desired protocol.
-
-   `    --port`       Port number of the target server.
-
-   `    --weight`     Weight of distributing queries among multiple target servers.
-
-   `    --priority`   Priority of the SRV record.
-
-   `    --target`     Hostname of the target server.
-
-   `    --ttl`        Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200. 
-
-   `-r, --record-content` The JSON file or JSON string used to describe a DNS Resource Record.
-
-   The required fields in JSON data are "type".
-
-   "type": Resource record type. Valid values: "A", "AAAA", "CNAME", "PTR", "TXT", "MX", "SRV".
-
-   * For type A, AAAA:
-
-        Extra required fields are "name", "rdata".
-
-            "name": Resource record name.
-            "rdata": Content of the resource record.
-                "ip": IPv4/IPv6 address
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+Sample JSON data:
+```
         {
              "name": "testA",
              "type": "A",
@@ -570,7 +463,10 @@ Manipulate how the resource record performs using the following `resource-record
                  "ip": "1.2.3.4"
                 }
         }
+```
+{:codeblock}
 
+```
         {
             "name": "testAAAA",
             "type": "AAAA",
@@ -578,22 +474,19 @@ Manipulate how the resource record performs using the following `resource-record
                 "ip": "2001:0db8:0012:0001:3c5e:7354:0000:5db1"
             }
         }
+```
+{:codeblock}
 
-   * For type CNAME:
+  * For type CNAME: Extra required fields are "name", "rdata".
+    * "name": Resource record name.
+    * "rdata": The content of type-CNAME resource record.
+      * "cname": Canonical name.
+  * Extra optional fields are "ttl".
+    * "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-        Extra required fields are "name", "rdata".
+Sample JSON data:
 
-            "name": Resource record name.
-            "rdata": The content of type-CNAME resource record.
-                "cname": Canonical name.
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+```
         {
             "name": "testCNAME",
             "type": "CNAME",
@@ -601,23 +494,19 @@ Manipulate how the resource record performs using the following `resource-record
                 "cname": "example.com"
             }
         }
+```
+{: codeblock}
 
+  * For type PTR: Extra required fields are "name", "rdata".
+    * "name": Resource record name.
+    * "rdata": The content of type-PTR resource record.
+      * "ptrdname": Hostname of the relevant A or AAAA record.
+  * Extra option fields are "ttl".
+    * "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-   * For type PTR:
+Sample JSON data:
 
-        Extra required fields are "name", "rdata".
-
-            "name": Resource record name.
-            "rdata": The content of type-PTR resource record.
-                "ptrdname": Hostname of the relevant A or AAAA record.
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+```
         {
             "name": "1.2.3.4",
             "type": "PTR",
@@ -625,23 +514,19 @@ Manipulate how the resource record performs using the following `resource-record
                 "ptrdname": "testA.example.com"
             }
         }
+```
+{: codeblock}
 
+  * For type TXT: Extra required fields are "name", "rdata".
+    * "name": Resource record name.
+    * "rdata": The content of type-TXT resource record.
+      * "text": Human readable text.
+  * Extra optional fields are "ttl".
+    * "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-   * For type TXT:
+Sample JSON data:
 
-        Extra required fields are "name", "rdata".
-
-            "name": Resource record name.
-            "rdata": The content of type-TXT resource record.
-                "text": Human readable text.
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+```
         {
             "name": "testTXT",
             "type":"TXT",
@@ -649,24 +534,21 @@ Manipulate how the resource record performs using the following `resource-record
                 "text": "text information"
             }
         }
+```
+{:codeblock}
 
 
-   * For type MX:
+  * For type MX: Extra required fields are "name", "rdata".
+    * "name": Resource record name.
+    * "rdata": The content of type-MX resource record.
+      * "exchange": Hostname of Exchange server.
+      * "preference": Preference of the MX record
+  * Extra optional fields are "ttl".
+    * "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-        Extra required fields are "name", "rdata".
+Sample JSON data:
 
-            "name": Resource record name.
-            "rdata": The content of type-MX resource record.
-                "exchange": Hostname of Exchange server.
-                "preference": Preference of the MX record
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+```
         {
            "name": "testMX",
            "type": "MX",
@@ -675,28 +557,25 @@ Manipulate how the resource record performs using the following `resource-record
                 "exchange": "mailserver.example.com"
             }
         }
+```
+{:codeblock}
 
+  * For type SRV: Extra required fields are "name", "rdata", "service", "protocol".
+    * "name": Resource record name.
+    * "rdata": The content of type-SRV resource record.
+      * "priority": Priority of the SRV record.
+      * "weight": Weight of distributing queries among multiple target servers.
+      * "port": Port number of the target server.
+      * "target": Hostname of the target server.
+    * "service": The symbolic name of the desired service, start with an underscore `_`.
+    * "protocol": The symbolic name of the desired protocol.
 
-   * For type SRV:
+  * Extra option fields are "ttl".
+    * "ttl": Time to live in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-        Extra required fields are "name", "rdata", "service", "protocol".
+       Sample JSON data:
 
-            "name": Resource record name.
-            "rdata": The content of type-SRV resource record.
-                "priority": Priority of the SRV record.
-                "weight": Weight of distributing queries among multiple target servers.
-                "port": Port number of the target server.
-                "target": Hostname of the target server.
-            "service": The symbolic name of the desired service, start with an underscore (_).
-            "protocol": The symbolic name of the desired protocol.
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live in second. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+```
         {
             "type": "SRV",
             "name": "testSRV",
@@ -709,21 +588,22 @@ Manipulate how the resource record performs using the following `resource-record
             "service": "_sip",
             "protocol": "udp"
         }
+```
+{:codeblock}
 
-  -i, --instance value          Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-      --output value            Specify output format, only JSON is supported now.
 
-### Update resource records
+
+## ibmcloud dns resource-record-update
 {: #update-resource-record}
 
-**NAME**
+Update a resource record for a given DNS zone.
 
-   `resource-record-update` - Update a resource record for a given DNS zone.
 
-**USAGE**
-
-   `
+```
    dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID (-r, --record-content @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+```
+
+```sh
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --ipv4 IP_ADDRESS [--ttl TTL]
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --ipv6 IP_ADDRESS [--ttl TTL]
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --cname CNAME [--ttl TTL]
@@ -731,183 +611,150 @@ Manipulate how the resource record performs using the following `resource-record
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --text TEXT [--ttl TTL]
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --exchange EXCHANGE --preference PREFERENCE [--ttl TTL]
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --priority PRIORITY --weight WEIGHT --port PORT --target TARGET  [--service SERVICE] [--protocol PROTOCOL] [--ttl TTL]
-   `
+```
+{:codeblock}
 
-**ARGUMENTS**
+### Command options
+{: #options-update-resource-record}
 
-   `ZONE_ID` is the ID of the DNS zone.
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **RECORD_ID**<br />The ID of the record.
+   * **--name**<br />Resource record name.
+   * **--type**<br />Resource record type.
+   * **--ipv4**<br />IPv4 address.
+   * **--ipv6**<br />IPv6 address.
+   * **--cname**<br />Canonical name.
+   * **--ptrdname**<br />Hostname of the relevant A or AAAA record.
+   * **--text**<br />Human readable text.
+   * **--exchange**<br />Hostname of Exchange server.
+   * **--preference**<br />Preference of the MX record
+   * **--service**<br />The symbolic name of the desired service, start with an underscore `_`.
+   * **--protocol**<br />The symbolic name of the desired protocol.
+   * **--port**<br />Port number of the target server.
+   * **--weight**<br />Weight of distributing queries among multiple target servers.
+   * **--priority**<br />Priority of the SRV record.
+   * **--target**<br />Hostname of the target server.
+   * **--ttl**<br />Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+   * **-r, --record-content**<br />The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for -r, --record-content](#r-record-details) for more detail.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format, only JSON is supported.
 
-   `RECORD_ID` is the ID of the record.
+#### Required fields for -r, --record-content
+{:#r-record-details}
 
-**OPTIONS**
+The required field in JSON data is **name**. Resource record name.
 
-   `    --name`       Resource record name.
+PTR records DO NOT need this field.
+{:note}
 
-   `    --type`       Resource record type.
+  * For type A, AAAA: Extra required fields are "rdata".
+    * "rdata": Content of the resource record.
+      * "ip": IPv4/IPv6 address
+  * Extra option fields are "ttl".
+    * "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
-   `    --ipv4`       IPv4 address.
+       Sample JSON data:
 
-   `    --ipv6`       IPv6 address.
-
-   `    --cname`      Canonical name.
-
-   `    --ptrdname`   Hostname of the relevant A or AAAA record.
-
-   `    --text`       Human readable text.
-
-   `    --exchange`   Hostname of Exchange server.
-
-   `    --preference` Preference of the MX record
-
-   `    --service`    The symbolic name of the desired service, start with an underscore (_).
-
-   `    --protocol`   The symbolic name of the desired protocol.
-
-   `    --port`       Port number of the target server.
-
-   `    --weight`     Weight of distributing queries among multiple target servers.
-
-   `    --priority`   Priority of the SRV record.
-
-   `    --target`     Hostname of the target server.
-
-   `    --ttl`        Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200. 
-
-   `-r, --record-content` The JSON file or JSON string used to describe a DNS Resource Record.
-
-   The required fields in JSON data are "name".
-
-        "name": Resource record name. 
-        PTR records DO NOT need this field.
-        {: note}
-
-   * For type A, AAAA:
-
-        Extra required fields are "rdata".
-
-            "rdata": Content of the resource record.
-                "ip": IPv4/IPv6 address
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-
-        Sample JSON data:
-
-
+```
         {
              "name": "testA",
              "rdata": {
                  "ip": "1.2.3.4"
             }
         }
+```
+{:codeblock}
 
+```
         {
             "name": "testAAAA",
             "rdata": {
                 "ip": "2001:0db8:0012:0001:3c5e:7354:0000:5db1"
             }
         }
+```
+{:codeblock}
 
-   * For type CNAME:
-
-        Extra required fields are "rdata".
-
-            "rdata": The content of type-PTR resource record.
-                "cname": Canonical name
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+  * For type CNAME: Extra required fields are "rdata".
+      * "rdata": The content of type-PTR resource record.
+      * "cname": Canonical name
+  * Extra option fields are "ttl".
+    * "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
         Sample JSON data:
 
-
+```
         {
             "name": "testCNAME",
             "rdata": {
                 "cname": "example.com"
             }
         }
+```
+{:codeblock}
 
-
-   * For type PTR:
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+  * For type PTR: Extra option fields are "ttl".
+    * "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
         Sample JSON data:
 
-
+```
         {
             "ttl": 360,
         }
+```
+{:codeblock}
 
-
-   * For type TXT:
-
-        Extra required fields are "rdata".
-
-            "rdata": The content of type-TXT resource record.
-                "text": Human readable text.
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+  * For type TXT: Extra required fields are "rdata".
+      * "rdata": The content of type-TXT resource record.
+      * "text": Human readable text.
+  * Extra optional fields are "ttl".
+    * "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
         Sample JSON data:
 
-
+```
         {
             "name": "testTXT",
             "rdata": {
                 "text": "text information"
             }
         }
+```
+{:codeblock}
 
-
-   * For type MX:
-
-        Extra required fields are "rdata".
-
-            "rdata": The content of type-MX resource record.
-                "exchange": Hostname of Exchange server.
-                "preference": Preference of the MX record
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+  * For type MX: Extra required fields are "rdata".
+    * "rdata": The content of type-MX resource record.
+      * "exchange": Hostname of Exchange server.
+      * "preference": Preference of the MX record
+  * Extra optional fields are "ttl".
+    * "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
         Sample JSON data:
 
-
+```
         {
             "name": "testMX",
             "content": "smtp.example.com",
             "priority": 10
         }
+```
+{:codeblock}
 
-
-   * For type SRV:
-
-        Extra required fields are "rdata", "service", "protocol".
-
-            "rdata": The content of type-SRV resource record.
-                "priority": Priority of the SRV record
-                "weight": Weight of distributing queries among multiple target servers.
-                "port": Port number of the target server.
-                "target": Hostname of the target server.
-            "service": The symbolic name of the desired service, start with an underscore (_).
-            "protocol": The symbolic name of the desired protocol.
-
-        Extra option fields are "ttl".
-
-            "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+  * For type SRV: Extra required fields are "rdata", "service", "protocol".
+    * "rdata": The content of type-SRV resource record.
+      * "priority": Priority of the SRV record
+      * "weight": Weight of distributing queries among multiple target servers.
+      * "port": Port number of the target server.
+      * "target": Hostname of the target server.
+    * "service": The symbolic name of the desired service, start with an underscore `_`.
+    * "protocol": The symbolic name of the desired protocol.
+  * Extra option fields are "ttl".
+    * "ttl": Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
 
         Sample JSON data:
 
-
+```
         {
             "name": "testSRV"
             "rdata": {
@@ -919,96 +766,89 @@ Manipulate how the resource record performs using the following `resource-record
             "service": "_sip",
             "protocol": "udp"
         }
-
-   `-i, --instance INSTANCE_NAME`   Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`     Specify output format, only JSON is supported.
+```
+{:codeblock}
 
 
-### Get resource records
+## ibmcloud dns resource-record
 {: #get-resource-record}
 
-**NAME**
+Get a resource record details for a given DNS zone.
 
-   `resource-record` - Get a resource record details for a given DNS zone.
+```
+   ibmcloud dns resource-record ZONE_ID RECORD_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{:options-get-resource-records}
 
-   `ibmcloud dns resource-record ZONE_ID RECORD_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]`
-
-**ARGUMENTS**
-
-   `ZONE_ID` is the ID of the DNS zone.
-
-   `RECORD_ID` is the ID of resource record.
-
-**OPTIONS**
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
-
-   `--output FORMAT`    Specify output format, only JSON is supported.
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **RECORD_ID**<br />The ID of resource record.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
 
 
-### Delete resource records
+## ibmcloud dns resource-record-delete
 {: #delete-resource-record}
 
-**NAME**
+Delete a resource record for a given DNS zone.
 
-   `resource-record-delete` - Delete a resource record for a given DNS zone.
+```
+   ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [--force] [-i, --instance INSTANCE_NAME]
+```
 
-**USAGE**
+### Command options
+{: #options-delete-resource-records}
+  
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **RECORD_ID**<br />The ID of resource record.
+   * **--force**<br />Delete resource record without prompting for confirmation.
+   * **-i, --instance INSTANCE_NAME**<br />Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+     
 
-   `ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [--force] [-i, --instance INSTANCE_NAME]`
-
-**ARGUMENTS**
-
-   `ZONE_ID` is the ID of the DNS zone.
-
-   `RECORD_ID` is the ID of resource record.
-
-**OPTIONS**
-
-   `--force`  Delete resource record without prompting for confirmation.
-
-   `-i, --instance INSTANCE_NAME`  Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   
-   
-
-### List resource records
+## ibmcloud dns resource-records
 {: #list-resource-record}
 
-**NAME**
+List all resource records for a given DNS zone.
 
-   `resource-records` - List all resource records for a given DNS zone.
+```
+   ibmcloud dns resource-records ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
 
-**USAGE**
+### Command options
+{: #options-list-resource-records}
 
-   `ibmcloud dns resource-records ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]`
+   * **ZONE_ID**<br />The ID of the DNS zone.
+   * **--page**<br />Page number of paginated results. (default 1)
+   * **--per-page**<br />Number of resource records per page. Min: 50. Max: 1000. (default 200)
+   * **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud instance-target INSTANCE` is used.
+   * **--output**<br />Specify output format. Currently, **json** is the only supported format.
+  
+### Command example  
+{: #list-resource-record-pagination}
 
-**ARGUMENTS**
+List resource records with pagination:
 
-   `ZONE_ID` is the ID of the DNS zone.
+  ```
+  ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
+  ```
+  {: pre}
 
-**OPTIONS**
+### Command output
+{: #output-list-resource-records}
 
-   `--page`         Page number of paginated results. (default 1)
+Table columns:
 
-   `--per-page`     Number of resource records per page. Min: 50. Max: 1000. (default 200)
-
-   `-i, --instance` Instance name or ID. If not set, the context instance specified by `ibmcloud instance-target INSTANCE` is used.
-
-   `--output`       Specify output format, only JSON is supported now.
-
-**Output table columns**
    * ID
    * Name
    * Type
    * Rdata
    * TTL
 
-#### Example command to list resource records with pagination
-{: #list-resource-record-pagination-example}
+### Example command to list resource records with pagination
+{: #list-resource-rec-pagination-example}
+
   ```
   ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
   ```
-  {: pre} 
+  {: pre}

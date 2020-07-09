@@ -26,7 +26,7 @@ subcollection: dns-svcs-cli-plugin
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# {{site.data.keyword.dns_short}} CLI commands
+# {{site.data.keyword.dns_short}} CLI reference
 {: #dns-services-cli-commands}
 
 Follow these instructions to use the {{site.data.keyword.dns_full}} command-line interface (CLI).
@@ -37,7 +37,7 @@ Follow these instructions to use the {{site.data.keyword.dns_full}} command-line
 
 Complete these steps to use the {{site.data.keyword.dns_short}} CLI, which is implemented as an {{site.data.keyword.cloud_notm}} CLI plug-in. This plug-in provides you with the means to manage your service instance and its associated resources through a command-line user interface.
 
-1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli){: external}.
+1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-install-ibmcloud-cli#install-ibmcloud-cli){: external}.
 1. Install or update the **cloud-dns-services** plug-in to the {{site.data.keyword.cloud_notm}} CLI.
 
    To install the plug-in, enter the following command.
@@ -61,7 +61,7 @@ Complete these steps to use the {{site.data.keyword.dns_short}} CLI, which is im
   ```
   {: pre}
 
----
+
 
 ## Instances
 {: #resource-instance}

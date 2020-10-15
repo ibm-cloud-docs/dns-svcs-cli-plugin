@@ -1027,7 +1027,7 @@ ibmcloud dns glb demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9
 Delete a global load balancer in a DNS domain.
 
 ```
-ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE_NAME]
+ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-f,--force] [-i, --instance INSTANCE_NAME]
 ```
 {: pre}
 
@@ -1036,6 +1036,7 @@ ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE_NAME]
 
 - **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
 - **GLB_ID**: The ID of global load balancer. Required.
+- **-f, --force**:  Delete load balancer without prompting for confirmation.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
 #### Examples
@@ -1044,7 +1045,7 @@ ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE_NAME]
 Delete global load balancer `699d98642c564d2e855e9661899b7252` in zone `demo.com:31984fea73a15b45779fa0df4ef62f9b`.
 
 ```
-ibmcloud dns glb-delete demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9661899b7252 -i "dns-demo"
+ibmcloud dns glb-delete demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9661899b7252 -f -i "dns-demo"
 ```
 {: pre}
 
@@ -1255,7 +1256,7 @@ ibmcloud dns glb-pool 17b5962d775c646f3f9725cbc7a53df4 -i "dns-demo"
 Delete a GLB pool.
 
 ```
-ibmcloud dns glb-pool-delete GLB_POOL_ID [-i, --instance INSTANCE_NAME]
+ibmcloud dns glb-pool-delete GLB_POOL_ID [-f,--force] [-i, --instance INSTANCE_NAME]
 ```
 {: pre}
 
@@ -1263,6 +1264,7 @@ ibmcloud dns glb-pool-delete GLB_POOL_ID [-i, --instance INSTANCE_NAME]
 {: #delete-glb-pool-options}
 
 - **GLB_POOL_ID**: The ID of global load balancer pool. Required.
+- **-f, --force**:  Delete load balancer pool without prompting for confirmation.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
 #### Examples
@@ -1271,7 +1273,7 @@ ibmcloud dns glb-pool-delete GLB_POOL_ID [-i, --instance INSTANCE_NAME]
 Delete GLB pool `17b5962d775c646f3f9725cbc7a53df4`.
 
 ```
-ibmcloud dns glb-pool-delete 17b5962d775c646f3f9725cbc7a53df4 -i "dns-demo"
+ibmcloud dns glb-pool-delete 17b5962d775c646f3f9725cbc7a53df4 -f -i "dns-demo"
 ```
 {: pre}
 
@@ -1522,7 +1524,7 @@ ibmcloud dns glb-monitor f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 Delete the GLB monitor for a service instance.
 
 ```
-ibmcloud dns glb-monitor-delete GLB_MON_ID [-i, --instance INSTANCE_NAME]
+ibmcloud dns glb-monitor-delete GLB_MON_ID [-f,--force] [-i, --instance INSTANCE_NAME]
 ```
 {: pre}
 
@@ -1530,6 +1532,7 @@ ibmcloud dns glb-monitor-delete GLB_MON_ID [-i, --instance INSTANCE_NAME]
 {: #delete-glb-monitor-options}
 
 - **GLB_MON_ID**: The ID of global load balancer monitor. Required.
+- **-f, --force**:  Delete load balancer monitor without prompting for confirmation.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
 #### Examples
@@ -1538,7 +1541,7 @@ ibmcloud dns glb-monitor-delete GLB_MON_ID [-i, --instance INSTANCE_NAME]
 Delete GLB monitor `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
 ```
-ibmcloud dns glb-monitor-delete f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
+ibmcloud dns glb-monitor-delete f1aba936b94213e5b8dca0c0dbf1f9cc -f -i "dns-demo"
 ```
 {: pre}
 

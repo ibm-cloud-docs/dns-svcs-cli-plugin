@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-10-19"
 
-keywords: 
+keywords:
 
 subcollection: dns-svcs-cli-plugin
 
@@ -275,15 +275,15 @@ Update a DNS zone's description and label.
 Delete a DNS zone.
 
 ```
-   ibmcloud dns zone-delete ZONE_ID [--force] [-i, --instance INSTANCE_NAME]
+   ibmcloud dns zone-delete ZONE_ID [-i, --instance INSTANCE_NAME] [-f,--force]
 ```
 
 ### Command options
 {: #options-delete-zone}
 
    * **ZONE_ID**<br />The ID of the DNS zone.
-   * **--force**<br />Delete a zone without prompting for confirmation.
    * **-i, --instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **-f, --force**<br />Delete a zone without prompting for confirmation.
 
 ## ibmcloud dns zones
 {: #list-zones}
@@ -365,7 +365,7 @@ Get the permitted network details.
 Remove a permitted network.
 
 ```
-   ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [--force] [-i, --instance INSTANCE_NAME]
+   ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE_NAME] [-f,--force]
 ```
 
 ### Command options
@@ -373,8 +373,8 @@ Remove a permitted network.
 
    * **ZONE_ID**<br />The ID of the DNS zone.
    * **PERMITTED_NETWORK_ID**<br />The ID of the permitted network.
-   * **--force**<br />Remove a permitted network without prompting for confirmation.
    * **--instance INSTANCE_NAME**<br />Instance name. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **-f, --force**<br />Remove a permitted network without prompting for confirmation.
 
 
 ## ibmcloud dns permitted-networks
@@ -797,7 +797,7 @@ Get a resource record details for a DNS zone.
 Delete a resource record for a DNS zone.
 
 ```
-   ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [--force] [-i, --instance INSTANCE_NAME]
+   ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [-i, --instance INSTANCE_NAME] [-f,--force]
 ```
 
 ### Command options
@@ -805,8 +805,8 @@ Delete a resource record for a DNS zone.
   
    * **ZONE_ID**<br />The ID of the DNS zone.
    * **RECORD_ID**<br />The ID of resource record.
-   * **--force**<br />Delete resource record without prompting for confirmation.
    * **-i, --instance INSTANCE_NAME**<br />Instance name. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+   * **-f, --force**<br />Delete resource record without prompting for confirmation.
      
 
 ## ibmcloud dns resource-records
@@ -826,7 +826,7 @@ List all resource records for a DNS zone.
    * **--per-page**<br />Number of resource records per page. Min: 50. Max: 1000. (default 200)
    * **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud instance-target INSTANCE` is used.
    * **--output**<br />Specify output format. Currently, **json** is the only supported format.
-  
+
 ### Command example  
 {: #list-resource-record-pagination}
 
@@ -855,7 +855,7 @@ Table columns:
  ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
  ```
 {: pre}
-   
+
 ## Global load balancer
 {: #glb}
 
@@ -874,8 +874,8 @@ ibmcloud dns glb-create DNS_ZONE_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, -
 #### Command options
 {: #create-glb-options}
 
-- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
-- **--json** The JSON file or JSON string used to describe a global load balancer. Required.
+- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
+- **--json**<br />The JSON file or JSON string used to describe a global load balancer. Required.
   - The required fields in JSON data are `name`, `fallback_pool`, `default_pools`:
     - `name`: The DNS hostname to associate with your load balancer.
     - `fallback_pool`: The pool ID to use when all other pools are detected as unhealthy.
@@ -885,7 +885,7 @@ ibmcloud dns glb-create DNS_ZONE_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, -
     - `ttl`: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
     - `az_pools`: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
     - `enabled`: Whether the load balancer pool is enabled. Valid values: `on`, `off`.
-     
+
   Sample JSON data:
 
 ```
@@ -940,9 +940,9 @@ ibmcloud dns glb-update DNS_ZONE_ID GLB_ID (-j, --json @JSON_FILE | JSON_STRING)
 #### Command options
 {: #update-glb-options}
 
-- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
-- **GLB_ID**: The ID of global load balancer. Required.
-- **--json** The JSON file or JSON string used to describe a global load balancer. Required.
+- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
+- **GLB_ID**<br />The ID of global load balancer. Required.
+- **--json**<br />The JSON file or JSON string used to describe a global load balancer. Required.
   - The optional fields are `name`, `fallback_pool`, `default_pools`, `description`, `ttl`, `az_pools`, `enabled`:
     - `name`: The DNS hostname to associate with your load balancer.
     - `fallback_pool`: The pool ID to use when all other pools are detected as unhealthy.
@@ -951,7 +951,7 @@ ibmcloud dns glb-update DNS_ZONE_ID GLB_ID (-j, --json @JSON_FILE | JSON_STRING)
     - `ttl`: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
     - `az_pools`: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
     - `enabled`: Whether the load balancer pool is enabled. Valid values: `on`, `off`.
-     
+
   Sample JSON data:
 
 ```
@@ -1006,10 +1006,10 @@ ibmcloud dns glb DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE_NAME] [--output F
 #### Command options
 {: #show-glb-options}
 
-- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
-- **GLB_ID**: The ID of global load balancer. Required.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**: Specify output format. Currently, **json** is the only supported format.
+- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
+- **GLB_ID**<br />The ID of global load balancer. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 #### Examples
 {: #show-glb-examples}
@@ -1027,17 +1027,17 @@ ibmcloud dns glb demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9
 Delete a global load balancer in a DNS domain.
 
 ```
-ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-f,--force] [-i, --instance INSTANCE_NAME]
+ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE_NAME] [-f,--force]
 ```
 {: pre}
 
 #### Command options
 {: #delete-glb-options}
 
-- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
-- **GLB_ID**: The ID of global load balancer. Required.
-- **-f, --force**:  Delete load balancer without prompting for confirmation.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
+- **GLB_ID**<br />The ID of global load balancer. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**<br />Delete load balancer without prompting for confirmation.
 
 #### Examples
 {: #delete-glb-examples}
@@ -1062,9 +1062,9 @@ ibmcloud dns glbs DNS_ZONE_ID [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--ou
 #### Command options
 {: #list-glb-options}
 
-- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**: Specify output format. Currently, **json** is the only supported format.
+- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 #### Examples
 {: #list-glb-examples}
@@ -1089,7 +1089,7 @@ ibmcloud dns glb-pool-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instan
 #### Command options
 {: #create-glb-pool-options}
 
-- **--json**  The JSON file or JSON string used to describe a global load balancer pool. Required.
+- **--json**<br />The JSON file or JSON string used to describe a global load balancer pool. Required.
   - The required fields in JSON data are `name`, `origins`:
     - `name`: The name of the load balancer pool.
     - `origins`: The list of origins within this pool.
@@ -1101,10 +1101,10 @@ ibmcloud dns glb-pool-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instan
     - `notification_channel`: The notification channel.
     - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
     - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
-    
+
       When you create a pool by attaching a monitor, DNS Services takes one address from the healthcheck subnet. Ensure this healthcheck subnet has sufficient IP addresses available.
       {:note}
-    
+
   Sample JSON data:
 
 ```
@@ -1162,8 +1162,8 @@ ibmcloud dns glb-pool-update GLB_POOL_ID (-j, --json @JSON_FILE | JSON_STRING) [
 #### Command options
 {: #update-glb-pool-options}
 
-- **GLB_POOL_ID**: The ID of global load balancer pool. Required.
-- **--json**  The JSON file or JSON string used to describe a GLB pool. Required.
+- **GLB_POOL_ID**<br />The ID of global load balancer pool. Required.
+- **--json**<br />The JSON file or JSON string used to describe a GLB pool. Required.
   - The optional fields are `name`, `origins`, `description`, `healthy_origins_threshold`, `enabled`, `monitor`, `notification_channel`, `healthcheck_region`, `healthcheck_subnets`:
     - `name`: The name of the load balancer pool.
     - `origins`: The list of origins within this pool.
@@ -1174,7 +1174,7 @@ ibmcloud dns glb-pool-update GLB_POOL_ID (-j, --json @JSON_FILE | JSON_STRING) [
     - `notification_channel`: The notification channel.
     - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
     - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
-    
+
   Sample JSON data:
 
 ```
@@ -1236,9 +1236,9 @@ ibmcloud dns glb-pool GLB_POOL_ID [-i, --instance INSTANCE_NAME] [--output FORMA
 #### Command options
 {: #show-glb-pool-options}
 
-- **GLB_POOL_ID**: The ID of global load balancer pool. Required.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**: Specify output format. Currently, **json** is the only supported format.
+- **GLB_POOL_ID**<br />The ID of global load balancer pool. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 #### Examples
 {: #show-glb-pool-examples}
@@ -1256,16 +1256,16 @@ ibmcloud dns glb-pool 17b5962d775c646f3f9725cbc7a53df4 -i "dns-demo"
 Delete a GLB pool.
 
 ```
-ibmcloud dns glb-pool-delete GLB_POOL_ID [-f,--force] [-i, --instance INSTANCE_NAME]
+ibmcloud dns glb-pool-delete GLB_POOL_ID [-i, --instance INSTANCE_NAME] [-f,--force]
 ```
 {: pre}
 
 #### Command options
 {: #delete-glb-pool-options}
 
-- **GLB_POOL_ID**: The ID of global load balancer pool. Required.
-- **-f, --force**:  Delete load balancer pool without prompting for confirmation.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **GLB_POOL_ID**<br />The ID of global load balancer pool. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**<br />Delete load balancer pool without prompting for confirmation.
 
 #### Examples
 {: #delete-glb-pool-examples}
@@ -1290,8 +1290,8 @@ ibmcloud dns glb-pools [-i, --instance INSTANCE_NAME] [--output FORMAT]
 #### Command options
 {: #list-glb-pools-options}
 
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**: Specify output format. Currently, **json** is the only supported format.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 #### Examples
 {: #list-glb-pools-examples}
@@ -1316,7 +1316,7 @@ ibmcloud dns glb-monitor-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --ins
 #### Command options
 {: #create-glb-monitor-options}
 
-- **--json**: The JSON file or JSON string used to describe a GLB monitor. Required.
+- **--json**<br />The JSON file or JSON string used to describe a GLB monitor. Required.
    - The required fields in JSON data are `name`, `type`.
      - `name`: The name of the load balancer monitor.
      - `type`: The protocol to use for the healthcheck. Valid values: `HTTP`, `HTTPS`, `TCP`.
@@ -1410,8 +1410,8 @@ ibmcloud dns glb-monitor-update GLB_MON_ID (-j, --json @JSON_FILE | JSON_STRING)
 #### Command options
 {: #update-glb-monitor-options}
 
-- **GLB_MON_ID**: The ID of global load balancer monitor. Required.
-- **--json**: The JSON file or JSON string used to describe a GLB monitor. Required.
+- **GLB_MON_ID**<br />The ID of global load balancer monitor. Required.
+- **--json**<br />The JSON file or JSON string used to describe a GLB monitor. Required.
    - The optional fields are `name`, `type`, `description`, `timeout`, `retries`, `interval`.
      - `name`: The name of the load balancer monitor.
      - `type`: The protocol to use for the healthcheck. Valid values: `HTTP`, `HTTPS`, `TCP`.
@@ -1503,9 +1503,9 @@ ibmcloud dns glb-monitor GLB_MON_ID [-i, --instance INSTANCE_NAME] [--output FOR
 #### Command options
 {: #show-glb-monitor-options}
 
-- **GLB_MON_ID**: The ID of global load balancer monitor. Required.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**: Specify output format. Currently, **json** is the only supported format.
+- **GLB_MON_ID**<br />The ID of global load balancer monitor. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 #### Examples
 {: #show-glb-monitor-examples}
@@ -1524,16 +1524,16 @@ ibmcloud dns glb-monitor f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 Delete the GLB monitor for a service instance.
 
 ```
-ibmcloud dns glb-monitor-delete GLB_MON_ID [-f,--force] [-i, --instance INSTANCE_NAME]
+ibmcloud dns glb-monitor-delete GLB_MON_ID [-i, --instance INSTANCE_NAME] [-f,--force]
 ```
 {: pre}
 
 #### Command options
 {: #delete-glb-monitor-options}
 
-- **GLB_MON_ID**: The ID of global load balancer monitor. Required.
-- **-f, --force**:  Delete load balancer monitor without prompting for confirmation.
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **GLB_MON_ID**<br />The ID of global load balancer monitor. Required.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**<br />Delete load balancer monitor without prompting for confirmation.
 
 #### Examples
 {: #delete-glb-monitor-examples}
@@ -1558,8 +1558,8 @@ ibmcloud dns glb-monitors [-i, --instance INSTANCE_NAME] [--output FORMAT]
 #### Command options
 {: #list-glb-monitors-options}
 
-- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**: Specify output format. Currently, **json** is the only supported format.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
 
 #### Examples
 {: #list-glb-monitors-examples}

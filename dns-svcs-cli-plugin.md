@@ -865,6 +865,8 @@ Manage global load balancers by using the following **glb** commands.
 Create a global load balancer in a zone.
 
 ```
+ibmcloud dns glb-create DNS_ZONE_ID --name NAME --default-pools POOL_LIST --fallback-pool POOL_ID [--description DESCRIPTION] [--enabled on|off] [--ttl TTL] [--az-pools AZPOOLS1 --az-pools AZPOOLS2] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
 ibmcloud dns glb-create DNS_ZONE_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
 ```
 {: pre}
@@ -912,6 +914,13 @@ Sample JSON data:
 ```
 {:codeblock}
 
+- **--name** The DNS hostname to associate with your load balancer.
+- **--fallback-pool** The pool ID to use when all other pools are detected as unhealthy.
+- **--default-pools** A list of pool IDs ordered by their failover priority.
+- **--description** The descriptive text of the load balancer.
+- **--ttl** Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
+- **--az-pools** A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
+- **--enabled** Whether the load balancer pool is enabled. Valid values: `on`, `off`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -932,6 +941,8 @@ Update a global load balancer in a zone.
 
 ```
 ibmcloud dns glb-update DNS_ZONE_ID GLB_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ibmcloud dns glb-update DNS_ZONE_ID GLB_ID [--name NAME] [--default-pools POOL_LIST] [--fallback-pool POOL_ID] [--description DESCRIPTION] [--enabled on|off] [--ttl TTL] [--az-pools AZPOOLS1 --az-pools AZPOOLS2] [-i, --instance INSTANCE_NAME|INSTANCE_ID] [--output FORMAT]
 ```
 {: pre}
 
@@ -978,6 +989,13 @@ Sample JSON data:
 ```
 {:codeblock}
 
+- **--name** The DNS hostname to associate with your load balancer.
+- **--fallback-pool** The pool ID to use when all other pools are detected as unhealthy.
+- **--default-pools** A list of pool IDs ordered by their failover priority.
+- **--description** The descriptive text of the load balancer.
+- **--ttl** Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
+- **--az-pools** A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
+- **--enabled** Whether the load balancer pool is enabled. Valid values: `on`, `off`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1081,6 +1099,9 @@ Create a GLB pool for a service instance.
 
 ```
 ibmcloud dns glb-pool-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ibmcloud dns glb-pool-create --name NAME --origins ORIGIN1 --origins ORIGIN2 [--description DESCRIPTION] [--enabled on|off] [--healthy-origins-threshold THRESHOLD] [--monitor MONITOR_ID] [--notification-channel CHANNEL] [--healthcheck-region REGION] [--healthcheck-subnets SUBNETS] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
 ```
 {: pre}
 
@@ -1100,7 +1121,7 @@ ibmcloud dns glb-pool-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instan
     - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
     - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
 
-      When you create a pool by attaching a monitor, DNS Services takes one address from the healthcheck subnet. Ensure this healthcheck subnet has sufficient IP addresses available.
+      When you create a pool by attaching a monitor, DNS Services takes one address from the health check subnet. Ensure this health check subnet has sufficient IP addresses available.
       {:note}
 
 Sample JSON data:
@@ -1133,6 +1154,15 @@ Sample JSON data:
 ```
 {:codeblock}
 
+- **--name** The name of the load balancer pool.
+- **--description** The descriptive text of the load balancer pool.
+- **--healthy-origins-threshold** The minimum number of origins that must be healthy for this pool to serve traffic.
+- **--enabled** Whether the load balancer pool is enabled. Valid values: `on`, `off`.
+- **--monitor** The ID of the load balancer monitor to be associated to this pool.
+- **--notification-channel** The notification channel.
+- **healthcheck-region** Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+- **healthcheck-subnets** A list of health check subnet IDs of VSIs.
+
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1152,8 +1182,11 @@ ibmcloud dns glb-pool-create --json @glb-pool.json -i "dns-demo"
 Update the details of a GLB pool.
 
 ```
-ibmcloud dns glb-pool-update GLB_POOL_ID [--enable-origin ORIGIN_NAME --enable-origin ORIGIN_NAME ...] [--disable-origin ORIGIN_NAME --disable-origin ORIGIN_NAME ...] [--add-origin ORIGIN_PARAMETER --add-origin ORIGIN_PARAMETER ...] [--remove-origin ORIGIN_NAME --remove-origin ORIGIN_NAME ...]  [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ ibmcloud dns glb-pool-update GLB_POOL_ID [--name NAME] [--enable-origin ORIGIN_NAME --enable-origin ORIGIN_NAME ...] [--disable-origin ORIGIN_NAME --disable-origin ORIGIN_NAME ...] [--add-origin ORIGIN_PARAMETER --add-origin ORIGIN_PARAMETER ...] [--remove-origin ORIGIN_NAME --remove-origin ORIGIN_NAME ...]  [--description DESCRIPTION] [--enabled on|off] [--healthy-origins-threshold THRESHOLD] [-detach-monitor] [--attach-monitor MONITOR_ID] [--healthcheck-region REGION] [--healthcheck-subnets SUBNETS] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
 ibmcloud dns glb-pool-update GLB_POOL_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
 ```
 {: pre}
 
@@ -1203,11 +1236,19 @@ Sample JSON data:
 ```
 {:codeblock}
 
+- **--name** The name of the load balancer pool.
+- **--description** The descriptive text of the load balancer pool.
 - **--enable-origin** Enable the origin within the pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
 - **--disable-origin** Disable the origin within the pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
 - **--add-origin** Add an origin into the pool. ORIGIN_NAME and ORIGIN_ADDRESS are required.
                    For example: `--add-origin name=example,address=1.2.3.4,enabled=true,description=origin_description`
 - **--remove-origin** Remove an origin from the Pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
+- **--detach-monitor** Detach monitor from origin pool.
+- **--attach-monitor** Attach monitor to origin pool.
+- **--healthy-origins-threshold** The minimum number of origins that must be healthy for this pool to serve traffic.
+- **--enabled** Whether the load balancer pool is enabled. Valid values: `on`, `off`.
+- **healthcheck-region** Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+- **healthcheck-subnets** A list of health check subnet IDs of VSIs.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1308,6 +1349,11 @@ Create a GLB monitor for a service instance.
 
 ```
 ibmcloud dns glb-monitor-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ibmcloud dns glb-monitor-create --name NAME --type TCP [--port PORT] [--description DESCRIPTION] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ibmcloud dns glb-monitor-create --name NAME --type (HTTP|HTTPS) --path PATH [--port PORT] [--description DESCRIPTION] [--method GET|HEAD] [--headers HEADER1 --headers HEADER2...] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [--allow-insecure on|off] [--expected-body BODY] [--expected-codes CODE] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
 ```
 {: pre}
 
@@ -1317,7 +1363,7 @@ ibmcloud dns glb-monitor-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --ins
 - **--json**<br />The JSON file or JSON string used to describe a GLB monitor. Required.
    - The required fields in JSON data are `name`, `type`.
      - `name`: The name of the load balancer monitor.
-     - `type`: The protocol to use for the healthcheck. Valid values: `HTTP`, `HTTPS`, `TCP`.
+     - `type`: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
    - The optional fields are `description`, `timeout`, `retries`, `interval`.
      - `description`: The descriptive text of the load balancer monitor.
      - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
@@ -1328,7 +1374,7 @@ ibmcloud dns glb-monitor-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --ins
    - For `HTTP/HTTPS` type health check. Extra required fields are `expected_codes`.
      - `expected_codes`: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`.
    - Extra option fields are `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
-     - `port`: The port number to connect to for the health check.
+     - `port`: The port number the health check connects to.
      - `expected_body`: A case-insensitive sub-string to look for in the response body.
      - `method`: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
      - `path`: The endpoint path to health check against.
@@ -1381,7 +1427,19 @@ For TCP:
 }
 ```
 {:codeblock}
-
+- **--name** The name of the load balancer monitor.
+- **--type** The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
+- **--description** The descriptive text of the load balancer monitor.
+- **--timeout** The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
+- **--retries** The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
+- **--interval** The interval between each health check. Valid values: `5-3600`.
+- **--port** The port number the health check connects to.
+- **--expected-codes** The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
+- **--expected-body** A case-insensitive sub-string to look for in the response body.
+- **--method** The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
+- **--path** The endpoint path to health check against.
+- **--headers** The HTTP request headers to send in the health check.
+- **--allow-insecure** Do not validate the certificate when monitor uses HTTPS. Valid values: `on`, `off`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1402,6 +1460,10 @@ Update a GLB monitor for a service instance.
 
 ```
 ibmcloud dns glb-monitor-update GLB_MON_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ibmcloud dns glb-monitor-update GLB_MON_ID [--name NAME] [--type TCP] [--port PORT] [--description DESCRIPTION] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+
+ibmcloud dns glb-monitor-update GLB_MON_ID [--name NAME] [--type HTTP|HTTPS] [--expected-codes CODE] [--path PATH] [--port PORT] [--description DESCRIPTION] [--method GET|HEAD] [--headers HEADER1 --headers HEADER2...] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [--allow-insecure on|off] [--expected-body BODY] [--expected-codes CODE] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
 ```
 {: pre}
 
@@ -1412,7 +1474,7 @@ ibmcloud dns glb-monitor-update GLB_MON_ID (-j, --json @JSON_FILE | JSON_STRING)
 - **--json**<br />The JSON file or JSON string used to describe a GLB monitor. Required.
    - The optional fields are `name`, `type`, `description`, `timeout`, `retries`, `interval`.
      - `name`: The name of the load balancer monitor.
-     - `type`: The protocol to use for the healthcheck. Valid values: `HTTP`, `HTTPS`, `TCP`.
+     - `type`: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
      - `description`: The descriptive text of the load balancer monitor.
      - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
      - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
@@ -1421,7 +1483,7 @@ ibmcloud dns glb-monitor-update GLB_MON_ID (-j, --json @JSON_FILE | JSON_STRING)
      - `port`: The TCP port to use for the health check.
    - For `HTTP/HTTPS` type health check. Extra option fields are `expected_codes`, `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
      - `expected_codes`: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`.
-     - `port`: The port number to connect to for the health check.
+     - `port`: The port number the health check connects to.
      - `expected_body`: A case-insensitive sub-string to look for in the response body.
      - `method`: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
      - `path`: The endpoint path to health check against.
@@ -1475,6 +1537,19 @@ For TCP:
 ```
 {:codeblock}
 
+- **--name** The name of the load balancer monitor.
+- **--type** The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
+- **--description** The descriptive text of the load balancer monitor.
+- **--timeout** The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
+- **--retries** The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
+- **--interval** The interval between each health check. Valid values: `5-3600`.
+- **--port** The port number the health check connects to.
+- **--expected-codes** The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
+- **--expected-body** A case-insensitive sub-string to look for in the response body.
+- **--method** The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
+- **--path** The endpoint path to health check against.
+- **--headers** The HTTP request headers to send in the health check.
+- **--allow-insecure** Do not validate the certificate when monitor uses HTTPS. Valid values: `on`, `off`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 

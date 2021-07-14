@@ -1701,10 +1701,10 @@ ibmcloud dns glb-monitors -i "dns-demo"
 ```
 {: pre}
 
-## Hybrid DNS
+## Custom resolver (Beta)
 {: #custom-resolver}
 
-Manage hybrid DNS by using the following custom resolver commands.
+Manage custom resolvers by using the following custom resolver commands.
 
 ## ibmcloud dns custom-resolver-create
 {: #create-custom-resolver}

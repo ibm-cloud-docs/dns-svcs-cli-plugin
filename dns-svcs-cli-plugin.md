@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-21"
+lastupdated: "2021-07-13"
 
 keywords:
 
@@ -855,6 +855,62 @@ Table columns:
  ```
 {: pre}
 
+## ibmcloud dns resource-records-import
+{: #import-resource-records}
+
+Import resource records from BIND zone file.
+
+```
+ibmcloud dns resource-records-import DNS_ZONE_ID (--file FILE) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #import-resource-records-options}
+
+- **DNS_ZONE_ID**<br />The ID of DNS zone.
+- **--file**<br />BIND zone file to import. Support type: A, AAAA, CNAME, MX, PTR, SRV, TXT.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #import-resource-records-examples}
+
+Import resource records from BIND zone file `dns_records.cfg` in zone `f1d596fc-7e86-4b99-b912-9508167e9e56` for instance `dns-demo`.
+
+```
+ibmcloud dns resource-records-import f1d596fc-7e86-4b99-b912-9508167e9e56 --file dns_records.cfg -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns resource-records-export
+{: #export-resource-records}
+
+Export resource records to BIND zone file.
+
+```
+ibmcloud dns resource-records-export DNS_ZONE_ID [--file FILE] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #export-resource-records-options}
+
+- **DNS_ZONE_ID**<br />The ID of DNS zone.
+- **--file**<br />The BIND zone file that saves the exported resource records.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #export-resource-records-examples}
+
+Export resource records in zone `f1d596fc-7e86-4b99-b912-9508167e9e56` to zone file `dns_records.cfg` for instance `dns-demo`.
+
+```
+ibmcloud dns resource-records-export f1d596fc-7e86-4b99-b912-9508167e9e56 --file dns_records.cfg -i "dns-demo"
+```
+{: pre}
+
 ## Global load balancer
 {: #glb}
 
@@ -1645,3 +1701,379 @@ ibmcloud dns glb-monitors -i "dns-demo"
 ```
 {: pre}
 
+## Hybrid DNS
+{: #custom-resolver}
+
+Manage hybrid DNS by using the following custom resolver commands.
+
+## ibmcloud dns custom-resolver-create
+{: #create-custom-resolver}
+
+Create a custom resolver for a service instance.
+
+```
+ibmcloud dns custom-resolver-create --name NAME --location LOCATION1 --location LOCATION2 [-description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #create-custom-resolver-options}
+
+- **-n, --name**<br />The name of the custom resolver.
+- **-d, --description**<br />The descriptive text of the custom resolver.
+- **--location**<br />The Locations on which the custom resolver will be running. The location subnet CRN is required.
+                      For example: `--location subnet1,enable  --location subnet2,disable`
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #create-custom-resolver-examples}
+
+Create a custom resolver for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-create --name "example" --location crn:v1:bluemix:public:is:us-south-1:a/01652b251c3ae2787110a995d8db0135::subnet:0716-b49ef064-0f89-4fb1-8212-135b12568f04,enable --description "demo" -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-update
+{: #update-custom-resolver}
+
+Update a custom resolver for a service instance.
+
+```
+ibmcloud dns custom-resolver-update RESOLVER_ID [--name NAME] [--enabled true|false] [--description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #update-custom-resolver-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **-n, --name**<br />The name of the custom resolver.
+- **-d, --description**<br />The descriptive text of the custom resolver.
+- **--enabled**<br />Whether to enable the custom resolver.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #update-custom-resolver-examples}
+
+Update a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-update f1aba936b94213e5b8dca0c0dbf1f9cc --name "example" --enabled true -description "demo" -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver
+{: #get-custom-resolver}
+
+Get a custom resolver details for a service instance.
+
+```
+ibmcloud dns custom-resolver RESOLVER_ID [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #get-custom-resolver-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #get-custom-resolver-examples}
+
+Get a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolvers
+{: #list-custom-resolvers}
+
+List custom resolvers for a service instance.
+
+```
+ibmcloud dns custom-resolvers [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #list-custom-resolvers-options}
+
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #list-custom-resolvers-examples}
+
+List custom resolvers for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolvers -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-delete
+{: #delete-custom-resolver}
+
+Delete a custom resolver for a service instance.
+
+```
+ibmcloud dns custom-resolver-delete RESOLVER_ID [-i, --instance INSTANCE] [-f, --force]
+```
+{: pre}
+
+### Command options
+{: #delete-custom-resolver-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **---f, --force**<br />Delete custom resolver without prompting for confirmation.
+
+### Examples
+{: #delete-custom-resolver-examples}
+
+Delete a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-delete f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-location-add
+{: #add-custom-resolver-location}
+
+Add custom resolver location for a service instance.
+
+```
+ibmcloud dns custom-resolver-location-add RESOLVER_ID --subnet SUBNET_CRN [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #add-custom-resolver-location-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **--subnet**<br />The CRN of the subnet.
+- **--enabled**<br />Whether to enable the custom resolver location.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #add-custom-resolver-location-examples}
+
+Add a location in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-location-add f1aba936b94213e5b8dca0c0dbf1f9cc --subnet crn:v1:bluemix:public:is:us-south-1:a/01652b251c3ae2787110a995d8db0135::subnet:0716-b49ef064-0f89-4fb1-8212-135b12568f04 --enabled true -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-location-update
+{: #update-custom-resolver-location}
+
+Update custom resolver location for a service instance.
+
+```
+ibmcloud dns custom-resolver-location-update RESOLVER_ID LOCATION_ID [--subnet SUBNET_CRN] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #update-custom-resolver-location-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **LOCATION_ID**<br />The ID of custom resolver location.
+- **--subnet**<br />The CRN of the subnet.
+- **--enabled**<br />Whether to enable the custom resolver location.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #update-custom-resolver-location-examples}
+
+Update location `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-location-update f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb --subnet crn:v1:bluemix:public:is:us-south-1:a/01652b251c3ae2787110a995d8db0135::subnet:0716-b49ef064-0f89-4fb1-8212-135b12568f04 --enabled true -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-location-delete
+{: #delete-custom-resolver-location}
+
+Delete custom resolver location for a service instance.
+
+```
+ibmcloud dns custom-resolver-location-delete RESOLVER_ID LOCATION_ID [-i, --instance INSTANCE] [-f, --force]
+```
+{: pre}
+
+### Command options
+{: #delete-custom-resolver-location-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **LOCATION_ID**<br />The ID of custom resolver location.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **---f, --force**<br />Delete custom resolver location without prompting for confirmation.
+
+### Examples
+{: #delete-custom-resolver-location-examples}
+
+Delete location `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-location-delete f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-forwarding-rule-create
+{: #create-custom-resolver-forwarding-rule}
+
+Create a custom resolver forwarding rule for a service instance.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule-create RESOLVER_ID --type TYPE --match HOSTNAME --dns-svcs IPs [--description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #create-custom-resolver-forwarding-rule-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **-t, --type**<br />The type of the forwarding rule. Valid values: "zone".
+- **-d, --description**<br />The descriptive text of the custom resolver forwarding rule.
+- **--match**<br />The matching zone or hostname.
+- **--dns-svcs**<br />The upstream DNS servers will be forwarded to, for example: ip1,ip2
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #create-custom-resolver-forwarding-rule-examples}
+
+Create a forwarding rule in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule-create f1aba936b94213e5b8dca0c0dbf1f9cc --type zone --match "example.com" --dns-svcs 192.168.0.1,192.168.0.2 --description "demo" -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-forwarding-rule-update
+{: #update-custom-resolver-forwarding-rule}
+
+Update a custom resolver forwarding rule for a service instance.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule-update RESOLVER_ID RULE_ID [--match HOSTNAME] [--dns-svcs IPs] [--description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #update-custom-resolver-forwarding-rule-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **RULE_ID**<br />The ID of custom resolver forwarding rule.
+- **-d, --description**<br />The descriptive text of the custom resolver forwarding rule.
+- **--match**<br />The matching zone or hostname.
+- **--dns-svcs**<br />The upstream DNS servers will be forwarded to, for example: ip1,ip2
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #update-custom-resolver-forwarding-rule-examples}
+
+Update a forwarding rule `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule-update f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb --type zone --match "example.com" --dns-svcs 192.168.0.1,192.168.0.2 --description "demo" -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-forwarding-rule
+{: #get-custom-resolver-forwarding-rule}
+
+Get a custom resolver forwarding rule details for a service instance.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule RESOLVER_ID RULE_ID [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #get-custom-resolver-forwarding-rule-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **RULE_ID**<br />The ID of custom resolver forwarding rule.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #get-custom-resolver-forwarding-rule-examples}
+
+Get a forwarding rule `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-forwarding-rules
+{: #list-custom-resolver-forwarding-rules}
+
+List custom resolver forwarding rules for a service instance.
+
+```
+ibmcloud dns custom-resolver-forwarding-rules RESOLVER_ID [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
+
+### Command options
+{: #list-custom-resolver-forwarding-rules-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+
+### Examples
+{: #list-custom-resolver-forwarding-rules-examples}
+
+List forwarding rules in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-forwarding-rules f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
+```
+{: pre}
+
+## ibmcloud dns custom-resolver-forwarding-rule-delete
+{: #delete-custom-resolver-forwarding-rule}
+
+Delete a custom resolver forwarding rule for a service instance.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule-delete RESOLVER_ID RULE_ID [-i, --instance INSTANCE] [-f, --force]
+```
+{: pre}
+
+### Command options
+{: #delete-custom-resolver-forwarding-rule-options}
+
+- **RESOLVER_ID**<br />The ID of custom resolver.
+- **RULE_ID**<br />The ID of custom resolver forwarding rule.
+- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**<br />Delete custom resolver forwarding rule without prompting for confirmation.
+
+### Examples
+{: #delete-custom-resolver-forwarding-rule-examples}
+
+Delete a forwarding rule `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
+
+```
+ibmcloud dns custom-resolver-forwarding-rule-delete f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb -i "dns-demo"
+```
+{: pre}

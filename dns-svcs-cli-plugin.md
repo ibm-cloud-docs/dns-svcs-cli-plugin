@@ -407,7 +407,7 @@ Create a resource record for a DNS zone.
 ```
    ibmcloud dns resource-record-create DNS_ZONE_ID (-r, --record-content @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 ```
-{:pre}
+{: pre}
 
 ```sh
    ibmcloud dns resource-record-create DNS_ZONE_ID --type A --name NAME --ipv4 IP_ADDRESS [--ttl TTL]
@@ -468,7 +468,7 @@ Sample JSON data:
                 }
         }
 ```
-{:codeblock}
+{: codeblock}
 
 ```
         {
@@ -479,7 +479,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type CNAME: Extra required fields are `name`, `rdata`.
     * `name`: Resource record name.
@@ -539,7 +539,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
 
   * For type MX: Extra required fields are `name`, `rdata`.
@@ -562,7 +562,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type SRV: Extra required fields are `name`, `rdata`, `service`, `protocol`.
     * `name`: Resource record name.
@@ -593,7 +593,7 @@ Sample JSON data:
             "protocol": "udp"
         }
 ```
-{:codeblock}
+{: codeblock}
 
 ## ibmcloud dns resource-record-update
 {: #update-resource-record}
@@ -614,7 +614,7 @@ Update a resource record for a DNS zone.
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --exchange EXCHANGE --preference PREFERENCE [--ttl TTL]
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --priority PRIORITY --weight WEIGHT --port PORT --target TARGET  [--service SERVICE] [--protocol PROTOCOL] [--ttl TTL]
 ```
-{:codeblock}
+{: codeblock}
 
 ### Command options
 {: #options-update-resource-record}
@@ -642,12 +642,12 @@ Update a resource record for a DNS zone.
    * **--output FORMAT**<br />Specify output format, only JSON is supported.
 
 #### Required fields for -r, --record-content
-{:#r-record-details}
+{: #r-record-details}
 
 The required field in JSON data is **name**. Resource record name.
 
 PTR records _do not_ need this field.
-{:note}
+{: note}
 
   * For type A, AAAA: Extra required fields are `rdata`.
     * `rdata`: Content of the resource record.
@@ -665,7 +665,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
 ```
         {
@@ -675,7 +675,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type CNAME: Extra required fields are `rdata`.
       * `rdata`: The content of type-PTR resource record.
@@ -693,7 +693,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type PTR: Extra option fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
@@ -705,7 +705,7 @@ Sample JSON data:
             "ttl": 360,
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type TXT: Extra required fields are `rdata`.
       * `rdata`: The content of type-TXT resource record.
@@ -723,7 +723,7 @@ Sample JSON data:
             }
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type MX: Extra required fields are `rdata`.
     * `rdata`: The content of type-MX resource record.
@@ -741,7 +741,7 @@ Sample JSON data:
             "priority": 10
         }
 ```
-{:codeblock}
+{: codeblock}
 
   * For type SRV: Extra required fields are `rdata`, `service`, `protocol`.
     * `rdata`: The content of type-SRV resource record.
@@ -769,7 +769,7 @@ Sample JSON data:
             "protocol": "udp"
         }
 ```
-{:codeblock}
+{: codeblock}
 
 
 ## ibmcloud dns resource-record
@@ -782,7 +782,7 @@ Get a resource record details for a DNS zone.
 ```
 
 ### Command options
-{:options-get-resource-records}
+{: options-get-resource-records}
 
    * **ZONE_ID**<br />The ID of the DNS zone.
    * **RECORD_ID**<br />The ID of resource record.
@@ -969,7 +969,7 @@ Sample JSON data:
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 - **--name** The DNS hostname to associate with your load balancer.
 - **--fallback-pool** The pool ID to use when all other pools are detected as unhealthy.
@@ -1044,7 +1044,7 @@ Sample JSON data:
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 - **--name** The DNS hostname to associate with your load balancer.
 - **--fallback-pool** The pool ID to use when all other pools are detected as unhealthy.
@@ -1179,7 +1179,7 @@ ibmcloud dns glb-pool-create --name NAME --origins ORIGIN1 --origins ORIGIN2 [--
     - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
 
       When you create a pool by attaching a monitor, DNS Services takes one address from the health check subnet. Ensure this health check subnet has sufficient IP addresses available.
-      {:note}
+      {: note}
 
 Sample JSON data:
 
@@ -1189,14 +1189,14 @@ Sample JSON data:
   "description": "application server pool in US",
   "origins": [
     {
-      "name": "us-app-dal01",
-      "description": "dallas origin 01",
+      "name": "us-app-dal10",
+      "description": "dallas origin 10",
       "address": "1.1.1.1",
       "enabled": true
     },
     {
-      "name": "us-app-dal02",
-      "description": "dallas origin 02",
+      "name": "us-app-dal12",
+      "description": "dallas origin 12",
       "address": "2.2.2.2",
       "enabled": true
     }
@@ -1209,7 +1209,7 @@ Sample JSON data:
   "healthcheck_subnets": ["0716-a4c0c123-594c-4ef4-ace3-a08858540b5e"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 - **--name** The name of the load balancer pool.
 - **--description** The descriptive text of the load balancer pool.
@@ -1271,14 +1271,14 @@ Sample JSON data:
   "description": "application server pool in US",
   "origins": [
     {
-      "name": "us-app-dal01",
-      "description": "dallas origin 01",
+      "name": "us-app-dal10",
+      "description": "dallas origin 10",
       "address": "1.1.1.1",
       "enabled": true
     },
     {
-      "name": "us-app-dal02",
-      "description": "dallas origin 02",
+      "name": "us-app-dal12",
+      "description": "dallas origin 12",
       "address": "2.2.2.2",
       "enabled": true
     }
@@ -1291,7 +1291,7 @@ Sample JSON data:
   "healthcheck_subnets": ["0716-a4c0c123-594c-4ef4-ace3-a08858540b5e"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 - **--name** The name of the load balancer pool.
 - **--description** The descriptive text of the load balancer pool.
@@ -1468,7 +1468,7 @@ For HTTP/HTTPS:
   "expected_body": "alive"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 For TCP:
 
@@ -1483,7 +1483,7 @@ For TCP:
   "interval": 90
 }
 ```
-{:codeblock}
+{: codeblock}
 - **--name** The name of the load balancer monitor.
 - **--type** The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
 - **--description** The descriptive text of the load balancer monitor.
@@ -1577,7 +1577,7 @@ For HTTP/HTTPS:
   "expected_body": "alive"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 For TCP:
 
@@ -1592,7 +1592,7 @@ For TCP:
   "interval": 90
 }
 ```
-{:codeblock}
+{: codeblock}
 
 - **--name** The name of the load balancer monitor.
 - **--type** The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.

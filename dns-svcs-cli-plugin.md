@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-13"
+lastupdated: "2021-10-19"
 
 keywords:
 
@@ -10,21 +10,7 @@ subcollection: dns-svcs-cli-plugin
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.dns_short}} CLI reference
 {: #dns-services-cli-commands}
@@ -40,26 +26,26 @@ Complete these steps to use the {{site.data.keyword.dns_short}} CLI, which is im
 1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli#install-ibmcloud-cli){: external}.
 1. Install or update the **cloud-dns-services** plug-in to the {{site.data.keyword.cloud_notm}} CLI.
 
-   To install the plug-in, enter the following command.
+    To install the plug-in, enter the following command.
 
-   ```
-   ibmcloud plugin install cloud-dns-services
-   ```
-   {: pre}
+    ```sh
+    ibmcloud plugin install cloud-dns-services
+    ```
+    {: pre}
 
-   To update:
+    To update:
 
-  ```
-  ibmcloud plugin update cloud-dns-services
-  ```
-  {: pre}
+    ```sh
+    ibmcloud plugin update cloud-dns-services
+    ```
+    {: pre}
 
-  To view installed plugins and versions:
+    To view installed plugins and versions:
 
-  ```
-  ibmcloud plugin list
-  ```
-  {: pre}
+    ```sh
+    ibmcloud plugin list
+    ```
+    {: pre}
 
 
 
@@ -73,29 +59,29 @@ Manage DNS Services instances by using the following **instance** commands.
 
 List all DNS Services instances.
 
-```
-   ibmcloud dns instances [--output FORMAT]
+```sh
+   ibmcloud dns instances [--output FORMAT]
 ```
 
 ### Command option
 {: #command-options-list-dns-services-instances}
 
-  * **--output**<br />Specify output format. Currently, **json** is the only supported format.
+* **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ## ibmcloud dns instance-target
 {: #set-context-DNS-service-instance}
 
 Set context service instance to operate.
 
-```
-   ibmcloud dns instance-target [INSTANCE] [--unset]
+```sh
+   ibmcloud dns instance-target [INSTANCE] [--unset]
 ```
 
 ### Command options
 {: #command-options-set-context-dns-service-instance}
 
-* **INSTANCE**<br />The name or ID of a DNS Services instance. If it is present, set the context instance to operate; if not, show the current context instance.  
-* **--unset**<br />Unset context instance.
+* **INSTANCE**: The name or ID of a DNS Services instance. If it is present, set the context instance to operate; if not, show the current context instance.  
+* **--unset**: Unset context instance.
 
 
 ## ibmcloud dns instance-create
@@ -107,34 +93,34 @@ Create a DNS Services instance.
    {: note}
 
 
-```
-   ibmcloud dns instance-create INSTANCE_NAME PLAN [-g, --resource-group RESOURCE_GROUP] [--output FORMAT]
+```sh
+   ibmcloud dns instance-create INSTANCE_NAME PLAN [-g, --resource-group RESOURCE_GROUP] [--output FORMAT]
 ```
 
 ### Command options
 {: #command-options-create-dns-svcs-instance}
 
-   * **INSTANCE_NAME**<br />The name of the DNS Services instance.
-   * **PLAN**<br />The name or ID of a service plan.
-   * **-g, --resource-group**<br />The name or ID of a resource group.
-   * **--output**<br />Specify output format. Currently, **json** is the only supported format.
+* **INSTANCE_NAME**: The name of the DNS Services instance.
+* **PLAN**: The name or ID of a service plan.
+* **-g, --resource-group**: The name or ID of a resource group.
+* **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ## ibmcloud dns instance-update
 {: #update-DNS-services-instance}
 
 Update a DNS Services instance.
 
-```
+```sh
    ibmcloud dns instance-update INSTANCE [--name NAME] [--plan PLAN] [--output FORMAT]
 ```
 
 ### Command options
 {: #command-options-update-dns-svcs-instance}
 
-   * **INSTANCE**<br />The name or ID of a DNS Services instance.
-   * **--name**<br />The DNS Services instance name.
-   * **--plan**<br />The name or ID of a DNS Services plan. Use `ibmcloud dns plans` to get available plans.
-   * **--output**<br />Specify output format. Currently, **json** is the only supported format.
+* **INSTANCE**: The name or ID of a DNS Services instance.
+* **--name**: The DNS Services instance name.
+* **--plan**: The name or ID of a DNS Services plan. Use `ibmcloud dns plans` to get available plans.
+* **--output**: Specify output format. Currently, **json** is the only supported format.
 
 
 ## ibmcloud dns instance-delete
@@ -142,15 +128,15 @@ Update a DNS Services instance.
 
 Delete a DNS Services instance.
 
-```
-   ibmcloud dns instance-delete INSTANCE [--force] 
+```sh
+   ibmcloud dns instance-delete INSTANCE [--force] 
 ```
 
 ### Command options
 {: #command-options-delete-dns-svcs-instance}
 
-   * **INSTANCE**<br />The name or ID of a DNS Services instance.
-   * **--force**<br />Delete an instance without prompting for confirmation.
+* **INSTANCE**: The name or ID of a DNS Services instance.
+* **--force**: Delete an instance without prompting for confirmation.
 
 
 ## ibmcloud dns instance
@@ -158,15 +144,15 @@ Delete a DNS Services instance.
 
 Show details of a DNS Services instance.
 
-```
-   ibmcloud dns instance INSTANCE [--output FORMAT]
+```sh
+   ibmcloud dns instance INSTANCE [--output FORMAT]
 ```
 
 ### Command options
 {: #command-options-get-dns-svcs-instance}
 
-   * **INSTANCE**<br />The name or ID of a DNS Services instance.
-   * **--output**<br />Specify output format, only JSON is supported.
+* **INSTANCE**: The name or ID of a DNS Services instance.
+* **--output**: Specify output format, only JSON is supported.
 
 
 ## ibmcloud dns plans
@@ -174,8 +160,8 @@ Show details of a DNS Services instance.
 
 List all DNS Services instances.
 
-```
-   ibmcloud dns plans
+```sh
+   ibmcloud dns plans
 ```
 
 ## Zones
@@ -188,118 +174,119 @@ Manage DNS zones by using the following **zone** commands.
 
 Create a DNS zone.
 
-```
-   ibmcloud dns zone-create ZONE_NAME [-d, --description DESC] [-l, --label LABEL] [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns zone-create ZONE_NAME [-d, --description DESC] [-l, --label LABEL] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-create-dns-svcs-zone}
 
-   * **ZONE_NAME**<br />The name of the DNS zone.
-   * **-d, --description**<br />The text describing the purpose of a DNS zone.
-   * **-l, --label**<br />The label of a DNS zone.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_NAME**: The name of the DNS zone.
+* **-d, --description**: The text describing the purpose of a DNS zone.
+* **-l, --label**: The label of a DNS zone.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ### Command output
 {: #output-create-dns-svcs-zone}
 
-  * ID                     
-  * Created On         
-  * Modified On
-  * Instance ID  
-  * Name                   
-  * Description
-  * State                
-  * Label        
+* ID                     
+* Created On         
+* Modified On
+* Instance ID  
+* Name                   
+* Description
+* State                
+* Label        
 
 ## ibmcloud dns zone
 {: #get-zone}
 
 Get the DNS zone details.
 
-```
-   ibmcloud dns zone ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns zone ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-get-zone}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ### Command output
 {: #output-get-zone}
-  * ID                     
-  * Created On         
-  * Modified On
-  * Instance ID  
-  * Name                   
-  * Description
-  * State                
-  * Label     
+
+* ID                     
+* Created On         
+* Modified On
+* Instance ID  
+* Name                   
+* Description
+* State                
+* Label     
   
 ## ibmcloud dns zone-update
 {: #update-zone}
 
 Update a DNS zone's description and label.
 
-```
-   ibmcloud dns zone-update ZONE_ID [-d, --description DESC] [-l, --label LABEL] [--instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns zone-update ZONE_ID [-d, --description DESC] [-l, --label LABEL] [--instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-update-zone}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **-d, --description**<br />The text describing the purpose of a DNS zone.
-   * **-l, --label**<br />The label of a DNS zone.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **-d, --description**: The text describing the purpose of a DNS zone.
+* **-l, --label**: The label of a DNS zone.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ### Command output
 {: #output-update-zone}
 
-  * ID                     
-  * Created On         
-  * Modified On
-  * Instance ID  
-  * Name                   
-  * Description
-  * State                
-  * Label    
+* ID                     
+* Created On         
+* Modified On
+* Instance ID  
+* Name                   
+* Description
+* State                
+* Label    
 
 ## ibmcloud dns zone-delete
 {: #delete-zone}
 
 Delete a DNS zone.
 
-```
-   ibmcloud dns zone-delete ZONE_ID [-i, --instance INSTANCE] [-f,--force]
+```sh
+   ibmcloud dns zone-delete ZONE_ID [-i, --instance INSTANCE] [-f,--force]
 ```
 
 ### Command options
 {: #options-delete-zone}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **-f, --force**<br />Delete a zone without prompting for confirmation.
+* **ZONE_ID**: The ID of the DNS zone.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.* 
+* **-f, --force**: Delete a zone without prompting for confirmation.
 
 ## ibmcloud dns zones
 {: #list-zones}
 
 List all DNS zones for a service instance.
 
-```
-   ibmcloud dns zones [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns zones [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-list-zones}
 
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ## Permitted networks
 {: #permitted-network}
@@ -311,53 +298,53 @@ Manage permitted networks by using the following **permitted-network** commands.
 
 Add a permitted network for a DNS zone.
 
-```
-   ibmcloud dns permitted-network-add ZONE_ID --vpc-crn VPC_CRN [--type TYPE] [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns permitted-network-add ZONE_ID --vpc-crn VPC_CRN [--type TYPE] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-add-permitted-network}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **--type**<br />The permitted network type. Valid values: `vpc`.
-   * **--vpc-crn**<br />The CRN of VPC instance 
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **--type**: The permitted network type. Valid values: `vpc`.
+* **--vpc-crn**: The CRN of VPC instance 
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ### Command output
 {: #output-add-permitted-network}
 
-  * ID                     
-  * Created On         
-  * Modified On
-  * Permitted Network data  
-  * Type    
+* ID                     
+* Created On         
+* Modified On
+* Permitted Network data  
+* Type    
 
 ## ibmcloud dns permitted-network
 {: #get-permitted-network}
 
 Get the permitted network details.
 
-```
-   ibmcloud dns permitted-network ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns permitted-network ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-get-permitted-network}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **PERMITTED_NETWORK_ID**<br />The ID of the permitted network.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **PERMITTED_NETWORK_ID**: The ID of the permitted network.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ### Command output
 {: #output-get-permitted-network}
 
-  * ID                     
-  * Created On         
-  * Modified On
-  * Permitted Network data  
-  * Type    
+* ID                     
+* Created On         
+* Modified On
+* Permitted Network data  
+* Type    
   
 
 ## ibmcloud dns permitted-network-remove
@@ -365,17 +352,17 @@ Get the permitted network details.
 
 Remove a permitted network.
 
-```
-   ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE] [-f,--force]
+```sh
+   ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE] [-f,--force]
 ```
 
 ### Command options
 {: #options-remove-permitted-network}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **PERMITTED_NETWORK_ID**<br />The ID of the permitted network.
-   * **--instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **-f, --force**<br />Remove a permitted network without prompting for confirmation.
+* **ZONE_ID**: The ID of the DNS zone.
+* **PERMITTED_NETWORK_ID**: The ID of the permitted network.
+* **--instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **-f, --force**: Remove a permitted network without prompting for confirmation.
 
 
 ## ibmcloud dns permitted-networks
@@ -383,16 +370,16 @@ Remove a permitted network.
 
 List permitted networks for a zone.
 
-```
-   ibmcloud dns permitted-networks ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns permitted-networks ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-list-permitted-networks}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **-i, --instance INSTANCE**: Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 ## Resource records
 {: #resource-record}
@@ -404,7 +391,7 @@ Manage how the resource record performs using the following **resource-record** 
 
 Create a resource record for a DNS zone.
 
-```
+```sh
    ibmcloud dns resource-record-create DNS_ZONE_ID (-r, --record-content @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -423,26 +410,26 @@ Create a resource record for a DNS zone.
 ### Command options
 {: #options-create-resource-record}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **--name**<br />Resource record name.
-   * **--type**<br />Resource record type.
-   * **--ipv4**<br />IPv4 address.
-   * **--ipv6**<br />IPv6 address.
-   * **--cname**<br />Canonical name.
-   * **--ptrdname**<br />Hostname of the relevant A or AAAA record.
-   * **--text**<br />Human readable text.
-   * **--exchange**<br />Hostname of Exchange server.
-   * **--preference**<br />Preference of the MX record
-   * **--service**<br />The symbolic name of the desired service, beginning with an underscore `_`.
-   * **--protocol**<br />The symbolic name of the desired protocol.
-   * **--port**<br />Port number of the target server.
-   * **--weight**<br />Weight of distributing queries among multiple target servers.
-   * **--priority**<br />Priority of the SRV record.
-   * **--target**<br />Hostname of the target server.
-   * **--ttl**<br />Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
-   * **-r, --record-content**<br /> The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for `-r --record-content`](#required-fields-r-record-content) for more detail.
-   * **-i, --instance value**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-   * **--output value**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **--name**: Resource record name.
+* **--type**: Resource record type.
+* **--ipv4**: IPv4 address.
+* **--ipv6**: IPv6 address.
+* **--cname**: Canonical name.
+* **--ptrdname**: Hostname of the relevant A or AAAA record.
+* **--text**: Human readable text.
+* **--exchange**: Hostname of Exchange server.
+* **--preference**: Preference of the MX record
+* **--service**: The symbolic name of the desired service, beginning with an underscore `_`.
+* **--protocol**: The symbolic name of the desired protocol.
+* **--port**: Port number of the target server.
+* **--weight**: Weight of distributing queries among multiple target servers.
+* **--priority**: Priority of the SRV record.
+* **--target**: Hostname of the target server.
+* **--ttl**: Time to live, in seconds. Default value is 900.  Valid values: 60, 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200.
+* **-r, --record-content**: The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for `-r --record-content`](#required-fields-r-record-content) for more detail.
+* **-i, --instance value**: >Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+* **--output value**: Specify output format. Currently, **json** is the only supported format.
 
 #### Required fields for `-r --record-content`
 {: #required-fields-r-record-content}
@@ -450,16 +437,16 @@ Create a resource record for a DNS zone.
 The required field in JSON data is **type**.
 
 Resource record type. Valid values: `A`, `AAAA`, `CNAME`, `PTR`, `TXT`, `MX`, `SRV`.
-  * For type A, AAAA: Extra required fields are `name`, `rdata`.
+* For type A, AAAA: Extra required fields are `name`, `rdata`.
     * `name`: Resource record name.
     * `rdata`: Content of the resource record.
       * `ip`: IPv4/IPv6 address
-  *  Extra optional fields are `ttl`.
+*  Extra optional fields are `ttl`.
     * `ttl`: Time to live in second. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
              "name": "testA",
              "type": "A",
@@ -470,7 +457,7 @@ Sample JSON data:
 ```
 {: codeblock}
 
-```
+```sh
         {
             "name": "testAAAA",
             "type": "AAAA",
@@ -481,16 +468,16 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type CNAME: Extra required fields are `name`, `rdata`.
+* For type CNAME: Extra required fields are `name`, `rdata`.
     * `name`: Resource record name.
     * `rdata`: The content of type-CNAME resource record.
-      * `cname`: Canonical name.
-  * Extra optional fields are `ttl`.
+        * `cname`: Canonical name.
+* Extra optional fields are `ttl`.
     * `ttl`: Time to live in second. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "testCNAME",
             "type": "CNAME",
@@ -501,16 +488,16 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type PTR: Extra required fields are `name`, `rdata`.
+* For type PTR: Extra required fields are `name`, `rdata`.
     * `name`: Resource record name.
     * `rdata`: The content of type-PTR resource record.
-      * `ptrdname`: Hostname of the relevant A or AAAA record.
-  * Extra option fields are `ttl`.
+        * `ptrdname`: Hostname of the relevant A or AAAA record.
+* Extra option fields are `ttl`.
     * `ttl`: Time to live in second. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "1.2.3.4",
             "type": "PTR",
@@ -521,16 +508,16 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type TXT: Extra required fields are `name`, `rdata`.
+* For type TXT: Extra required fields are `name`, `rdata`.
     * `name`: Resource record name.
     * `rdata`: The content of type-TXT resource record.
-      * `text`: Human readable text.
-  * Extra optional fields are `ttl`.
+        * `text`: Human readable text.
+* Extra optional fields are `ttl`.
     * `ttl`: Time to live in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "testTXT",
             "type":"TXT",
@@ -542,17 +529,17 @@ Sample JSON data:
 {: codeblock}
 
 
-  * For type MX: Extra required fields are `name`, `rdata`.
+* For type MX: Extra required fields are `name`, `rdata`.
     * `name`: Resource record name.
     * `rdata`: The content of type-MX resource record.
-      * `exchange`: Hostname of Exchange server.
-      * `preference`: Preference of the MX record
-  * Extra optional fields are `ttl`.
+        * `exchange`: Hostname of Exchange server.
+        * `preference`: Preference of the MX record
+* Extra optional fields are `ttl`.
     * `ttl`: Time to live in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
            "name": "testMX",
            "type": "MX",
@@ -564,22 +551,21 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type SRV: Extra required fields are `name`, `rdata`, `service`, `protocol`.
+* For type SRV: Extra required fields are `name`, `rdata`, `service`, `protocol`.
     * `name`: Resource record name.
     * `rdata`: The content of type-SRV resource record.
-      * `priority`: Priority of the SRV record.
-      * `weight`: Weight of distributing queries among multiple target servers.
-      * `port`: Port number of the target server.
-      * `target`: Hostname of the target server.
+        * `priority`: Priority of the SRV record.
+        * `weight`: Weight of distributing queries among multiple target servers.
+        * `port`: Port number of the target server.
+        * `target`: Hostname of the target server.
     * `service`: The symbolic name of the desired service, start with an underscore `_`.
     * `protocol`: The symbolic name of the desired protocol.
-
-  * Extra option fields are `ttl`.
+* Extra option fields are `ttl`.
     * `ttl`: Time to live in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "type": "SRV",
             "name": "testSRV",
@@ -601,7 +587,7 @@ Sample JSON data:
 Update a resource record for a DNS zone.
 
 
-```
+```sh
    dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID (-r, --record-content @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
@@ -619,27 +605,27 @@ Update a resource record for a DNS zone.
 ### Command options
 {: #options-update-resource-record}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **RECORD_ID**<br />The ID of the record.
-   * **--name**<br />Resource record name.
-   * **--type**<br />Resource record type.
-   * **--ipv4**<br />IPv4 address.
-   * **--ipv6**<br />IPv6 address.
-   * **--cname**<br />Canonical name.
-   * **--ptrdname**<br />Hostname of the relevant A or AAAA record.
-   * **--text**<br />Human readable text.
-   * **--exchange**<br />Hostname of Exchange server.
-   * **--preference**<br />Preference of the MX record
-   * **--service**<br />The symbolic name of the desired service, start with an underscore `_`.
-   * **--protocol**<br />The symbolic name of the desired protocol.
-   * **--port**<br />Port number of the target server.
-   * **--weight**<br />Weight of distributing queries among multiple target servers.
-   * **--priority**<br />Priority of the SRV record.
-   * **--target**<br />Hostname of the target server.
-   * **--ttl**<br />Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
-   * **-r, --record-content**<br />The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for -r, --record-content](#r-record-details) for more detail.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format, only JSON is supported.
+* **ZONE_ID**: The ID of the DNS zone.
+* **RECORD_ID**: The ID of the record.
+* **--name**: Resource record name.
+* **--type**: Resource record type.
+* **--ipv4**: IPv4 address.
+* **--ipv6**: IPv6 address.
+* **--cname**: Canonical name.
+* **--ptrdname**: Hostname of the relevant A or AAAA record.
+* **--text**: Human readable text.
+* **--exchange**: Hostname of Exchange server.
+* **--preference**: Preference of the MX record
+* **--service**: The symbolic name of the desired service, start with an underscore `_`.
+* **--protocol**: The symbolic name of the desired protocol.
+* **--port**: Port number of the target server.
+* **--weight**: Weight of distributing queries among multiple target servers.
+* **--priority**: Priority of the SRV record.
+* **--target**: Hostname of the target server.
+* **--ttl**: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
+* **-r, --record-content**: The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for -r, --record-content](#r-record-details) for more detail.
+* **-i, --instance INSTANCE**: Instance name or ID. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format, only JSON is supported.
 
 #### Required fields for -r, --record-content
 {: #r-record-details}
@@ -649,15 +635,15 @@ The required field in JSON data is **name**. Resource record name.
 PTR records _do not_ need this field.
 {: note}
 
-  * For type A, AAAA: Extra required fields are `rdata`.
+* For type A, AAAA: Extra required fields are `rdata`.
     * `rdata`: Content of the resource record.
-      * `ip`: IPv4/IPv6 address
-  * Extra option fields are `ttl`.
+        * `ip`: IPv4/IPv6 address
+* Extra option fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
              "name": "testA",
              "rdata": {
@@ -667,7 +653,7 @@ Sample JSON data:
 ```
 {: codeblock}
 
-```
+```sh
         {
             "name": "testAAAA",
             "rdata": {
@@ -677,15 +663,15 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type CNAME: Extra required fields are `rdata`.
-      * `rdata`: The content of type-PTR resource record.
-      * `cname`: Canonical name
-  * Extra option fields are `ttl`.
+* For type CNAME: Extra required fields are `rdata`.
+    * `rdata`: The content of type-PTR resource record.
+    * `cname`: Canonical name
+* Extra option fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "testCNAME",
             "rdata": {
@@ -695,27 +681,27 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type PTR: Extra option fields are `ttl`.
+* For type PTR: Extra option fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "ttl": 360,
         }
 ```
 {: codeblock}
 
-  * For type TXT: Extra required fields are `rdata`.
-      * `rdata`: The content of type-TXT resource record.
-      * `text`: Human readable text.
-  * Extra optional fields are `ttl`.
+* For type TXT: Extra required fields are `rdata`.
+    * `rdata`: The content of type-TXT resource record.
+    * `text`: Human readable text.
+* Extra optional fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "testTXT",
             "rdata": {
@@ -725,16 +711,16 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type MX: Extra required fields are `rdata`.
+* For type MX: Extra required fields are `rdata`.
     * `rdata`: The content of type-MX resource record.
-      * `exchange`: Hostname of Exchange server.
-      * `preference`: Preference of the MX record
-  * Extra optional fields are `ttl`.
+        * `exchange`: Hostname of Exchange server.
+        * `preference`: Preference of the MX record
+* Extra optional fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "testMX",
             "content": "smtp.example.com",
@@ -743,20 +729,20 @@ Sample JSON data:
 ```
 {: codeblock}
 
-  * For type SRV: Extra required fields are `rdata`, `service`, `protocol`.
+* For type SRV: Extra required fields are `rdata`, `service`, `protocol`.
     * `rdata`: The content of type-SRV resource record.
-      * `priority`: Priority of the SRV record
-      * `weight`: Weight of distributing queries among multiple target servers.
-      * `port`: Port number of the target server.
-      * `target`: Hostname of the target server.
+        * `priority`: Priority of the SRV record
+        * `weight`: Weight of distributing queries among multiple target servers.
+        * `port`: Port number of the target server.
+        * `target`: Hostname of the target server.
     * `service`: The symbolic name of the desired service, start with an underscore `_`.
     * `protocol`: The symbolic name of the desired protocol.
-  * Extra option fields are `ttl`.
+* Extra option fields are `ttl`.
     * `ttl`: Time to live, in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
-```
+```sh
         {
             "name": "testSRV"
             "rdata": {
@@ -777,17 +763,17 @@ Sample JSON data:
 
 Get a resource record details for a DNS zone.
 
-```
-   ibmcloud dns resource-record ZONE_ID RECORD_ID [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns resource-record ZONE_ID RECORD_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
-{: options-get-resource-records}
+{: #options-get-resource-records}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **RECORD_ID**<br />The ID of resource record.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **--output FORMAT**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **RECORD_ID**: The ID of resource record.
+* **-i, --instance INSTANCE**: Instance name or ID. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **--output FORMAT**: Specify output format. Currently, **json** is the only supported format.
 
 
 ## ibmcloud dns resource-record-delete
@@ -795,62 +781,60 @@ Get a resource record details for a DNS zone.
 
 Delete a resource record for a DNS zone.
 
-```
-   ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [-i, --instance INSTANCE] [-f,--force]
+```sh
+   ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [-i, --instance INSTANCE] [-f,--force]
 ```
 
 ### Command options
 {: #options-delete-resource-records}
   
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **RECORD_ID**<br />The ID of resource record.
-   * **-i, --instance INSTANCE**<br />Instance name or ID. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
-   * **-f, --force**<br />Delete resource record without prompting for confirmation.
-     
+* **ZONE_ID**: The ID of the DNS zone.
+* **RECORD_ID**: The ID of resource record.
+* **-i, --instance INSTANCE**: Instance name or ID. If the name is not set, the context instance specified by `ibmcloud dns instance-target` is used.
+* **-f, --force**<: Delete resource record without prompting for confirmation.
 
 ## ibmcloud dns resource-records
 {: #list-resource-record}
 
 List all resource records for a DNS zone.
 
-```
-   ibmcloud dns resource-records ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+   ibmcloud dns resource-records ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 
 ### Command options
 {: #options-list-resource-records}
 
-   * **ZONE_ID**<br />The ID of the DNS zone.
-   * **--page**<br />Page number of paginated results. (default 1)
-   * **--per-page**<br />Number of resource records per page. Min: 50. Max: 1000. (default 200)
-   * **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `ibmcloud instance-target INSTANCE` is used.
-   * **--output**<br />Specify output format. Currently, **json** is the only supported format.
+* **ZONE_ID**: The ID of the DNS zone.
+* **--page**: Page number of paginated results. (default 1)
+* **--per-page**: Number of resource records per page. Min: 50. Max: 1000. (default 200)
+* **-i, --instance**: Instance name or ID. If not set, the context instance specified by `ibmcloud instance-target INSTANCE` is used.
+* **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Command example  
 {: #list-resource-record-pagination}
 
 List resource records with pagination:
 
-  ```
-  ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
-  ```
-  {: pre}
+```sh
+ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
+```
 
 ### Command output
 {: #output-list-resource-records}
 
 Table columns:
 
-   * ID
-   * Name
-   * Type
-   * Rdata
-   * TTL
+* ID
+* Name
+* Type
+* Rdata
+* TTL
 
 ### Example command to list resource records with pagination
 {: #list-resource-rec-pagination-example}
 
- ```
+ ```sh
  ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
  ```
 {: pre}
@@ -860,7 +844,7 @@ Table columns:
 
 Import resource records from BIND zone file.
 
-```
+```sh
 ibmcloud dns resource-records-import DNS_ZONE_ID (--file FILE) [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
 ```
 {: pre}
@@ -868,17 +852,17 @@ ibmcloud dns resource-records-import DNS_ZONE_ID (--file FILE) [-i, --instance I
 ### Command options
 {: #import-resource-records-options}
 
-- **DNS_ZONE_ID**<br />The ID of DNS zone.
-- **--file**<br />BIND zone file to import. Support type: A, AAAA, CNAME, MX, PTR, SRV, TXT.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **DNS_ZONE_ID**: The ID of DNS zone.
+- **--file**: BIND zone file to import. Support type: A, AAAA, CNAME, MX, PTR, SRV, TXT.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #import-resource-records-examples}
 
 Import resource records from BIND zone file `dns_records.cfg` in zone `f1d596fc-7e86-4b99-b912-9508167e9e56` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns resource-records-import f1d596fc-7e86-4b99-b912-9508167e9e56 --file dns_records.cfg -i "dns-demo"
 ```
 {: pre}
@@ -888,7 +872,7 @@ ibmcloud dns resource-records-import f1d596fc-7e86-4b99-b912-9508167e9e56 --file
 
 Export resource records to BIND zone file.
 
-```
+```sh
 ibmcloud dns resource-records-export DNS_ZONE_ID [--file FILE] [-i, --instance INSTANCE_NAME | INSTANCE_ID] [--output FORMAT]
 ```
 {: pre}
@@ -896,17 +880,17 @@ ibmcloud dns resource-records-export DNS_ZONE_ID [--file FILE] [-i, --instance I
 ### Command options
 {: #export-resource-records-options}
 
-- **DNS_ZONE_ID**<br />The ID of DNS zone.
-- **--file**<br />The BIND zone file that saves the exported resource records.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **DNS_ZONE_ID**: The ID of DNS zone.
+- **--file**: The BIND zone file that saves the exported resource records.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #export-resource-records-examples}
 
 Export resource records in zone `f1d596fc-7e86-4b99-b912-9508167e9e56` to zone file `dns_records.cfg` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns resource-records-export f1d596fc-7e86-4b99-b912-9508167e9e56 --file dns_records.cfg -i "dns-demo"
 ```
 {: pre}
@@ -921,7 +905,7 @@ Manage global load balancers by using the following **glb** commands.
 
 Create a global load balancer in a zone.
 
-```
+```sh
 ibmcloud dns glb-create DNS_ZONE_ID --name NAME --default-pools POOL_LIST --fallback-pool POOL_ID [--description DESCRIPTION] [--enabled true|false] [--ttl TTL] [--az-pools AZPOOLS1 --az-pools AZPOOLS2] [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-create DNS_ZONE_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
@@ -931,21 +915,21 @@ ibmcloud dns glb-create DNS_ZONE_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, -
 ### Command options
 {: #create-glb-options}
 
-- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
-- **--json**<br />The JSON file or JSON string used to describe a global load balancer. Required.
-  - The required fields in JSON data are `name`, `fallback_pool`, `default_pools`:
-    - `name`: The DNS hostname to associate with your load balancer.
-    - `fallback_pool`: The pool ID to use when all other pools are detected as unhealthy.
-    - `default_pools`: A list of pool IDs ordered by their failover priority.
-  - The optional fields are `description`, `ttl`, `az_pools`, `enabled`:
-    - `description`: The descriptive text of the load balancer.
-    - `ttl`: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
-    - `az_pools`: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
-    - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`. The values `on`, `off` will be deprecated.
+- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
+- **--json**: The JSON file or JSON string used to describe a global load balancer. Required.
+    - The required fields in JSON data are `name`, `fallback_pool`, `default_pools`:
+      - `name`: The DNS hostname to associate with your load balancer.
+      - `fallback_pool`: The pool ID to use when all other pools are detected as unhealthy.
+      - `default_pools`: A list of pool IDs ordered by their failover priority.
+    - The optional fields are `description`, `ttl`, `az_pools`, `enabled`:
+      - `description`: The descriptive text of the load balancer.
+      - `ttl`: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
+      - `az_pools`: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
+      - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`. The values `on`, `off` will be deprecated.
 
 Sample JSON data:
 
-```
+```sh
 {
   "name": "glb01",
   "description": "Global load balancer 01",
@@ -971,13 +955,13 @@ Sample JSON data:
 ```
 {: codeblock}
 
-- **--name** The DNS hostname to associate with your load balancer.
-- **--fallback-pool** The pool ID to use when all other pools are detected as unhealthy.
-- **--default-pools** A list of pool IDs ordered by their failover priority.
-- **--description** The descriptive text of the load balancer.
-- **--ttl** Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
-- **--az-pools** A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
-- **--enabled** Whether the load balancer pool is enabled. Valid values: `true`, `false`.
+- **--name**: The DNS hostname to associate with your load balancer.
+- **--fallback-pool**: The pool ID to use when all other pools are detected as unhealthy.
+- **--default-pools**: A list of pool IDs ordered by their failover priority.
+- **--description**: The descriptive text of the load balancer.
+- **--ttl**: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
+- **--az-pools**: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
+- **--enabled**: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -986,7 +970,7 @@ Sample JSON data:
 
 Create a global load balancer in zone `demo.com:31984fea73a15b45779fa0df4ef62f9b`.
 
-```
+```sh
 ibmcloud dns glb-create demo.com:31984fea73a15b45779fa0df4ef62f9b --json @glb.json -i "dns-demo"
 ```
 {: pre}
@@ -996,7 +980,7 @@ ibmcloud dns glb-create demo.com:31984fea73a15b45779fa0df4ef62f9b --json @glb.js
 
 Update a global load balancer in a zone.
 
-```
+```sh
 ibmcloud dns glb-update DNS_ZONE_ID GLB_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-update DNS_ZONE_ID GLB_ID [--name NAME] [--default-pools POOL_LIST] [--fallback-pool POOL_ID] [--description DESCRIPTION] [--enabled true|false] [--ttl TTL] [--az-pools AZPOOLS1 --az-pools AZPOOLS2] [-i, --instance INSTANCE] [--output FORMAT]
@@ -1006,21 +990,21 @@ ibmcloud dns glb-update DNS_ZONE_ID GLB_ID [--name NAME] [--default-pools POOL_L
 ### Command options
 {: #update-glb-options}
 
-- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
-- **GLB_ID**<br />The ID of global load balancer. Required.
-- **--json**<br />The JSON file or JSON string used to describe a global load balancer. Required.
-  - The optional fields are `name`, `fallback_pool`, `default_pools`, `description`, `ttl`, `az_pools`, `enabled`:
-    - `name`: The DNS hostname to associate with your load balancer.
-    - `fallback_pool`: The pool ID to use when all other pools are detected as unhealthy.
-    - `default_pools`: A list of pool IDs ordered by their failover priority.
-    - `description`: The descriptive text of the load balancer.
-    - `ttl`: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
-    - `az_pools`: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
-    - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`. The values `on`, `off` will be deprecated.
+- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
+- **GLB_ID**: The ID of global load balancer. Required.
+- **--json**: The JSON file or JSON string used to describe a global load balancer. Required.
+    - The optional fields are `name`, `fallback_pool`, `default_pools`, `description`, `ttl`, `az_pools`, `enabled`:
+      - `name`: The DNS hostname to associate with your load balancer.
+      - `fallback_pool`: The pool ID to use when all other pools are detected as unhealthy.
+      - `default_pools`: A list of pool IDs ordered by their failover priority.
+      - `description`: The descriptive text of the load balancer.
+      - `ttl`: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
+      - `az_pools`: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
+      - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`. The values `on`, `off` will be deprecated.
 
 Sample JSON data:
 
-```
+```sh
 {
   "name": "glb01",
   "description": "Global load balancer 01",
@@ -1046,13 +1030,13 @@ Sample JSON data:
 ```
 {: codeblock}
 
-- **--name** The DNS hostname to associate with your load balancer.
-- **--fallback-pool** The pool ID to use when all other pools are detected as unhealthy.
-- **--default-pools** A list of pool IDs ordered by their failover priority.
-- **--description** The descriptive text of the load balancer.
-- **--ttl** Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
-- **--az-pools** A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
-- **--enabled** Whether the load balancer pool is enabled. Valid values: `true`, `false`.
+- **--name**: The DNS hostname to associate with your load balancer.
+- **--fallback-pool**: The pool ID to use when all other pools are detected as unhealthy.
+- **--default-pools**: A list of pool IDs ordered by their failover priority.
+- **--description**: The descriptive text of the load balancer.
+- **--ttl**: Time to live (TTL) of the DNS entry for the IP address returned by this load balancer.
+- **--az-pools**: A mapping of region and country codes to a list of pool IDs (ordered by their failover priority) for the region.
+- **--enabled**: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1061,7 +1045,7 @@ Sample JSON data:
 
 Update global load balancer `699d98642c564d2e855e9661899b7252` in zone `demo.com:31984fea73a15b45779fa0df4ef62f9b`.
 
-```
+```sh
 ibmcloud dns glb-update demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9661899b7252 --json @glb.json -i "dns-demo"
 ```
 {: pre}
@@ -1071,7 +1055,7 @@ ibmcloud dns glb-update demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d
 
 Show a global load balancer in a zone.
 
-```
+```sh
 ibmcloud dns glb DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1079,17 +1063,17 @@ ibmcloud dns glb DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE] [--output FORMAT
 ### Command options
 {: #show-glb-options}
 
-- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
-- **GLB_ID**<br />The ID of global load balancer. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
+- **GLB_ID**: The ID of global load balancer. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #show-glb-examples}
 
 Show global load balancer `699d98642c564d2e855e9661899b7252` in zone `demo.com:31984fea73a15b45779fa0df4ef62f9b`.
 
-```
+```sh
 ibmcloud dns glb demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9661899b7252 -i "dns-demo"
 ```
 {: pre}
@@ -1099,7 +1083,7 @@ ibmcloud dns glb demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9
 
 Delete a global load balancer in a DNS domain.
 
-```
+```sh
 ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE] [-f,--force]
 ```
 {: pre}
@@ -1107,17 +1091,17 @@ ibmcloud dns glb-delete DNS_DOMAIN_ID GLB_ID [-i, --instance INSTANCE] [-f,--for
 ### Command options
 {: #delete-glb-options}
 
-- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
-- **GLB_ID**<br />The ID of global load balancer. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **-f, --force**<br />Delete load balancer without prompting for confirmation.
+- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
+- **GLB_ID**: The ID of global load balancer. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**: Delete load balancer without prompting for confirmation.
 
 ### Examples
 {: #delete-glb-examples}
 
 Delete global load balancer `699d98642c564d2e855e9661899b7252` in zone `demo.com:31984fea73a15b45779fa0df4ef62f9b`.
 
-```
+```sh
 ibmcloud dns glb-delete demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9661899b7252 -f -i "dns-demo"
 ```
 {: pre}
@@ -1127,7 +1111,7 @@ ibmcloud dns glb-delete demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d
 
 List all load balancers for the zone.
 
-```
+```sh
 ibmcloud dns glbs DNS_ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1135,16 +1119,16 @@ ibmcloud dns glbs DNS_ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ### Command options
 {: #list-glb-options}
 
-- **DNS_DOMAIN_ID**<br />The ID of DNS zone. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **DNS_DOMAIN_ID**: The ID of DNS zone. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #list-glb-examples}
 
 List load balancers for zone `demo.com:31984fea73a15b45779fa0df4ef62f9b`.
 
-```
+```sh
 ibmcloud dns glbs demo.com:31984fea73a15b45779fa0df4ef62f9b -i "dns-demo"
 ```
 {: pre}
@@ -1154,7 +1138,7 @@ ibmcloud dns glbs demo.com:31984fea73a15b45779fa0df4ef62f9b -i "dns-demo"
 
 Create a GLB pool for a service instance.
 
-```
+```sh
 ibmcloud dns glb-pool-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-pool-create --name NAME --origins ORIGIN1 --origins ORIGIN2 [--description DESCRIPTION] [--enabled true|false] [--healthy-origins-threshold THRESHOLD] [--monitor MONITOR_ID] [--notification-channel CHANNEL] [--healthcheck-region REGION] [--healthcheck-subnets SUBNETS] [-i, --instance INSTANCE] [--output FORMAT]
@@ -1165,25 +1149,25 @@ ibmcloud dns glb-pool-create --name NAME --origins ORIGIN1 --origins ORIGIN2 [--
 ### Command options
 {: #create-glb-pool-options}
 
-- **--json**<br />The JSON file or JSON string used to describe a global load balancer pool. Required.
-  - The required fields in JSON data are `name`, `origins`:
-    - `name`: The name of the load balancer pool.
-    - `origins`: The list of origins within this pool.
-  - The optional fields are `description`, `healthy_origins_threshold`, `enabled`, `monitor`, `notification_channel`, `healthcheck_region`, `healthcheck_subnets`:
-    - `description`: The descriptive text of the load balancer pool.
-    - `healthy_origins_threshold`: The minimum number of origins that must be healthy for this pool to serve traffic.
-    - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
-    - `monitor`: The ID of the load balancer monitor to be associated to this pool.
-    - `notification_channel`: The notification channel.
-    - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
-    - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
+- **--json**: The JSON file or JSON string used to describe a global load balancer pool. Required.
+    - The required fields in JSON data are `name`, `origins`:
+        - `name`: The name of the load balancer pool.
+        - `origins`: The list of origins within this pool.
+    - The optional fields are `description`, `healthy_origins_threshold`, `enabled`, `monitor`, `notification_channel`, `healthcheck_region`, `healthcheck_subnets`:
+        - `description`: The descriptive text of the load balancer pool.
+        - `healthy_origins_threshold`: The minimum number of origins that must be healthy for this pool to serve traffic.
+        - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
+        - `monitor`: The ID of the load balancer monitor to be associated to this pool.
+        - `notification_channel`: The notification channel.
+        - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+        - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
 
-      When you create a pool by attaching a monitor, DNS Services takes one address from the health check subnet. Ensure this health check subnet has sufficient IP addresses available.
-      {: note}
+        When you create a pool by attaching a monitor, DNS Services takes one address from the health check subnet. Ensure this health check subnet has sufficient IP addresses available.
+        {: note}
 
 Sample JSON data:
 
-```
+```sh
 {
   "name": "us-pool",
   "description": "application server pool in US",
@@ -1211,15 +1195,14 @@ Sample JSON data:
 ```
 {: codeblock}
 
-- **--name** The name of the load balancer pool.
-- **--description** The descriptive text of the load balancer pool.
-- **--healthy-origins-threshold** The minimum number of origins that must be healthy for this pool to serve traffic.
-- **--enabled** Whether the load balancer pool is enabled. Valid values: `true`, `false`.
-- **--monitor** The ID of the load balancer monitor to be associated to this pool.
-- **--notification-channel** The notification channel.
-- **healthcheck-region** Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
-- **healthcheck-subnets** A list of health check subnet IDs of VSIs.
-
+- **--name**: The name of the load balancer pool.
+- **--description**: The descriptive text of the load balancer pool.
+- **--healthy-origins-threshold**: The minimum number of origins that must be healthy for this pool to serve traffic.
+- **--enabled**: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
+- **--monitor**: The ID of the load balancer monitor to be associated to this pool.
+- **--notification-channel**: The notification channel.
+- **healthcheck-region**: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+- **healthcheck-subnets**: A list of health check subnet IDs of VSIs.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1228,7 +1211,7 @@ Sample JSON data:
 
 Create a GLB pool for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns glb-pool-create --json @glb-pool.json -i "dns-demo"
 ```
 {: pre}
@@ -1238,34 +1221,32 @@ ibmcloud dns glb-pool-create --json @glb-pool.json -i "dns-demo"
 
 Update the details of a GLB pool.
 
-```
-
- ibmcloud dns glb-pool-update GLB_POOL_ID [--name NAME] [--enable-origin ORIGIN_NAME --enable-origin ORIGIN_NAME ...] [--disable-origin ORIGIN_NAME --disable-origin ORIGIN_NAME ...] [--add-origin ORIGIN_PARAMETER --add-origin ORIGIN_PARAMETER ...] [--remove-origin ORIGIN_NAME --remove-origin ORIGIN_NAME ...]  [--description DESCRIPTION] [--enabled true|false] [--healthy-origins-threshold THRESHOLD] [-detach-monitor] [--attach-monitor MONITOR_ID] [--healthcheck-region REGION] [--healthcheck-subnets SUBNETS] [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+ibmcloud dns glb-pool-update GLB_POOL_ID [--name NAME] [--enable-origin ORIGIN_NAME --enable-origin ORIGIN_NAME ...] [--disable-origin ORIGIN_NAME --disable-origin ORIGIN_NAME ...] [--add-origin ORIGIN_PARAMETER --add-origin ORIGIN_PARAMETER ...] [--remove-origin ORIGIN_NAME --remove-origin ORIGIN_NAME ...]  [--description DESCRIPTION] [--enabled true|false] [--healthy-origins-threshold THRESHOLD] [-detach-monitor] [--attach-monitor MONITOR_ID] [--healthcheck-region REGION] [--healthcheck-subnets SUBNETS] [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-pool-update GLB_POOL_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
-
 ```
 {: pre}
 
 ### Command options
 {: #update-glb-pool-options}
 
-- **GLB_POOL_ID**<br />The ID of global load balancer pool. Required.
-- **--json**<br />The JSON file or JSON string used to describe a GLB pool. Required.
-  - The optional fields are `name`, `origins`, `description`, `healthy_origins_threshold`, `enabled`, `monitor`, `notification_channel`, `healthcheck_region`, `healthcheck_subnets`:
-    - `name`: The name of the load balancer pool.
-    - `origins`: The list of origins within this pool.
-    - `description`: The descriptive text of the load balancer pool.
-    - `healthy_origins_threshold`: The minimum number of origins that must be healthy for this pool to serve traffic.
-    - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
-    - `monitor`: The ID of the load balancer monitor to be associated to this pool.
-    - `notification_channel`: The notification channel.
-    - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
-    - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
+- **GLB_POOL_ID**: The ID of global load balancer pool. Required.
+- **--json**: The JSON file or JSON string used to describe a GLB pool. Required.
+    - The optional fields are `name`, `origins`, `description`, `healthy_origins_threshold`, `enabled`, `monitor`, `notification_channel`, `healthcheck_region`, `healthcheck_subnets`:
+        - `name`: The name of the load balancer pool.
+        - `origins`: The list of origins within this pool.
+        - `description`: The descriptive text of the load balancer pool.
+        - `healthy_origins_threshold`: The minimum number of origins that must be healthy for this pool to serve traffic.
+        - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
+        - `monitor`: The ID of the load balancer monitor to be associated to this pool.
+        - `notification_channel`: The notification channel.
+        - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+        - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
 
 Sample JSON data:
 
-```
+```sh
 {
   "name": "us-pool",
   "description": "application server pool in US",
@@ -1293,19 +1274,19 @@ Sample JSON data:
 ```
 {: codeblock}
 
-- **--name** The name of the load balancer pool.
-- **--description** The descriptive text of the load balancer pool.
-- **--enable-origin** Enable the origin within the pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
-- **--disable-origin** Disable the origin within the pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
-- **--add-origin** Add an origin into the pool. ORIGIN_NAME and ORIGIN_ADDRESS are required.
-                   For example: `--add-origin name=example,address=1.2.3.4,enabled=true,description=origin_description`
-- **--remove-origin** Remove an origin from the Pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
-- **--detach-monitor** Detach monitor from origin pool.
-- **--attach-monitor** Attach monitor to origin pool.
-- **--healthy-origins-threshold** The minimum number of origins that must be healthy for this pool to serve traffic.
-- **--enabled** Whether the load balancer pool is enabled. Valid values: `true`, `false`.
-- **healthcheck-region** Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
-- **healthcheck-subnets** A list of health check subnet IDs of VSIs.
+- **--name**: The name of the load balancer pool.
+- **--description**: The descriptive text of the load balancer pool.
+- **--enable-origin**: Enable the origin within the pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
+- **--disable-origin**: Disable the origin within the pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
+- **--add-origin**: Add an origin into the pool. ORIGIN_NAME and ORIGIN_ADDRESS are required.
+    For example: `--add-origin name=example,address=1.2.3.4,enabled=true,description=origin_description`
+- **--remove-origin**: Remove an origin from the Pool. The value can be ORIGIN_NAME or ORIGIN_ADDRESS.
+- **--detach-monitor**: Detach monitor from origin pool.
+- **--attach-monitor**: Attach monitor to origin pool.
+- **--healthy-origins-threshold**: The minimum number of origins that must be healthy for this pool to serve traffic.
+- **--enabled**: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
+- **healthcheck-region**: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+- **healthcheck-subnets**: A list of health check subnet IDs of VSIs.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1314,7 +1295,7 @@ Sample JSON data:
 
 Update a GLB pool `17b5962d775c646f3f9725cbc7a53df4` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns glb-pool-update 17b5962d775c646f3f9725cbc7a53df4 --json @glb-pool.json -i "dns-demo"
 ```
 {: pre}
@@ -1324,7 +1305,7 @@ ibmcloud dns glb-pool-update 17b5962d775c646f3f9725cbc7a53df4 --json @glb-pool.j
 
 Show the details of a GLB pool.
 
-```
+```sh
 ibmcloud dns glb-pool GLB_POOL_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1332,16 +1313,16 @@ ibmcloud dns glb-pool GLB_POOL_ID [-i, --instance INSTANCE] [--output FORMAT]
 ### Command options
 {: #show-glb-pool-options}
 
-- **GLB_POOL_ID**<br />The ID of global load balancer pool. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **GLB_POOL_ID**: The ID of global load balancer pool. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #show-glb-pool-examples}
 
 Show the details of GLB pool `17b5962d775c646f3f9725cbc7a53df4`.
 
-```
+```sh
 ibmcloud dns glb-pool 17b5962d775c646f3f9725cbc7a53df4 -i "dns-demo"
 ```
 {: pre}
@@ -1351,7 +1332,7 @@ ibmcloud dns glb-pool 17b5962d775c646f3f9725cbc7a53df4 -i "dns-demo"
 
 Delete a GLB pool.
 
-```
+```sh
 ibmcloud dns glb-pool-delete GLB_POOL_ID [-i, --instance INSTANCE] [-f,--force]
 ```
 {: pre}
@@ -1359,16 +1340,16 @@ ibmcloud dns glb-pool-delete GLB_POOL_ID [-i, --instance INSTANCE] [-f,--force]
 ### Command options
 {: #delete-glb-pool-options}
 
-- **GLB_POOL_ID**<br />The ID of global load balancer pool. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **-f, --force**<br />Delete load balancer pool without prompting for confirmation.
+- **GLB_POOL_ID**: The ID of global load balancer pool. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**: Delete load balancer pool without prompting for confirmation.
 
 ### Examples
 {: #delete-glb-pool-examples}
 
 Delete GLB pool `17b5962d775c646f3f9725cbc7a53df4`.
 
-```
+```sh
 ibmcloud dns glb-pool-delete 17b5962d775c646f3f9725cbc7a53df4 -f -i "dns-demo"
 ```
 {: pre}
@@ -1378,7 +1359,7 @@ ibmcloud dns glb-pool-delete 17b5962d775c646f3f9725cbc7a53df4 -f -i "dns-demo"
 
 List all GLB pools for a service instance.
 
-```
+```sh
 ibmcloud dns glb-pools [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1386,15 +1367,15 @@ ibmcloud dns glb-pools [-i, --instance INSTANCE] [--output FORMAT]
 ### Command options
 {: #list-glb-pools-options}
 
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #list-glb-pools-examples}
 
 List all GLB pools for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns glb-pools -i "dns-demo"
 ```
 {: pre}
@@ -1404,45 +1385,44 @@ ibmcloud dns glb-pools -i "dns-demo"
 
 Create a GLB monitor for a service instance.
 
-```
+```sh
 ibmcloud dns glb-monitor-create (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-monitor-create --name NAME --type TCP [--port PORT] [--description DESCRIPTION] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-monitor-create --name NAME --type (HTTP|HTTPS) --path PATH [--port PORT] [--description DESCRIPTION] [--method GET|HEAD] [--headers HEADER1 --headers HEADER2...] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [--allow-insecure true|false] [--expected-body BODY] [--expected-codes CODE] [-i, --instance INSTANCE] [--output FORMAT]
-
 ```
 {: pre}
 
 ### Command options
 {: #create-glb-monitor-options}
 
-- **--json**<br />The JSON file or JSON string used to describe a GLB monitor. Required.
-   - The required fields in JSON data are `name`, `type`.
-     - `name`: The name of the load balancer monitor.
-     - `type`: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
-   - The optional fields are `description`, `timeout`, `retries`, `interval`.
-     - `description`: The descriptive text of the load balancer monitor.
-     - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
-     - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-     - `interval`: The interval between each health check. Valid values: `5-3600`.
-   - For `TCP` type health check. Extra required fields are `port`.
-     - `port`: The TCP port to use for the health check.
-   - For `HTTP/HTTPS` type health check. Extra required fields are `expected_codes`.
-     - `expected_codes`: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`.
-   - Extra option fields are `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
-     - `port`: The port number the health check connects to.
-     - `expected_body`: A case-insensitive sub-string to look for in the response body.
-     - `method`: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
-     - `path`: The endpoint path to health check against.
-     - `header`: The HTTP request headers to send in the health check.
-     - `allow_insecure`: Do not validate the certificate when monitor use HTTPS. Valid values: `true`, `false`.
+- **--json**: The JSON file or JSON string used to describe a GLB monitor. Required.
+    - The required fields in JSON data are `name`, `type`.
+        - `name`: The name of the load balancer monitor.
+        - `type`: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
+    - The optional fields are `description`, `timeout`, `retries`, `interval`.
+        - `description`: The descriptive text of the load balancer monitor.
+        - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
+        - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
+        - `interval`: The interval between each health check. Valid values: `5-3600`.
+    - For `TCP` type health check. Extra required fields are `port`.
+        - `port`: The TCP port to use for the health check.
+    - For `HTTP/HTTPS` type health check. Extra required fields are `expected_codes`.
+        - `expected_codes`: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`.
+    - Extra option fields are `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
+        - `port`: The port number the health check connects to.
+        - `expected_body`: A case-insensitive sub-string to look for in the response body.
+        - `method`: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
+        - `path`: The endpoint path to health check against.
+        - `header`: The HTTP request headers to send in the health check.
+        - `allow_insecure`: Do not validate the certificate when monitor use HTTPS. Valid values: `true`, `false`.
 
 Sample JSON data:
 
 For HTTP/HTTPS:
 
-```
+```sh
 {
   "name": "glbmonitor",
   "description": "Health monitor of web service",
@@ -1472,7 +1452,7 @@ For HTTP/HTTPS:
 
 For TCP:
 
-```
+```sh
 {
   "name": "glbmonitor",
   "description": "Health monitor of TCP",
@@ -1484,19 +1464,20 @@ For TCP:
 }
 ```
 {: codeblock}
-- **--name** The name of the load balancer monitor.
-- **--type** The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
-- **--description** The descriptive text of the load balancer monitor.
-- **--timeout** The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
-- **--retries** The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-- **--interval** The interval between each health check. Valid values: `5-3600`.
-- **--port** The port number the health check connects to.
-- **--expected-codes** The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
-- **--expected-body** A case-insensitive sub-string to look for in the response body.
-- **--method** The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
-- **--path** The endpoint path to health check against.
-- **--headers** The HTTP request headers to send in the health check.
-- **--allow-insecure** Do not validate the certificate when monitor uses HTTPS. Valid values: `on`, `off`.
+
+- **--name**: The name of the load balancer monitor.
+- **--type**: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
+- **--description**: The descriptive text of the load balancer monitor.
+- **--timeout**: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
+- **--retries**: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
+- **--interval**: The interval between each health check. Valid values: `5-3600`.
+- **--port**: The port number the health check connects to.
+- **--expected-codes**: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
+- **--expected-body**: A case-insensitive sub-string to look for in the response body.
+- **--method**: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
+- **--path**: The endpoint path to health check against.
+- **--headers**: The HTTP request headers to send in the health check.
+- **--allow-insecure**: Do not validate the certificate when monitor uses HTTPS. Valid values: `on`, `off`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1505,7 +1486,7 @@ For TCP:
 
 Create a GLB monitors in instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns glb-monitor-create --json @glb-monitor.json -i "dns-demo"
 ```
 {: pre}
@@ -1515,7 +1496,7 @@ ibmcloud dns glb-monitor-create --json @glb-monitor.json -i "dns-demo"
 
 Update a GLB monitor for a service instance.
 
-```
+```sh
 ibmcloud dns glb-monitor-update GLB_MON_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 
 ibmcloud dns glb-monitor-update GLB_MON_ID [--name NAME] [--type TCP] [--port PORT] [--description DESCRIPTION] [--interval INTERVAL] [--retries RETRY] [--timeout TIMEOUT] [-i, --instance INSTANCE] [--output FORMAT]
@@ -1527,31 +1508,31 @@ ibmcloud dns glb-monitor-update GLB_MON_ID [--name NAME] [--type HTTP|HTTPS] [--
 ### Command options
 {: #update-glb-monitor-options}
 
-- **GLB_MON_ID**<br />The ID of global load balancer monitor. Required.
-- **--json**<br />The JSON file or JSON string used to describe a GLB monitor. Required.
-   - The optional fields are `name`, `type`, `description`, `timeout`, `retries`, `interval`.
-     - `name`: The name of the load balancer monitor.
-     - `type`: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
-     - `description`: The descriptive text of the load balancer monitor.
-     - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
-     - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-     - `interval`: The interval between each health check. Valid values: `5-3600`.
-   - For `TCP` type health check. Extra option fields are `port`.
-     - `port`: The TCP port to use for the health check.
-   - For `HTTP/HTTPS` type health check. Extra option fields are `expected_codes`, `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
-     - `expected_codes`: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`.
-     - `port`: The port number the health check connects to.
-     - `expected_body`: A case-insensitive sub-string to look for in the response body.
-     - `method`: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
-     - `path`: The endpoint path to health check against.
-     - `header`: The HTTP request headers to send in the health check.
-     - `allow_insecure`: Do not validate the certificate when monitor use HTTPS. Valid values: `on`, `off`.
+- **GLB_MON_ID**: The ID of global load balancer monitor. Required.
+- **--json**: The JSON file or JSON string used to describe a GLB monitor. Required.
+    - The optional fields are `name`, `type`, `description`, `timeout`, `retries`, `interval`.
+        - `name`: The name of the load balancer monitor.
+        - `type`: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
+        - `description`: The descriptive text of the load balancer monitor.
+        - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
+        - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
+        - `interval`: The interval between each health check. Valid values: `5-3600`.
+    - For `TCP` type health check. Extra option fields are `port`.
+        - `port`: The TCP port to use for the health check.
+    - For `HTTP/HTTPS` type health check. Extra option fields are `expected_codes`, `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
+        - `expected_codes`: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`.
+        - `port`: The port number the health check connects to.
+        - `expected_body`: A case-insensitive sub-string to look for in the response body.
+        - `method`: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
+        - `path`: The endpoint path to health check against.
+        - `header`: The HTTP request headers to send in the health check.
+        - `allow_insecure`: Do not validate the certificate when monitor use HTTPS. Valid values: `on`, `off`.
 
 Sample JSON data:
 
 For HTTP/HTTPS:
 
-```
+```sh
 {
   "name": "glbmonitor",
   "description": "Health monitor of web service",
@@ -1581,7 +1562,7 @@ For HTTP/HTTPS:
 
 For TCP:
 
-```
+```sh
 {
   "name": "glbmonitor",
   "description": "Health monitor of TCP",
@@ -1594,19 +1575,19 @@ For TCP:
 ```
 {: codeblock}
 
-- **--name** The name of the load balancer monitor.
-- **--type** The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
-- **--description** The descriptive text of the load balancer monitor.
-- **--timeout** The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
-- **--retries** The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-- **--interval** The interval between each health check. Valid values: `5-3600`.
-- **--port** The port number the health check connects to.
-- **--expected-codes** The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
-- **--expected-body** A case-insensitive sub-string to look for in the response body.
-- **--method** The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
-- **--path** The endpoint path to health check against.
-- **--headers** The HTTP request headers to send in the health check.
-- **--allow-insecure** Do not validate the certificate when monitor uses HTTPS. Valid values: `on`, `off`.
+- **--name**: The name of the load balancer monitor.
+- **--type**: The protocol to use for the health check. Valid values: `HTTP`, `HTTPS`, `TCP`.
+- **--description**: The descriptive text of the load balancer monitor.
+- **--timeout**: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
+- **--retries**: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
+- **--interval**: The interval between each health check. Valid values: `5-3600`.
+- **--port**: The port number the health check connects to.
+- **--expected-codes**: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
+- **--expected-body**: A case-insensitive sub-string to look for in the response body.
+- **--method**: The method to use for the health check applicable to HTTP/HTTPS based checks. Valid values: `GET`, `HEAD`.
+- **--path**: The endpoint path to health check against.
+- **--headers**: The HTTP request headers to send in the health check.
+- **--allow-insecure**: Do not validate the certificate when monitor uses HTTPS. Valid values: `on`, `off`.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
 
@@ -1615,7 +1596,7 @@ For TCP:
 
 Update GLB monitors `f1aba936b94213e5b8dca0c0dbf1f9cc` in instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns glb-monitor-update f1aba936b94213e5b8dca0c0dbf1f9cc --json @glb-monitor.json -i "dns-demo"
 ```
 {: pre}
@@ -1625,7 +1606,7 @@ ibmcloud dns glb-monitor-update f1aba936b94213e5b8dca0c0dbf1f9cc --json @glb-mon
 
 Show the details of a LB monitor.
 
-```
+```sh
 ibmcloud dns glb-monitor GLB_MON_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1633,16 +1614,16 @@ ibmcloud dns glb-monitor GLB_MON_ID [-i, --instance INSTANCE] [--output FORMAT]
 ### Command options
 {: #show-glb-monitor-options}
 
-- **GLB_MON_ID**<br />The ID of global load balancer monitor. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **GLB_MON_ID**: The ID of global load balancer monitor. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #show-glb-monitor-examples}
 
 Show the details of GLB monitor `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
-```
+```sh
 ibmcloud dns glb-monitor f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 ```
 {: pre}
@@ -1653,7 +1634,7 @@ ibmcloud dns glb-monitor f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 
 Delete the GLB monitor for a service instance.
 
-```
+```sh
 ibmcloud dns glb-monitor-delete GLB_MON_ID [-i, --instance INSTANCE] [-f,--force]
 ```
 {: pre}
@@ -1661,16 +1642,16 @@ ibmcloud dns glb-monitor-delete GLB_MON_ID [-i, --instance INSTANCE] [-f,--force
 ### Command options
 {: #delete-glb-monitor-options}
 
-- **GLB_MON_ID**<br />The ID of global load balancer monitor. Required.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **-f, --force**<br />Delete load balancer monitor without prompting for confirmation.
+- **GLB_MON_ID**: The ID of global load balancer monitor. Required.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**: Delete load balancer monitor without prompting for confirmation.
 
 ### Examples
 {: #delete-glb-monitor-examples}
 
 Delete GLB monitor `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
-```
+```sh
 ibmcloud dns glb-monitor-delete f1aba936b94213e5b8dca0c0dbf1f9cc -f -i "dns-demo"
 ```
 {: pre}
@@ -1680,7 +1661,7 @@ ibmcloud dns glb-monitor-delete f1aba936b94213e5b8dca0c0dbf1f9cc -f -i "dns-demo
 
 List GLB monitors for a service instance.
 
-```
+```sh
 ibmcloud dns glb-monitors [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1688,20 +1669,20 @@ ibmcloud dns glb-monitors [-i, --instance INSTANCE] [--output FORMAT]
 ### Command options
 {: #list-glb-monitors-options}
 
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #list-glb-monitors-examples}
 
 List all GLB monitors for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns glb-monitors -i "dns-demo"
 ```
 {: pre}
 
-## Custom resolver (Beta)
+## Custom resolver
 {: #custom-resolver}
 
 Manage custom resolvers by using the following custom resolver commands.
@@ -1711,27 +1692,28 @@ Manage custom resolvers by using the following custom resolver commands.
 
 Create a custom resolver for a service instance.
 
-```
-ibmcloud dns custom-resolver-create --name NAME --location LOCATION1 --location LOCATION2 [-description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
+```sh
+ibmcloud dns custom-resolver-create --name NAME [--location LOCATION1] [--location LOCATION2] [-description DESCRIPTION] [-f, --force] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
 
 ### Command options
 {: #create-custom-resolver-options}
 
-- **-n, --name**<br />The name of the custom resolver.
-- **-d, --description**<br />The descriptive text of the custom resolver.
-- **--location**<br />The Locations on which the custom resolver will be running. The location subnet CRN is required.
-                      For example: `--location subnet1,enable  --location subnet2,disable`
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **-n, --name**: The name of the custom resolver.
+- **-d, --description**: The descriptive text of the custom resolver.
+- **-f, --force**: Allow creating custom resolver with fewer than 2 locations.
+- **--location**: The Locations on which the custom resolver will be running. The location subnet CRN is required.
+    For example: `--location subnet1,enable  --location subnet2,disable`
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #create-custom-resolver-examples}
 
 Create a custom resolver for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-create --name "example" --location crn:v1:bluemix:public:is:us-south-1:a/01652b251c3ae2787110a995d8db0135::subnet:0716-b49ef064-0f89-4fb1-8212-135b12568f04,enable --description "demo" -i "dns-demo"
 ```
 {: pre}
@@ -1741,7 +1723,7 @@ ibmcloud dns custom-resolver-create --name "example" --location crn:v1:bluemix:p
 
 Update a custom resolver for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-update RESOLVER_ID [--name NAME] [--enabled true|false] [--description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1749,19 +1731,19 @@ ibmcloud dns custom-resolver-update RESOLVER_ID [--name NAME] [--enabled true|fa
 ### Command options
 {: #update-custom-resolver-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **-n, --name**<br />The name of the custom resolver.
-- **-d, --description**<br />The descriptive text of the custom resolver.
-- **--enabled**<br />Whether to enable the custom resolver.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **-n, --name**: The name of the custom resolver.
+- **-d, --description**: The descriptive text of the custom resolver.
+- **--enabled**: Whether to enable the custom resolver.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #update-custom-resolver-examples}
 
 Update a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-update f1aba936b94213e5b8dca0c0dbf1f9cc --name "example" --enabled true -description "demo" -i "dns-demo"
 ```
 {: pre}
@@ -1771,7 +1753,7 @@ ibmcloud dns custom-resolver-update f1aba936b94213e5b8dca0c0dbf1f9cc --name "exa
 
 Get a custom resolver details for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver RESOLVER_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1779,16 +1761,16 @@ ibmcloud dns custom-resolver RESOLVER_ID [-i, --instance INSTANCE] [--output FOR
 ### Command options
 {: #get-custom-resolver-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #get-custom-resolver-examples}
 
 Get a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 ```
 {: pre}
@@ -1798,7 +1780,7 @@ ibmcloud dns custom-resolver f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 
 List custom resolvers for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolvers [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1806,15 +1788,15 @@ ibmcloud dns custom-resolvers [-i, --instance INSTANCE] [--output FORMAT]
 ### Command options
 {: #list-custom-resolvers-options}
 
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #list-custom-resolvers-examples}
 
 List custom resolvers for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolvers -i "dns-demo"
 ```
 {: pre}
@@ -1824,7 +1806,7 @@ ibmcloud dns custom-resolvers -i "dns-demo"
 
 Delete a custom resolver for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-delete RESOLVER_ID [-i, --instance INSTANCE] [-f, --force]
 ```
 {: pre}
@@ -1832,16 +1814,16 @@ ibmcloud dns custom-resolver-delete RESOLVER_ID [-i, --instance INSTANCE] [-f, -
 ### Command options
 {: #delete-custom-resolver-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **---f, --force**<br />Delete custom resolver without prompting for confirmation.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **---f, --force**: Delete custom resolver without prompting for confirmation.
 
 ### Examples
 {: #delete-custom-resolver-examples}
 
 Delete a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-delete f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 ```
 {: pre}
@@ -1851,7 +1833,7 @@ ibmcloud dns custom-resolver-delete f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-dem
 
 Add custom resolver location for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-location-add RESOLVER_ID --subnet SUBNET_CRN [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1859,18 +1841,18 @@ ibmcloud dns custom-resolver-location-add RESOLVER_ID --subnet SUBNET_CRN [--ena
 ### Command options
 {: #add-custom-resolver-location-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **--subnet**<br />The CRN of the subnet.
-- **--enabled**<br />Whether to enable the custom resolver location.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **--subnet**: The CRN of the subnet.
+- **--enabled**: Whether to enable the custom resolver location.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #add-custom-resolver-location-examples}
 
 Add a location in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-location-add f1aba936b94213e5b8dca0c0dbf1f9cc --subnet crn:v1:bluemix:public:is:us-south-1:a/01652b251c3ae2787110a995d8db0135::subnet:0716-b49ef064-0f89-4fb1-8212-135b12568f04 --enabled true -i "dns-demo"
 ```
 {: pre}
@@ -1880,7 +1862,7 @@ ibmcloud dns custom-resolver-location-add f1aba936b94213e5b8dca0c0dbf1f9cc --sub
 
 Update custom resolver location for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-location-update RESOLVER_ID LOCATION_ID [--subnet SUBNET_CRN] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1888,19 +1870,19 @@ ibmcloud dns custom-resolver-location-update RESOLVER_ID LOCATION_ID [--subnet S
 ### Command options
 {: #update-custom-resolver-location-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **LOCATION_ID**<br />The ID of custom resolver location.
-- **--subnet**<br />The CRN of the subnet.
-- **--enabled**<br />Whether to enable the custom resolver location.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **LOCATION_ID**: The ID of custom resolver location.
+- **--subnet**: The CRN of the subnet.
+- **--enabled**: Whether to enable the custom resolver location.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #update-custom-resolver-location-examples}
 
 Update location `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-location-update f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb --subnet crn:v1:bluemix:public:is:us-south-1:a/01652b251c3ae2787110a995d8db0135::subnet:0716-b49ef064-0f89-4fb1-8212-135b12568f04 --enabled true -i "dns-demo"
 ```
 {: pre}
@@ -1910,7 +1892,7 @@ ibmcloud dns custom-resolver-location-update f1aba936b94213e5b8dca0c0dbf1f9cc 9a
 
 Delete custom resolver location for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-location-delete RESOLVER_ID LOCATION_ID [-i, --instance INSTANCE] [-f, --force]
 ```
 {: pre}
@@ -1918,17 +1900,17 @@ ibmcloud dns custom-resolver-location-delete RESOLVER_ID LOCATION_ID [-i, --inst
 ### Command options
 {: #delete-custom-resolver-location-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **LOCATION_ID**<br />The ID of custom resolver location.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **---f, --force**<br />Delete custom resolver location without prompting for confirmation.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **LOCATION_ID**: The ID of custom resolver location.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **---f, --force**: Delete custom resolver location without prompting for confirmation.
 
 ### Examples
 {: #delete-custom-resolver-location-examples}
 
 Delete location `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-location-delete f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb -i "dns-demo"
 ```
 {: pre}
@@ -1938,7 +1920,7 @@ ibmcloud dns custom-resolver-location-delete f1aba936b94213e5b8dca0c0dbf1f9cc 9a
 
 Create a custom resolver forwarding rule for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule-create RESOLVER_ID --type TYPE --match HOSTNAME --dns-svcs IPs [--description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1946,20 +1928,20 @@ ibmcloud dns custom-resolver-forwarding-rule-create RESOLVER_ID --type TYPE --ma
 ### Command options
 {: #create-custom-resolver-forwarding-rule-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **-t, --type**<br />The type of the forwarding rule. Valid values: "zone".
-- **-d, --description**<br />The descriptive text of the custom resolver forwarding rule.
-- **--match**<br />The matching zone or hostname.
-- **--dns-svcs**<br />The upstream DNS servers will be forwarded to, for example: ip1,ip2
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **-t, --type**: The type of the forwarding rule. Valid values: "zone".
+- **-d, --description**: The descriptive text of the custom resolver forwarding rule.
+- **--match**: The matching zone or hostname.
+- **--dns-svcs**: The upstream DNS servers will be forwarded to, for example: ip1,ip2
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #create-custom-resolver-forwarding-rule-examples}
 
 Create a forwarding rule in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule-create f1aba936b94213e5b8dca0c0dbf1f9cc --type zone --match "example.com" --dns-svcs 192.168.0.1,192.168.0.2 --description "demo" -i "dns-demo"
 ```
 {: pre}
@@ -1969,7 +1951,7 @@ ibmcloud dns custom-resolver-forwarding-rule-create f1aba936b94213e5b8dca0c0dbf1
 
 Update a custom resolver forwarding rule for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule-update RESOLVER_ID RULE_ID [--match HOSTNAME] [--dns-svcs IPs] [--description DESCRIPTION] [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -1977,20 +1959,20 @@ ibmcloud dns custom-resolver-forwarding-rule-update RESOLVER_ID RULE_ID [--match
 ### Command options
 {: #update-custom-resolver-forwarding-rule-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **RULE_ID**<br />The ID of custom resolver forwarding rule.
-- **-d, --description**<br />The descriptive text of the custom resolver forwarding rule.
-- **--match**<br />The matching zone or hostname.
-- **--dns-svcs**<br />The upstream DNS servers will be forwarded to, for example: ip1,ip2
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **RULE_ID**: The ID of custom resolver forwarding rule.
+- **-d, --description**: The descriptive text of the custom resolver forwarding rule.
+- **--match**: The matching zone or hostname.
+- **--dns-svcs**: The upstream DNS servers will be forwarded to, for example: ip1,ip2
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #update-custom-resolver-forwarding-rule-examples}
 
 Update a forwarding rule `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule-update f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb --type zone --match "example.com" --dns-svcs 192.168.0.1,192.168.0.2 --description "demo" -i "dns-demo"
 ```
 {: pre}
@@ -2000,7 +1982,7 @@ ibmcloud dns custom-resolver-forwarding-rule-update f1aba936b94213e5b8dca0c0dbf1
 
 Get a custom resolver forwarding rule details for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule RESOLVER_ID RULE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -2008,17 +1990,17 @@ ibmcloud dns custom-resolver-forwarding-rule RESOLVER_ID RULE_ID [-i, --instance
 ### Command options
 {: #get-custom-resolver-forwarding-rule-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **RULE_ID**<br />The ID of custom resolver forwarding rule.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **RULE_ID**: The ID of custom resolver forwarding rule.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #get-custom-resolver-forwarding-rule-examples}
 
 Get a forwarding rule `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb -i "dns-demo"
 ```
 {: pre}
@@ -2028,7 +2010,7 @@ ibmcloud dns custom-resolver-forwarding-rule f1aba936b94213e5b8dca0c0dbf1f9cc 9a
 
 List custom resolver forwarding rules for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rules RESOLVER_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
 {: pre}
@@ -2036,16 +2018,16 @@ ibmcloud dns custom-resolver-forwarding-rules RESOLVER_ID [-i, --instance INSTAN
 ### Command options
 {: #list-custom-resolver-forwarding-rules-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **--output**<br />Specify output format. Currently, **json** is the only supported format.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **--output**: Specify output format. Currently, **json** is the only supported format.
 
 ### Examples
 {: #list-custom-resolver-forwarding-rules-examples}
 
 List forwarding rules in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rules f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 ```
 {: pre}
@@ -2055,7 +2037,7 @@ ibmcloud dns custom-resolver-forwarding-rules f1aba936b94213e5b8dca0c0dbf1f9cc -
 
 Delete a custom resolver forwarding rule for a service instance.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule-delete RESOLVER_ID RULE_ID [-i, --instance INSTANCE] [-f, --force]
 ```
 {: pre}
@@ -2063,17 +2045,17 @@ ibmcloud dns custom-resolver-forwarding-rule-delete RESOLVER_ID RULE_ID [-i, --i
 ### Command options
 {: #delete-custom-resolver-forwarding-rule-options}
 
-- **RESOLVER_ID**<br />The ID of custom resolver.
-- **RULE_ID**<br />The ID of custom resolver forwarding rule.
-- **-i, --instance**<br />Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
-- **-f, --force**<br />Delete custom resolver forwarding rule without prompting for confirmation.
+- **RESOLVER_ID**: The ID of custom resolver.
+- **RULE_ID**: The ID of custom resolver forwarding rule.
+- **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+- **-f, --force**: Delete custom resolver forwarding rule without prompting for confirmation.
 
 ### Examples
 {: #delete-custom-resolver-forwarding-rule-examples}
 
 Delete a forwarding rule `9a234ede-c2b6-4c39-bc27-d39ec139ecdb` in custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc` for instance `dns-demo`.
 
-```
+```sh
 ibmcloud dns custom-resolver-forwarding-rule-delete f1aba936b94213e5b8dca0c0dbf1f9cc 9a234ede-c2b6-4c39-bc27-d39ec139ecdb -i "dns-demo"
 ```
 {: pre}

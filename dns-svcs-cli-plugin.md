@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-10-19"
+  years: 2019, 2022
+lastupdated: "2022-04-12"
 
 keywords:
 
@@ -446,7 +446,7 @@ Resource record type. Valid values: `A`, `AAAA`, `CNAME`, `PTR`, `TXT`, `MX`, `S
 
 Sample JSON data:
 
-```sh
+```json
         {
              "name": "testA",
              "type": "A",
@@ -457,7 +457,7 @@ Sample JSON data:
 ```
 {: codeblock}
 
-```sh
+```json
         {
             "name": "testAAAA",
             "type": "AAAA",
@@ -477,7 +477,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "testCNAME",
             "type": "CNAME",
@@ -497,7 +497,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "1.2.3.4",
             "type": "PTR",
@@ -517,7 +517,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "testTXT",
             "type":"TXT",
@@ -539,7 +539,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
            "name": "testMX",
            "type": "MX",
@@ -565,7 +565,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "type": "SRV",
             "name": "testSRV",
@@ -643,7 +643,7 @@ PTR records _do not_ need this field.
 
 Sample JSON data:
 
-```sh
+```json
         {
              "name": "testA",
              "rdata": {
@@ -653,7 +653,7 @@ Sample JSON data:
 ```
 {: codeblock}
 
-```sh
+```json
         {
             "name": "testAAAA",
             "rdata": {
@@ -671,7 +671,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "testCNAME",
             "rdata": {
@@ -686,7 +686,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "ttl": 360,
         }
@@ -701,7 +701,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "testTXT",
             "rdata": {
@@ -720,7 +720,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "testMX",
             "content": "smtp.example.com",
@@ -742,7 +742,7 @@ Sample JSON data:
 
 Sample JSON data:
 
-```sh
+```json
         {
             "name": "testSRV"
             "rdata": {
@@ -929,7 +929,7 @@ ibmcloud dns glb-create DNS_ZONE_ID (-j, --json @JSON_FILE | JSON_STRING) [-i, -
 
 Sample JSON data:
 
-```sh
+```json
 {
   "name": "glb01",
   "description": "Global load balancer 01",
@@ -1004,7 +1004,7 @@ ibmcloud dns glb-update DNS_ZONE_ID GLB_ID [--name NAME] [--default-pools POOL_L
 
 Sample JSON data:
 
-```sh
+```json
 {
   "name": "glb01",
   "description": "Global load balancer 01",
@@ -1159,7 +1159,7 @@ ibmcloud dns glb-pool-create --name NAME --origins ORIGIN1 --origins ORIGIN2 [--
         - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
         - `monitor`: The ID of the load balancer monitor to be associated to this pool.
         - `notification_channel`: The notification channel.
-        - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+        - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`, `br-sao`, `ca-tor`.
         - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
 
         When you create a pool by attaching a monitor, DNS Services takes one address from the health check subnet. Ensure this health check subnet has sufficient IP addresses available.
@@ -1167,7 +1167,7 @@ ibmcloud dns glb-pool-create --name NAME --origins ORIGIN1 --origins ORIGIN2 [--
 
 Sample JSON data:
 
-```sh
+```json
 {
   "name": "us-pool",
   "description": "application server pool in US",
@@ -1241,12 +1241,12 @@ ibmcloud dns glb-pool-update GLB_POOL_ID (-j, --json @JSON_FILE | JSON_STRING) [
         - `enabled`: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
         - `monitor`: The ID of the load balancer monitor to be associated to this pool.
         - `notification_channel`: The notification channel.
-        - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+        - `healthcheck_region`: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`, `br-sao`, `ca-tor`.
         - `healthcheck_subnets`: A list of health check subnet IDs of VSIs.
 
 Sample JSON data:
 
-```sh
+```json
 {
   "name": "us-pool",
   "description": "application server pool in US",
@@ -1285,7 +1285,7 @@ Sample JSON data:
 - **--attach-monitor**: Attach monitor to origin pool.
 - **--healthy-origins-threshold**: The minimum number of origins that must be healthy for this pool to serve traffic.
 - **--enabled**: Whether the load balancer pool is enabled. Valid values: `true`, `false`.
-- **healthcheck-region**: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`.
+- **healthcheck-region**: Health check region of VSIs. Valid values: `us-south`, `us-east`, `eu-gb`, `eu-du`, `au-syd`, `jp-tok`, `br-sao`, `ca-tor`.
 - **healthcheck-subnets**: A list of health check subnet IDs of VSIs.
 - **-i, --instance**: Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 - **--output**: Specify output format. Currently, **json** is the only supported format.
@@ -1405,7 +1405,7 @@ ibmcloud dns glb-monitor-create --name NAME --type (HTTP|HTTPS) --path PATH [--p
         - `description`: The descriptive text of the load balancer monitor.
         - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
         - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-        - `interval`: The interval between each health check. Valid values: `5-3600`.
+        - `interval`: The interval between each health check. Valid values: `60-3600`.
     - For `TCP` type health check. Extra required fields are `port`.
         - `port`: The TCP port to use for the health check.
     - For `HTTP/HTTPS` type health check. Extra required fields are `expected_codes`.
@@ -1422,7 +1422,7 @@ Sample JSON data:
 
 For HTTP/HTTPS:
 
-```sh
+```json
 {
   "name": "glbmonitor",
   "description": "Health monitor of web service",
@@ -1470,7 +1470,7 @@ For TCP:
 - **--description**: The descriptive text of the load balancer monitor.
 - **--timeout**: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
 - **--retries**: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-- **--interval**: The interval between each health check. Valid values: `5-3600`.
+- **--interval**: The interval between each health check. Valid values: `60-3600`.
 - **--port**: The port number the health check connects to.
 - **--expected-codes**: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
 - **--expected-body**: A case-insensitive sub-string to look for in the response body.
@@ -1516,7 +1516,7 @@ ibmcloud dns glb-monitor-update GLB_MON_ID [--name NAME] [--type HTTP|HTTPS] [--
         - `description`: The descriptive text of the load balancer monitor.
         - `timeout`: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
         - `retries`: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-        - `interval`: The interval between each health check. Valid values: `5-3600`.
+        - `interval`: The interval between each health check. Valid values: `60-3600`.
     - For `TCP` type health check. Extra option fields are `port`.
         - `port`: The TCP port to use for the health check.
     - For `HTTP/HTTPS` type health check. Extra option fields are `expected_codes`, `port`, `expected_body`, `method`, `path`, `header`, `allow_insecure`.
@@ -1532,7 +1532,7 @@ Sample JSON data:
 
 For HTTP/HTTPS:
 
-```sh
+```json
 {
   "name": "glbmonitor",
   "description": "Health monitor of web service",
@@ -1580,7 +1580,7 @@ For TCP:
 - **--description**: The descriptive text of the load balancer monitor.
 - **--timeout**: The timeout (in seconds) before marking the health check as failed. Valid values: `1-10`.
 - **--retries**: The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Valid values: `0-3`.
-- **--interval**: The interval between each health check. Valid values: `5-3600`.
+- **--interval**: The interval between each health check. Valid values: `60-3600`.
 - **--port**: The port number the health check connects to.
 - **--expected-codes**: The expected HTTP response code or code range of the health check. Valid values: `200`, `201`, `202`, `203`, `204`, `205`, `206`, `207`, `208`, `226`, `2xx`
 - **--expected-body**: A case-insensitive sub-string to look for in the response body.

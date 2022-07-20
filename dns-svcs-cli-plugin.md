@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-15"
+lastupdated: "2022-06-29"
 
 keywords:
 
@@ -2564,10 +2564,206 @@ ibmcloud dns custom-resolver-forwarding-rule-delete f1aba936b94213e5b8dca0c0dbf1
 ```
 {: pre}
 
-## Cross account
+## Secondary zones
+ {: #secondary-zones}
+
+ Manage secondary zones by using the following secondary zone commands.
+
+ ### ibmcloud dns secondary-zone-create
+ {: #create-secondary-zone}
+
+ Create a secondary zone for given custom resolver.
+
+ ```sh
+ ibmcloud dns secondary-zone-create RESOLVER_ID --name NAME --transfer-from ADDRESS1,ADDRESS2 [--description DESCRIPTION] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
+ ```
+ {: pre}
+
+ #### Command options
+ {: #create-secondary-zone-options}
+
+ RESOLVER_ID
+ :   The ID of the custom resolver. Required.
+
+ --name value
+ :   The domain name of the secondary zone.
+
+ --transfer-from value
+ :   The source addresses of the secondary zone.
+
+ --description value
+ :   The description of the secondary zone.
+
+ --enabled value
+ :   Whether the secondary zone is enabled.
+
+ -i, --instance value
+ :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
+
+ --output value
+ :   Specify output format. Currently, `json` is the only supported format.
+
+ #### Examples
+ {: #create-secondary-zone-examples}
+
+ Create a secondary zone for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+
+ ```sh
+ ibmcloud dns secondary-zone-create f1aba936b94213e5b8dca0c0dbf1f9cc --name "test.com" --transfer-from 169.13.12.10 -i "dns-demo"
+ ```
+ {: pre}
+
+ ### ibmcloud dns secondary-zone-update
+ {: #update-secondary-zone}
+
+ Update a secondary zone.
+
+ ```sh
+ ibmcloud dns secondary-zone-update RESOLVER_ID SECONDARY_ZONE_ID [--transfer-from ADDRESS1,ADDRESS2] [--description DESCRIPTION] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
+ ```
+ {: pre}
+
+ #### Command options
+ {: #update-secondary-zone-options}
+
+ RESOLVER_ID
+ :   The ID of the custom resolver. Required.
+
+ SECONDARY_ZONE_ID
+ :   The ID of the secondary zone. Required.
+
+ --transfer-from value
+ :   The source addresses of the secondary zone.
+
+ --description value
+ :   The description of the secondary zone.
+
+ --enabled value
+ :   Whether the secondary zone is enabled.
+
+ -i, --instance value
+ :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
+
+ --output value
+ :   Specify output format. Currently, `json` is the only supported format.
+
+ #### Examples
+ {: #update-secondary-zone-examples}
+
+ Update a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+
+ ```sh
+ ibmcloud dns secondary-zone-update f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee --transfer-from 169.13.12.10:53 -i "dns-demo"
+ ```
+ {: pre}
+
+ ### ibmcloud dns secondary-zone
+ {: #secondary-zone}
+
+ Get the details of a secondary zone.
+
+ ```sh
+ ibmcloud dns secondary-zone RESOLVER_ID SECONDARY_ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+ ```
+ {: pre}
+
+ #### Command options
+ {: #get-secondary-zone-options}
+
+ RESOLVER_ID
+ :   The ID of the custom resolver. Required.
+
+ SECONDARY_ZONE_ID
+ :   The ID of the secondary zone. Required.
+
+ -i, --instance value
+ :   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+
+ --output value
+ :   Specify output format. Currently, `json` is the only supported format.
+
+ #### Examples
+ {: #get-custom-resolver-examples}
+
+ Get a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+
+ ```sh
+ ibmcloud dns secondary-zone f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee -i "dns-demo"
+ ```
+ {: pre}
+
+ ### ibmcloud dns secondary-zones
+ {: #list-secondary-zones}
+
+ List all secondary zones.
+
+ ```sh
+ ibmcloud dns secondary-zones RESOLVER_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+ ```
+ {: pre}
+
+ #### Command options
+ {: #list-secondary-zones-options}
+
+ RESOLVER_ID
+ :   The ID of the custom resolver. Required.
+
+ -i, --instance value
+ :   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+
+ --output value
+ :   Specify output format. Currently, `json` is the only supported format.
+
+ #### Examples
+ {: #list-custom-resolver-examples}
+
+ List all secondary zones for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+
+ ```sh
+ ibmcloud dns secondary-zones f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
+ ```
+ {: pre}   
+
+
+ ### ibmcloud dns secondary-zone-delete
+ {: #secondary-zone-delete}
+
+ Delete a secondary zone.
+
+ ```sh
+ ibmcloud dns secondary-zone-delete RESOLVER_ID SECONDARY_ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+ ```
+ {: pre}
+
+ #### Command options
+ {: #delete-secondary-zone-options}
+
+ RESOLVER_ID
+ :   The ID of the custom resolver. Required.
+
+ SECONDARY_ZONE_ID
+ :   The ID of the secondary zone. Required.
+
+ -i, --instance value
+ :   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+
+ --output value
+ :   Specify output format. Currently, `json` is the only supported format.
+
+ #### Examples
+ {: #delete-custom-resolver-examples}
+
+ Delete a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+
+ ```sh
+ ibmcloud dns secondary-zone-delete f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee -i "dns-demo"
+ ```
+ {: pre}   
+
+## Cross-account access
 {: #cross-account}
 
-Manage cross accounts by using the following cross account commands.
+Manage cross accounts by using the following cross-account access commands.
 
 ### ibmcloud dns cross-account linked-zone-create
 {: #create-linked-zone}
@@ -2583,13 +2779,13 @@ ibmcloud dns cross-account linked-zone-create --owner-instance-id OWNER_INSTANCE
 {: #create-linked-zone-options}
 
 --owner-instance-id value
-:   The ID of owner's instance.
+:   The ID of the owner's instance.
 
 --owner-zone-id value
-:   The ID of owner's zone.
+:   The ID of the owner's zone.
 
 --label value
-:   The label of linked zone.
+:   The label of the linked zone.
 
 --description value
 :    The description of the linked zone.
@@ -2622,10 +2818,10 @@ ibmcloud dns cross-account linked-zone-update LINKED_ZONE_ID [--label LABEL] [--
 {: #update-linked-zone-options}
 
 LINKED_ZONE_ID
-:   The ID of linked zone.
+:   The ID of the linked zone.
 
 --label value
-:   The label of linked zone.
+:   The label of the linked zone.
 
 --description value
 :   The description of the linked zone.
@@ -2685,7 +2881,7 @@ ibmcloud dns cross-account linked-zone LINKED_ZONE_ID [-i, --instance INSTANCE] 
 {: #get-linked-zone-options}
 
 LINKED_ZONE_ID
-:   The ID of linked zone.
+:   The ID of the linked zone.
 
 -i, --instance value
 :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
@@ -2715,7 +2911,7 @@ ibmcloud dns cross-account linked-zone-delete LINKED_ZONE_ID [-i, --instance INS
 {: #delete-linked-zone-options}
 
 LINKED_ZONE_ID
-:   The ID of linked zone.
+:   The ID of the linked zone.
 
 -i, --instance value
 :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
@@ -2750,7 +2946,7 @@ LINKED_ZONE_ID
 :   The permitted network type. Valid values: `vpc`.
 
 --vpc-crn value
-:   The CRN of VPC instance 
+:   The CRN of VPC instance.
 
 -i, --instance value
 :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
@@ -2862,7 +3058,7 @@ ibmcloud dns cross-account linked-zone-permitted-networks 5365b73c-ce6f-4d6f-ad9
 ### ibmcloud dns cross-account access-request-update
 {: #update-access-request}
 
-Update the state of an access request
+Update the state of an access request.
 
 ```sh
    ibmcloud dns cross-account access-request-update ZONE_ID REQUEST_ID --action ACTION [-i, --instance INSTANCE] [--output FORMAT]
@@ -2872,10 +3068,10 @@ Update the state of an access request
 {: #options-update-access-request}
 
 ZONE_ID
-:   The ID of the owner zone.
+:   The ID of the owner's zone.
 
 REQUEST_ID
-:   The ID of access request.
+:   The ID of the access request.
 
 --action value
 :   The action applies to the access request. Valid values: "APPROVE", "REJECT", "REVOKE".
@@ -2907,10 +3103,10 @@ Get details of an access request.
 {: #options-get-access-request}
 
 ZONE_ID
-:   The ID of the owner zone.
+:   The ID of the owner's zone.
 
 REQUEST_ID
-:   The ID of access request.
+:   The ID of the access request.
 
 -i, --instance value
 :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.
@@ -2929,7 +3125,7 @@ ibmcloud dns cross-account access-request 05855abe-3908-4cdc-bf0d-063e0b1c296d 9
 ### ibmcloud dns cross-account access-requests
 {: #list-access-request}
 
-List access requests in owner's instance
+List access requests in the owner's instance.
 
 ```sh
    ibmcloud dns cross-account access-requests ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
@@ -2940,7 +3136,7 @@ List access requests in owner's instance
 {: #options-list-access-requests}
 
 ZONE_ID
-:   The ID of the owner zone.
+:   The ID of the owner's zone.
 
 -i, --instance value
 :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target` is used.

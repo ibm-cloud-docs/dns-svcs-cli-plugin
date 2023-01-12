@@ -54,7 +54,7 @@ Complete these steps to use the {{site.data.keyword.dns_short}} CLI, which is im
 
 Manage DNS Services instances by using the following `instance` commands.
 
-### ibmcloud dns instances
+### `ibmcloud dns instances`
 {: #list-dns-services-instances}
 
 List all DNS Services instances.
@@ -62,6 +62,7 @@ List all DNS Services instances.
 ```sh
    ibmcloud dns instances [--output FORMAT]
 ```
+{: pre}
 
 #### Command option
 {: #command-options-list-dns-services-instances}
@@ -69,7 +70,7 @@ List all DNS Services instances.
 --output
 :   Specify output format. Currently, `json` is the only supported format.
 
-### ibmcloud dns instance-target
+### `ibmcloud dns instance-target`
 {: #set-context-DNS-service-instance}
 
 Set context service instance to operate.
@@ -77,6 +78,7 @@ Set context service instance to operate.
 ```sh
    ibmcloud dns instance-target [INSTANCE] [--unset]
 ```
+{: pre}
 
 #### Command options
 {: #command-options-set-context-dns-service-instance}
@@ -88,7 +90,7 @@ INSTANCE
 :   Unset context instance.
 
 
-### ibmcloud dns instance-create
+### `ibmcloud dns instance-create`
 {: #create-DNS-services-instance}
 
 Create a DNS Services instance.
@@ -100,6 +102,7 @@ Create a DNS Services instance.
 ```sh
    ibmcloud dns instance-create INSTANCE_NAME PLAN [-g, --resource-group RESOURCE_GROUP] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #command-options-create-dns-svcs-instance}
@@ -116,7 +119,7 @@ PLAN
 --output
 :   Specify output format. Currently, `json` is the only supported format.
 
-### ibmcloud dns instance-update
+### `ibmcloud dns instance-update`
 {: #update-DNS-services-instance}
 
 Update a DNS Services instance.
@@ -124,6 +127,7 @@ Update a DNS Services instance.
 ```sh
    ibmcloud dns instance-update INSTANCE [--name NAME] [--plan PLAN] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #command-options-update-dns-svcs-instance}
@@ -141,7 +145,7 @@ INSTANCE
 :   Specify output format. Currently, `json` is the only supported format.
 
 
-### ibmcloud dns instance-delete
+### `ibmcloud dns instance-delete`
 {: #delete-DNS-services-instance}
 
 Delete a DNS Services instance.
@@ -149,6 +153,7 @@ Delete a DNS Services instance.
 ```sh
    ibmcloud dns instance-delete INSTANCE [--force] 
 ```
+{: pre}
 
 #### Command options
 {: #command-options-delete-dns-svcs-instance}
@@ -160,7 +165,7 @@ INSTANCE
 :   Delete an instance without prompting for confirmation.
 
 
-### ibmcloud dns instance
+### `ibmcloud dns instance`
 {: #get-DNS-service-instance}
 
 Show details of a DNS Services instance.
@@ -168,6 +173,7 @@ Show details of a DNS Services instance.
 ```sh
    ibmcloud dns instance INSTANCE [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #command-options-get-dns-svcs-instance}
@@ -179,7 +185,7 @@ INSTANCE
 :   Specify output format, only JSON is supported.
 
 
-### ibmcloud dns plans
+### `ibmcloud dns plans`
 {: #list-DNS-services-plans}
 
 List all DNS Services instances.
@@ -187,13 +193,14 @@ List all DNS Services instances.
 ```sh
    ibmcloud dns plans
 ```
+{: pre}
 
 ## Zones
 {: #zone}
 
 Manage DNS zones by using the following `zone` commands.
 
-### ibmcloud dns zone-create
+### `ibmcloud dns zone-create`
 {: #create-zone}
 
 Create a DNS zone.
@@ -201,6 +208,7 @@ Create a DNS zone.
 ```sh
    ibmcloud dns zone-create ZONE_NAME [-d, --description DESC] [-l, --label LABEL] [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-create-dns-svcs-zone}
@@ -220,19 +228,7 @@ ZONE_NAME
 --output FORMAT
 :   Specify output format. Currently, `json` is the only supported format.
 
-#### Command output
-{: #output-create-dns-svcs-zone}
-
-* ID                     
-* Created On         
-* Modified On
-* Instance ID  
-* Name                   
-* Description
-* State                
-* Label        
-
-### ibmcloud dns zone
+### `ibmcloud dns zone`
 {: #get-zone}
 
 Get the DNS zone details.
@@ -240,6 +236,7 @@ Get the DNS zone details.
 ```sh
    ibmcloud dns zone ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-get-zone}
@@ -252,20 +249,8 @@ ZONE_ID
 
 --output FORMAT
 :   Specify output format. Currently, `json` is the only supported format.
-
-#### Command output
-{: #output-get-zone}
-
-* ID                     
-* Created On         
-* Modified On
-* Instance ID  
-* Name                   
-* Description
-* State                
-* Label     
   
-### ibmcloud dns zone-update
+### `ibmcloud dns zone-update`
 {: #update-zone}
 
 Update a DNS zone's description and label.
@@ -273,6 +258,7 @@ Update a DNS zone's description and label.
 ```sh
    ibmcloud dns zone-update ZONE_ID [-d, --description DESC] [-l, --label LABEL] [--instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-update-zone}
@@ -292,19 +278,7 @@ ZONE_ID
 --output FORMAT
 :   Specify output format. Currently, `json` is the only supported format.
 
-#### Command output
-{: #output-update-zone}
-
-* ID                     
-* Created On         
-* Modified On
-* Instance ID  
-* Name                   
-* Description
-* State                
-* Label    
-
-### ibmcloud dns zone-delete
+### `ibmcloud dns zone-delete`
 {: #delete-zone}
 
 Delete a DNS zone.
@@ -312,6 +286,7 @@ Delete a DNS zone.
 ```sh
    ibmcloud dns zone-delete ZONE_ID [-i, --instance INSTANCE] [-f,--force]
 ```
+{: pre}
 
 #### Command options
 {: #options-delete-zone}
@@ -325,7 +300,7 @@ ZONE_ID
 -f, --force
 :   Delete a zone without prompting for confirmation.
 
-### ibmcloud dns zones
+### `ibmcloud dns zones`
 {: #list-zones}
 
 List all DNS zones for a service instance.
@@ -333,6 +308,7 @@ List all DNS zones for a service instance.
 ```sh
    ibmcloud dns zones [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-list-zones}
@@ -348,7 +324,7 @@ List all DNS zones for a service instance.
 
 Manage permitted networks by using the following `permitted-network` commands.
 
-### ibmcloud dns permitted-network-add
+### `ibmcloud dns permitted-network-add`
 {: #add-permitted-network}
 
 Add a permitted network for a DNS zone.
@@ -356,6 +332,7 @@ Add a permitted network for a DNS zone.
 ```sh
    ibmcloud dns permitted-network-add ZONE_ID --vpc-crn VPC_CRN [--type TYPE] [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-add-permitted-network}
@@ -375,16 +352,7 @@ ZONE_ID
 --output FORMAT
 :   Specify output format. Currently, `json` is the only supported format.
 
-#### Command output
-{: #output-add-permitted-network}
-
-* ID                     
-* Created On         
-* Modified On
-* Permitted Network data  
-* Type    
-
-### ibmcloud dns permitted-network
+### `ibmcloud dns permitted-network`
 {: #get-permitted-network}
 
 Get the permitted network details.
@@ -392,6 +360,7 @@ Get the permitted network details.
 ```sh
    ibmcloud dns permitted-network ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-get-permitted-network}
@@ -408,17 +377,8 @@ PERMITTED_NETWORK_ID
 --output FORMAT
 :   Specify output format. Currently, `json` is the only supported format.
 
-#### Command output
-{: #output-get-permitted-network}
 
-* ID                     
-* Created On         
-* Modified On
-* Permitted Network data  
-* Type    
-  
-
-### ibmcloud dns permitted-network-remove
+### `ibmcloud dns permitted-network-remove`
 {: #Remove-permitted-network}
 
 Remove a permitted network.
@@ -426,6 +386,7 @@ Remove a permitted network.
 ```sh
    ibmcloud dns permitted-network-remove ZONE_ID PERMITTED_NETWORK_ID [-i, --instance INSTANCE] [-f,--force]
 ```
+{: pre}
 
 #### Command options
 {: #options-remove-permitted-network}
@@ -443,7 +404,7 @@ PERMITTED_NETWORK_ID
 :   Remove a permitted network without prompting for confirmation.
 
 
-### ibmcloud dns permitted-networks
+### `ibmcloud dns permitted-networks`
 {: #list-permitted-networks}
 
 List permitted networks for a zone.
@@ -451,6 +412,7 @@ List permitted networks for a zone.
 ```sh
    ibmcloud dns permitted-networks ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-list-permitted-networks}
@@ -469,7 +431,7 @@ ZONE_ID
 
 Manage how the resource record performs using the following `resource-record` commands.
 
-### ibmcloud dns resource-record-create
+### `ibmcloud dns resource-record-create`
 {: #create-resource-record}
 
 Create a resource record for a DNS zone.
@@ -564,7 +526,7 @@ Resource record type. Valid values: `A`, `AAAA`, `CNAME`, `PTR`, `TXT`, `MX`, `S
     * `rdata`: Content of the resource record.
       * `ip`: IPv4/IPv6 address
 *  Extra optional fields are `ttl`.
-    * `ttl`: Time to live in second. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
+    * `ttl`: Time to live in seconds. Default value is `900`.  Valid values: `60`, `120`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `18000`, `43200`.
 
 Sample JSON data:
 
@@ -703,7 +665,7 @@ Sample JSON data:
 ```
 {: codeblock}
 
-### ibmcloud dns resource-record-update
+### `ibmcloud dns resource-record-update`
 {: #update-resource-record}
 
 Update a resource record for a DNS zone.
@@ -712,6 +674,7 @@ Update a resource record for a DNS zone.
 ```sh
    dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID (-r, --record-content @JSON_FILE | JSON_STRING) [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 ```sh
    ibmcloud dns resource-record-update DNS_ZONE_ID RESOURCE_RECORD_ID --name NAME --ipv4 IP_ADDRESS [--ttl TTL]
@@ -921,7 +884,7 @@ Sample JSON data:
 {: codeblock}
 
 
-### ibmcloud dns resource-record
+### `ibmcloud dns resource-record`
 {: #get-resource-record}
 
 Get a resource record details for a DNS zone.
@@ -929,6 +892,7 @@ Get a resource record details for a DNS zone.
 ```sh
    ibmcloud dns resource-record ZONE_ID RECORD_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-get-resource-records}
@@ -945,7 +909,7 @@ RECORD_ID
 --output FORMAT
 :   Specify output format. Currently, `json` is the only supported format.
 
-### ibmcloud dns resource-record-delete
+### `ibmcloud dns resource-record-delete`
 {: #delete-resource-record}
 
 Delete a resource record for a DNS zone.
@@ -953,6 +917,7 @@ Delete a resource record for a DNS zone.
 ```sh
    ibmcloud dns resource-record-delete ZONE_ID RECORD_ID [-i, --instance INSTANCE] [-f,--force]
 ```
+{: pre}
 
 #### Command options
 {: #options-delete-resource-records}
@@ -969,7 +934,7 @@ RECORD_ID
 -f, --force
 :   Delete resource record without prompting for confirmation.
 
-### ibmcloud dns resource-records
+### `ibmcloud dns resource-records`
 {: #list-resource-record}
 
 List all resource records for a DNS zone.
@@ -977,6 +942,7 @@ List all resource records for a DNS zone.
 ```sh
    ibmcloud dns resource-records ZONE_ID [-i, --instance INSTANCE] [--output FORMAT]
 ```
+{: pre}
 
 #### Command options
 {: #options-list-resource-records}
@@ -1004,17 +970,7 @@ List resource records with pagination:
 ```sh
 ibmcloud dns resource-records ZONE_ID --per-page 1000 --page 1
 ```
-
-#### Command output
-{: #output-list-resource-records}
-
-Table columns:
-
-* ID
-* Name
-* Type
-* Rdata
-* TTL
+{: pre}
 
 #### Example command to list resource records with pagination
 {: #list-resource-rec-pagination-example}
@@ -1024,7 +980,7 @@ Table columns:
  ```
 {: pre}
 
-### ibmcloud dns resource-records-import
+### `ibmcloud dns resource-records-import`
 {: #import-resource-records}
 
 Import resource records from BIND zone file.
@@ -1059,7 +1015,7 @@ ibmcloud dns resource-records-import f1d596fc-7e86-4b99-b912-9508167e9e56 --file
 ```
 {: pre}
 
-### ibmcloud dns resource-records-export
+### `ibmcloud dns resource-records-export`
 {: #export-resource-records}
 
 Export resource records to BIND zone file.
@@ -1099,7 +1055,7 @@ ibmcloud dns resource-records-export f1d596fc-7e86-4b99-b912-9508167e9e56 --file
 
 Manage global load balancers by using the following `glb` commands.
 
-### ibmcloud dns glb-create
+### `ibmcloud dns glb-create`
 {: #create-glb}
 
 Create a global load balancer in a zone.
@@ -1194,7 +1150,7 @@ ibmcloud dns glb-create demo.com:31984fea73a15b45779fa0df4ef62f9b --json @glb.js
 ```
 {: pre}
 
-### ibmcloud dns glb-update
+### `ibmcloud dns glb-update`
 {: #update-glb}
 
 Update a global load balancer in a zone.
@@ -1291,7 +1247,7 @@ ibmcloud dns glb-update demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d
 ```
 {: pre}
 
-### ibmcloud dns glb
+### `ibmcloud dns glb`
 {: #show-glb}
 
 Show a global load balancer in a zone.
@@ -1326,7 +1282,7 @@ ibmcloud dns glb demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d2e855e9
 ```
 {: pre}
 
-### ibmcloud dns glb-delete
+### `ibmcloud dns glb-delete`
 {: #delete-glb}
 
 Delete a global load balancer in a DNS domain.
@@ -1361,7 +1317,7 @@ ibmcloud dns glb-delete demo.com:31984fea73a15b45779fa0df4ef62f9b 699d98642c564d
 ```
 {: pre}
 
-### ibmcloud dns glbs
+### `ibmcloud dns glbs`
 {: #list-glb}
 
 List all load balancers for the zone.
@@ -1393,7 +1349,7 @@ ibmcloud dns glbs demo.com:31984fea73a15b45779fa0df4ef62f9b -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns glb-pool-create
+### `ibmcloud dns glb-pool-create`
 {: #create-glb-pool}
 
 Create a GLB pool for a service instance.
@@ -1496,7 +1452,7 @@ ibmcloud dns glb-pool-create --json @glb-pool.json -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns glb-pool-update
+### `ibmcloud dns glb-pool-update`
 {: #update-glb-pool}
 
 Update the details of a GLB pool.
@@ -1610,7 +1566,7 @@ ibmcloud dns glb-pool-update 17b5962d775c646f3f9725cbc7a53df4 --json @glb-pool.j
 ```
 {: pre}
 
-### ibmcloud dns glb-pool
+### `ibmcloud dns glb-pool`
 {: #show-glb-pool}
 
 Show the details of a GLB pool.
@@ -1642,7 +1598,7 @@ ibmcloud dns glb-pool 17b5962d775c646f3f9725cbc7a53df4 -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns glb-pool-delete
+### `ibmcloud dns glb-pool-delete`
 {: #delete-glb-pool}
 
 Delete a GLB pool.
@@ -1674,7 +1630,7 @@ ibmcloud dns glb-pool-delete 17b5962d775c646f3f9725cbc7a53df4 -f -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns glb-pools
+### `ibmcloud dns glb-pools`
 {: #list-glb-pools}
 
 List all GLB pools for a service instance.
@@ -1703,7 +1659,7 @@ ibmcloud dns glb-pools -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns glb-monitor-create
+### `ibmcloud dns glb-monitor-create`
 {: #create-glb-monitor}
 
 Create a GLB monitor for a service instance.
@@ -1844,7 +1800,7 @@ ibmcloud dns glb-monitor-create --json @glb-monitor.json -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns glb-monitor-update
+### `ibmcloud dns glb-monitor-update`
 {: #update-glb-monitor}
 
 Update a GLB monitor for a service instance.
@@ -1985,7 +1941,7 @@ ibmcloud dns glb-monitor-update f1aba936b94213e5b8dca0c0dbf1f9cc --json @glb-mon
 ```
 {: pre}
 
-### ibmcloud dns glb-monitor
+### `ibmcloud dns glb-monitor`
 {: #show-glb-monitor}
 
 Show the details of a LB monitor.
@@ -2018,7 +1974,7 @@ ibmcloud dns glb-monitor f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 {: pre}
 
 
-### ibmcloud dns glb-monitor-delete
+### `ibmcloud dns glb-monitor-delete`
 {: #delete-glb-monitor}
 
 Delete the GLB monitor for a service instance.
@@ -2050,7 +2006,7 @@ ibmcloud dns glb-monitor-delete f1aba936b94213e5b8dca0c0dbf1f9cc -f -i "dns-demo
 ```
 {: pre}
 
-### ibmcloud dns glb-monitors
+### `ibmcloud dns glb-monitors`
 {: #list-glb-monitors}
 
 List GLB monitors for a service instance.
@@ -2080,11 +2036,11 @@ ibmcloud dns glb-monitors -i "dns-demo"
 {: pre}
 
 ## Custom resolver
-{: #custom-resolver}
+{: #custom-resolvers}
 
 Manage custom resolvers by using the following custom resolver commands.
 
-### ibmcloud dns custom-resolver-create
+### `ibmcloud dns custom-resolver-create`
 {: #create-custom-resolver}
 
 Create a custom resolver for a service instance.
@@ -2126,7 +2082,7 @@ ibmcloud dns custom-resolver-create --name "example" --location crn:v1:bluemix:p
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-update
+### `ibmcloud dns custom-resolver-update`
 {: #update-custom-resolver}
 
 Update a custom resolver for a service instance.
@@ -2167,7 +2123,7 @@ ibmcloud dns custom-resolver-update f1aba936b94213e5b8dca0c0dbf1f9cc --name "exa
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver
+### `ibmcloud dns custom-resolver`
 {: #get-custom-resolver}
 
 Get a custom resolver details for a service instance.
@@ -2199,7 +2155,7 @@ ibmcloud dns custom-resolver f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns custom-resolvers
+### `ibmcloud dns custom-resolvers`
 {: #list-custom-resolvers}
 
 List custom resolvers for a service instance.
@@ -2228,7 +2184,7 @@ ibmcloud dns custom-resolvers -i "dns-demo"
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-delete
+### `ibmcloud dns custom-resolver-delete`
 {: #delete-custom-resolver}
 
 Delete a custom resolver for a service instance.
@@ -2260,7 +2216,7 @@ ibmcloud dns custom-resolver-delete f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-dem
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-location-add
+### `ibmcloud dns custom-resolver-location-add`
 {: #add-custom-resolver-location}
 
 Add custom resolver location for a service instance.
@@ -2298,7 +2254,7 @@ ibmcloud dns custom-resolver-location-add f1aba936b94213e5b8dca0c0dbf1f9cc --sub
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-location-update
+### `ibmcloud dns custom-resolver-location-update`
 {: #update-custom-resolver-location}
 
 Update custom resolver location for a service instance.
@@ -2339,7 +2295,7 @@ ibmcloud dns custom-resolver-location-update f1aba936b94213e5b8dca0c0dbf1f9cc 9a
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-location-delete
+### `ibmcloud dns custom-resolver-location-delete`
 {: #delete-custom-resolver-location}
 
 Delete custom resolver location for a service instance.
@@ -2374,7 +2330,7 @@ ibmcloud dns custom-resolver-location-delete f1aba936b94213e5b8dca0c0dbf1f9cc 9a
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-forwarding-rule-create
+### `ibmcloud dns custom-resolver-forwarding-rule-create`
 {: #create-custom-resolver-forwarding-rule}
 
 Create a custom resolver forwarding rule for a service instance.
@@ -2418,7 +2374,7 @@ ibmcloud dns custom-resolver-forwarding-rule-create f1aba936b94213e5b8dca0c0dbf1
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-forwarding-rule-update
+### `ibmcloud dns custom-resolver-forwarding-rule-update`
 {: #update-custom-resolver-forwarding-rule}
 
 Update a custom resolver forwarding rule for a service instance.
@@ -2462,7 +2418,7 @@ ibmcloud dns custom-resolver-forwarding-rule-update f1aba936b94213e5b8dca0c0dbf1
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-forwarding-rule
+### `ibmcloud dns custom-resolver-forwarding-rule`
 {: #get-custom-resolver-forwarding-rule}
 
 Get a custom resolver forwarding rule details for a service instance.
@@ -2497,7 +2453,7 @@ ibmcloud dns custom-resolver-forwarding-rule f1aba936b94213e5b8dca0c0dbf1f9cc 9a
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-forwarding-rules
+### `ibmcloud dns custom-resolver-forwarding-rules`
 {: #list-custom-resolver-forwarding-rules}
 
 List custom resolver forwarding rules for a service instance.
@@ -2529,7 +2485,7 @@ ibmcloud dns custom-resolver-forwarding-rules f1aba936b94213e5b8dca0c0dbf1f9cc -
 ```
 {: pre}
 
-### ibmcloud dns custom-resolver-forwarding-rule-delete
+### `ibmcloud dns custom-resolver-forwarding-rule-delete`
 {: #delete-custom-resolver-forwarding-rule}
 
 Delete a custom resolver forwarding rule for a service instance.
@@ -2565,207 +2521,207 @@ ibmcloud dns custom-resolver-forwarding-rule-delete f1aba936b94213e5b8dca0c0dbf1
 {: pre}
 
 ## Secondary zones
- {: #secondary-zones}
+{: #secondary-zones}
 
- Manage secondary zones by using the following secondary zone commands.
+Manage secondary zones by using the following secondary zone commands.
 
- ### ibmcloud dns secondary-zone-create
- {: #create-secondary-zone}
+### `ibmcloud dns secondary-zone-create`
+{: #create-secondary-zones}
 
- Create a secondary zone for given custom resolver.
+Create a secondary zone for given custom resolver.
 
- ```sh
- ibmcloud dns secondary-zone-create RESOLVER_ID --name NAME --transfer-from ADDRESS1,ADDRESS2 [--description DESCRIPTION] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone-create RESOLVER_ID --name NAME --transfer-from ADDRESS1,ADDRESS2 [--description DESCRIPTION] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
 
- #### Command options
- {: #create-secondary-zone-options}
+#### Command options
+{: #create-secondary-zone-options}
 
- RESOLVER_ID
- :   The ID of the custom resolver. Required.
+RESOLVER_ID
+:   The ID of the custom resolver. Required.
 
- --name value
- :   The domain name of the secondary zone.
+--name value
+:   The domain name of the secondary zone.
 
- --transfer-from value
- :   The source addresses of the secondary zone.
+--transfer-from value
+:   The source addresses of the secondary zone.
 
- --description value
- :   The description of the secondary zone.
+--description value
+:   The description of the secondary zone.
 
- --enabled value
- :   Whether the secondary zone is enabled.
+--enabled value
+:   Whether the secondary zone is enabled.
 
- -i, --instance value
- :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
+-i, --instance value
+:   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
 
- --output value
- :   Specify output format. Currently, `json` is the only supported format.
+--output value
+:   Specify output format. Currently, `json` is the only supported format.
 
- #### Examples
- {: #create-secondary-zone-examples}
+#### Examples
+{: #create-secondary-zone-examples}
 
- Create a secondary zone for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+Create a secondary zone for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
- ```sh
- ibmcloud dns secondary-zone-create f1aba936b94213e5b8dca0c0dbf1f9cc --name "test.com" --transfer-from 169.13.12.10 -i "dns-demo"
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone-create f1aba936b94213e5b8dca0c0dbf1f9cc --name "test.com" --transfer-from 169.13.12.10 -i "dns-demo"
+```
+{: pre}
 
- ### ibmcloud dns secondary-zone-update
- {: #update-secondary-zone}
+### `ibmcloud dns secondary-zone-update`
+{: #update-secondary-zone}
 
- Update a secondary zone.
+Update a secondary zone.
 
- ```sh
- ibmcloud dns secondary-zone-update RESOLVER_ID SECONDARY_ZONE_ID [--transfer-from ADDRESS1,ADDRESS2] [--description DESCRIPTION] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone-update RESOLVER_ID SECONDARY_ZONE_ID [--transfer-from ADDRESS1,ADDRESS2] [--description DESCRIPTION] [--enabled true|false] [-i, --instance INSTANCE] [--output FORMAT]
+```
+{: pre}
 
- #### Command options
- {: #update-secondary-zone-options}
+#### Command options
+{: #update-secondary-zone-options}
 
- RESOLVER_ID
- :   The ID of the custom resolver. Required.
+RESOLVER_ID
+:   The ID of the custom resolver. Required.
 
- SECONDARY_ZONE_ID
- :   The ID of the secondary zone. Required.
+SECONDARY_ZONE_ID
+:   The ID of the secondary zone. Required.
 
- --transfer-from value
- :   The source addresses of the secondary zone.
+--transfer-from value
+:   The source addresses of the secondary zone.
 
- --description value
- :   The description of the secondary zone.
+--description value
+:   The description of the secondary zone.
 
- --enabled value
- :   Whether the secondary zone is enabled.
+--enabled value
+:   Whether the secondary zone is enabled.
 
- -i, --instance value
- :   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
+-i, --instance value
+:   Instance name or ID. If not set, the context instance specified by `ibmcloud dns instance-target INSTANCE` is used.
 
- --output value
- :   Specify output format. Currently, `json` is the only supported format.
+--output value
+:   Specify output format. Currently, `json` is the only supported format.
 
- #### Examples
- {: #update-secondary-zone-examples}
+#### Examples
+{: #update-secondary-zone-examples}
 
- Update a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+Update a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
- ```sh
- ibmcloud dns secondary-zone-update f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee --transfer-from 169.13.12.10:53 -i "dns-demo"
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone-update f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee --transfer-from 169.13.12.10:53 -i "dns-demo"
+```
+{: pre}
 
- ### ibmcloud dns secondary-zone
- {: #secondary-zone}
+### `ibmcloud dns secondary-zone`
+{: #secondary-zone}
 
- Get the details of a secondary zone.
+Get the details of a secondary zone.
 
- ```sh
- ibmcloud dns secondary-zone RESOLVER_ID SECONDARY_ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone RESOLVER_ID SECONDARY_ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
+{: pre}
 
- #### Command options
- {: #get-secondary-zone-options}
+#### Command options
+{: #get-secondary-zone-options}
 
- RESOLVER_ID
- :   The ID of the custom resolver. Required.
+RESOLVER_ID
+:   The ID of the custom resolver. Required.
 
- SECONDARY_ZONE_ID
- :   The ID of the secondary zone. Required.
+SECONDARY_ZONE_ID
+:   The ID of the secondary zone. Required.
 
- -i, --instance value
- :   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+-i, --instance value
+:   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
- --output value
- :   Specify output format. Currently, `json` is the only supported format.
+--output value
+:   Specify output format. Currently, `json` is the only supported format.
 
- #### Examples
- {: #get-custom-resolver-examples}
+#### Examples
+{: #get-custom-resolver-examples}
 
- Get a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+Get a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
- ```sh
- ibmcloud dns secondary-zone f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee -i "dns-demo"
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee -i "dns-demo"
+```
+{: pre}
 
- ### ibmcloud dns secondary-zones
- {: #list-secondary-zones}
+### `ibmcloud dns secondary-zones`
+{: #list-secondary-zones}
 
- List all secondary zones.
+List all secondary zones.
 
- ```sh
- ibmcloud dns secondary-zones RESOLVER_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zones RESOLVER_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
+{: pre}
 
- #### Command options
- {: #list-secondary-zones-options}
+#### Command options
+{: #list-secondary-zones-options}
 
- RESOLVER_ID
- :   The ID of the custom resolver. Required.
+RESOLVER_ID
+:   The ID of the custom resolver. Required.
 
- -i, --instance value
- :   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+-i, --instance value
+:   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
- --output value
- :   Specify output format. Currently, `json` is the only supported format.
+--output value
+:   Specify output format. Currently, `json` is the only supported format.
 
- #### Examples
- {: #list-custom-resolver-examples}
+#### Examples
+{: #list-custom-resolver-examples}
 
- List all secondary zones for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+List all secondary zones for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
- ```sh
- ibmcloud dns secondary-zones f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
- ```
- {: pre}   
+```sh
+ibmcloud dns secondary-zones f1aba936b94213e5b8dca0c0dbf1f9cc -i "dns-demo"
+```
+{: pre}   
 
 
- ### ibmcloud dns secondary-zone-delete
- {: #secondary-zone-delete}
+### `ibmcloud dns secondary-zone-delete`
+{: #secondary-zones-delete}
 
- Delete a secondary zone.
+Delete a secondary zone.
 
- ```sh
- ibmcloud dns secondary-zone-delete RESOLVER_ID SECONDARY_ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
- ```
- {: pre}
+```sh
+ibmcloud dns secondary-zone-delete RESOLVER_ID SECONDARY_ZONE_ID [-i, --instance INSTANCE_NAME] [--output FORMAT]
+```
+{: pre}
 
- #### Command options
- {: #delete-secondary-zone-options}
+#### Command options
+{: #delete-secondary-zone-options}
 
- RESOLVER_ID
- :   The ID of the custom resolver. Required.
+RESOLVER_ID
+:   The ID of the custom resolver. Required.
 
- SECONDARY_ZONE_ID
- :   The ID of the secondary zone. Required.
+SECONDARY_ZONE_ID
+:   The ID of the secondary zone. Required.
 
- -i, --instance value
- :   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+-i, --instance value
+:   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
- --output value
- :   Specify output format. Currently, `json` is the only supported format.
+--output value
+:   Specify output format. Currently, `json` is the only supported format.
 
- #### Examples
- {: #delete-custom-resolver-examples}
+#### Examples
+{: #delete-custom-resolver-examples}
 
- Delete a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
+Delete a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
- ```sh
- ibmcloud dns secondary-zone-delete f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee -i "dns-demo"
- ```
- {: pre}   
+```sh
+ibmcloud dns secondary-zone-delete f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a93212e5a8dce0c2dbf6f2ee -i "dns-demo"
+```
+{: pre}   
 
 ## Cross-account access
 {: #cross-account}
 
 Manage cross accounts by using the following cross-account access commands.
 
-### ibmcloud dns cross-account linked-zone-create
+### `ibmcloud dns cross-account linked-zone-create`
 {: #create-linked-zone}
 
 Create a linked zone.
@@ -2804,8 +2760,8 @@ ibmcloud dns cross-account linked-zone-create --owner-instance-id abe30019-1c08-
 ```
 {: pre}   
 
-### ibmcloud dns cross-account linked-zone-update
-{: #update-linked-zone}
+### `ibmcloud dns cross-account linked-zone-update`
+{: #update-linked-zones}
 
 Update a linked zone.
 
@@ -2840,7 +2796,7 @@ ibmcloud dns cross-account linked-zone-update 5365b73c-ce6f-4d6f-ad9f-d9c131b263
 ```
 {: pre}   
 
-### ibmcloud dns cross-account linked-zones
+### `ibmcloud dns cross-account linked-zones`
 {: #list-linked-zones}
 
 List all linked zones.
@@ -2867,7 +2823,7 @@ ibmcloud dns cross-account linked-zones -i "dns-demo"
 ```
 {: pre}   
 
-### ibmcloud dns cross-account linked-zone
+### `ibmcloud dns cross-account linked-zone`
 {: #get-linked-zone}
 
 Get details of the linked zone.
@@ -2897,7 +2853,7 @@ ibmcloud dns cross-account linked-zone 5365b73c-ce6f-4d6f-ad9f-d9c131b26370 -i "
 ```
 {: pre}   
 
-### ibmcloud dns cross-account linked-zone-delete
+### `ibmcloud dns cross-account linked-zone-delete`
 {: #delete-linked-zone}
 
 Delete a linked zone.
@@ -2927,7 +2883,7 @@ ibmcloud dns cross-account linked-zone-delete 5365b73c-ce6f-4d6f-ad9f-d9c131b263
 ```
 {: pre}  
 
-### ibmcloud dns cross-account linked-zone-permitted-network-add
+### `ibmcloud dns cross-account linked-zone-permitted-network-add`
 {: #add-permitted-network-for-lined-zone}
 
 Create a permitted network for a linked zone
@@ -2962,7 +2918,7 @@ ibmcloud dns cross-account linked-zone-permitted-network-add 5365b73c-ce6f-4d6f-
 ```
 {: pre}    
 
-### ibmcloud dns cross-account linked-zone-permitted-network
+### `ibmcloud dns cross-account linked-zone-permitted-network`
 {: #get-linked-zone-permitted-network}
 
 Get a permitted network for a linked zone
@@ -2994,7 +2950,7 @@ ibmcloud dns cross-account linked-zone-permitted-network 5365b73c-ce6f-4d6f-ad9f
 ```
 {: pre}    
 
-### ibmcloud dns cross-account linked-zone-permitted-network-remove
+### `ibmcloud dns cross-account linked-zone-permitted-network-remove`
 {: #remove-linked-zone-permitted-network}
 
 Remove a permitted network for a linked zone
@@ -3026,7 +2982,7 @@ ibmcloud dns cross-account linked-zone-permitted-network-remove 5365b73c-ce6f-4d
 ```
 {: pre} 
 
-### ibmcloud dns cross-account linked-zone-permitted-networks
+### `ibmcloud dns cross-account linked-zone-permitted-networks`
 {: #list-linked-zone-permitted-networks}
 
 List the permitted networks for a linked zone
@@ -3055,7 +3011,7 @@ ibmcloud dns cross-account linked-zone-permitted-networks 5365b73c-ce6f-4d6f-ad9
 ```
 {: pre} 
 
-### ibmcloud dns cross-account access-request-update
+### `ibmcloud dns cross-account access-request-update`
 {: #update-access-request}
 
 Update the state of an access request.
@@ -3090,7 +3046,7 @@ ibmcloud dns cross-account access-request-update 05855abe-3908-4cdc-bf0d-063e0b1
 ```
 {: pre} 
 
-### ibmcloud dns cross-account access-request
+### `ibmcloud dns cross-account access-request`
 {: #get-access-request}
 
 Get details of an access request.
@@ -3122,7 +3078,7 @@ ibmcloud dns cross-account access-request 05855abe-3908-4cdc-bf0d-063e0b1c296d 9
 ```
 {: pre} 
 
-### ibmcloud dns cross-account access-requests
+### `ibmcloud dns cross-account access-requests`
 {: #list-access-request}
 
 List access requests in the owner's instance.

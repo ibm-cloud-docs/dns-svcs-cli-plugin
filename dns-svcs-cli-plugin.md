@@ -2722,7 +2722,7 @@ ibmcloud dns secondary-zone-delete f1aba936b94213e5b8dca0c0dbf1f9cc e2aba136a932
 Manage cross accounts by using the following cross-account access commands.
 
 ### `ibmcloud dns cross-account linked-zone-create`
-{: #create-linked-zone}
+{: #linked-zone-create}
 
 Create a linked zone.
 
@@ -3107,4 +3107,3 @@ ZONE_ID
 ibmcloud dns cross-account access-requests 05855abe-3908-4cdc-bf0d-063e0b1c296d --i "dns-demo"
 ```
 {: pre} 
-

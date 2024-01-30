@@ -2639,7 +2639,7 @@ SECONDARY_ZONE_ID
 :   Specify output format. Currently, `json` is the only supported format.
 
 #### Examples
-{: #get-custom-resolver-examples}
+{: #get-secondary-zone-examples}
 
 Get a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 
@@ -2707,7 +2707,7 @@ SECONDARY_ZONE_ID
 :   Specify output format. Currently, `json` is the only supported format.
 
 #### Examples
-{: #delete-custom-resolver-examples}
+{: #delete-secondary-zone-examples}
 
 Delete a secondary zone `e2aba136a93212e5a8dce0c2dbf6f2ee` for a custom resolver `f1aba936b94213e5b8dca0c0dbf1f9cc`.
 

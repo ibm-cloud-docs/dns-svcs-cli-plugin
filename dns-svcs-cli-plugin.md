@@ -405,7 +405,7 @@ PERMITTED_NETWORK_ID
 
 
 ### `ibmcloud dns permitted-networks`
-{: #list-permitted-networks}
+{: #cli-list-permitted-networks}
 
 List permitted networks for a zone.
 

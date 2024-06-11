@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-06-29"
+  years: 2019, 2023
+lastupdated: "2023-06-05"
 
 keywords:
 
@@ -2732,7 +2732,7 @@ ibmcloud dns cross-account linked-zone-create --owner-instance-id OWNER_INSTANCE
 {: pre}
 
 #### Command options
-{: #create-linked-zone-options}
+{: #linked-zone-create-options}
 
 --owner-instance-id value
 :   The ID of the owner's instance.
@@ -2753,7 +2753,7 @@ ibmcloud dns cross-account linked-zone-create --owner-instance-id OWNER_INSTANCE
 :   Specify output format. Currently, `json` is the only supported format.
 
 #### Examples
-{: #create-linked-zone-examples}
+{: #linked-zone-create-examples}
 
 ```sh
 ibmcloud dns cross-account linked-zone-create --owner-instance-id abe30019-1c08-42dc-9ad9-a0682af70054 --owner-zone-id 05855abe-3908-4cdc-bf0d-063e0b1c296d --description "linked zone example" --label "dev" -i "dns-demo"
@@ -3107,3 +3107,4 @@ ZONE_ID
 ibmcloud dns cross-account access-requests 05855abe-3908-4cdc-bf0d-063e0b1c296d --i "dns-demo"
 ```
 {: pre} 
+

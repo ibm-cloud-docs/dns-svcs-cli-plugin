@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-06-05"
+  years: 2019, 2024
+lastupdated: "2024-07-18"
 
 keywords:
 
@@ -510,7 +510,7 @@ ZONE_ID
 :   The JSON file or JSON string used to describe a DNS Resource Record. See [Required fields for `-r --record-content`](#required-fields-r-record-content) for more detail.
 
 -i, --instance value
-:   >Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
+:   Instance name or ID. If not set, the context instance specified by `dns instance-target INSTANCE` is used.
 
 --output value
 :   Specify output format. Currently, `json` is the only supported format.
